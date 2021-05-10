@@ -51,9 +51,9 @@
             @include('ecomerce.qView')
         <!-- /.PORDUCT QUICK VIEW MODAL -->
 
-        <!-- Main Sidebar Container -->
+        <!-- Main scripts Container -->
             @include('ecomerce.scripts')
-        <!-- /.Main Sidebar Container -->
+        <!-- /.Main scripts Container -->
 
 
 	</body>

@@ -7,10 +7,17 @@
 
   <body id="body" class="body-wrapper version1 up-scroll">
 
+    <div class="header clearfix">
+
     <!-- Preloader -->
         @include('ecomerce.preloader')
     <!-- ./Preloader -->
 
+    <!-- NAVBAR -->
+        @include('ecomerce.navbar')
+    <!-- ./NAVBAR -->
+
+</div>
     <div class="main-wrapper">
 
         <!-- HEADER -->
