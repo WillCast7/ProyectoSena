@@ -21,6 +21,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/dashboard/usuarios', function () {
+    return view('usuariosDashboard');
+});
+
 Route::get('/ecomerce', function () {
     return view('ecomerce');
 });

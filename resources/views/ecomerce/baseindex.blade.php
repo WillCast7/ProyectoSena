@@ -38,6 +38,7 @@
             @include('ecomerce.mainSection')
         <!-- /.MAIN CONTENT SECTION -->
 
+
         <!-- LIGHT SECTION -->
             @include('ecomerce.logoSection')
         <!-- /.LIGHT SECTION -->
