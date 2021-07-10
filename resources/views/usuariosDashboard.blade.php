@@ -37,6 +37,7 @@
     </table>
 </div>
 
+<!-- vistas usuario  -->
 <div class="modal fade" id="viewUser" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -69,7 +70,7 @@
 <br>
 <hr/>
 </div>
-<!-- Modal de vista usuario -->
+
 <div>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser"><i class="fas fa-users"></i>
     AGREGAR USUARIO
@@ -202,7 +203,7 @@
                 <div class="modal-footer">
                 <input type="submit" value="Guardar" class="btn btn-primary">
         </form>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
@@ -277,7 +278,7 @@
                 @csrf
                 @method('put')
                     <div class="form-group">
-                        <input type="text" name="persona_nombre1" class="form-control" placeholder="Primer nombre">
+                        <input type="text" name="persona_nombre1" class="form-control" placeholder="Nombre Producto">
                         @error('persona_nombre1')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
@@ -365,7 +366,7 @@
                 <div class="modal-footer">
                 <input type="submit" value="Guardar" class="btn btn-primary">
         </form>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
