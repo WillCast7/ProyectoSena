@@ -14,9 +14,10 @@ class UsuarioController extends Controller{
 
         $usuarios=usuario::getUsuariosSQL();
         $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
         $productos=productos::getProductosSQL();
         $categorias=productos::getCat();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias'));
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc'));
 
     }
 

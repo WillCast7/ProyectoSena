@@ -30,43 +30,31 @@ class usuario extends Model
 
         $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
                                             per.persona_telefono,
+                                            per.persona_email,
                                             usr.usuario_username, usr.usuario_pass, p.perfil_nombre, per.persona_avatar
                                         FROM personas per
                                         INNER JOIN usuarios  usr
                                             ON per.persona_id=usr.persona_id
                                         INNER JOIN perfiles p
-                                            ON p.perfil_id=usr.perfil_id");
+                                            ON p.perfil_id=usr.perfil_id
+                                        WHERE per.persona_estado=1");
         return $usuarios;
 
      }
-    /* public static function insertUserSQL($usuario){ //insertar usuario
-        $usuario_id=DB::insert('
-        insert into usuario(
-                usuario_username,
-                usuario_pass,
-                persona_id,
-                usuario_estado,
-                usuario_creadopor,
-                usuario_fcreacion,
-                perfil_id,
-            ) values (?, ?, ?, ?, ?, ?, ?)',
-            Array($usuario['usuario_username'],
-                $usuario['usuario_pass'],
-                $usuario['persona_id'],
-                $usuario['usuario_estado'],
-                $usuario['usuario_creadopor'],
-                $usuario['usuario_fcreacion'],
-                $usuario['perfil_id']
-            ));
-
-                return $usuario_id;
-        } */
 
 
     public static function getRol(){ //Obtener roles
         $roles=DB::select("SELECT perfil_id, perfil_nombre, perfil_descripcion
-                    FROM perfiles");
+                    FROM perfiles
+                    WHERE estado=1");
                     return $roles;
+        }
+    public static function getTipoDoc(){ //Obtener Tipo dee documento
+        $tipodoc=DB::select("SELECT nombre_parametro, nombre_largo_parametro
+                    FROM parametros_configuracion
+                    WHERE estado=1
+                    AND clave_parametro='tipodocumento'");
+                    return $tipodoc;
         }
     public static function insertPersonaSQL($persona){ //insertar persona
             $usuario_id=DB::select('insert into personas(
@@ -84,8 +72,9 @@ class usuario extends Model
                     persona_direccion,
                     persona_fnacimiento,
                     persona_ciudadmacimiento,
-                    persona_avatar
-                ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                    persona_avatar,
+                    persona_estado
+                ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)',
                 Array(
                     $persona['persona_nombre1'],
                     $persona['persona_nombre2'],
@@ -105,8 +94,5 @@ class usuario extends Model
                 ));
                 return $usuario_id;
      }
-    public static function selectMax(){
-        $max=DB::select("SELECT MAX(p.persona_id) FROM personas p");
-        return $max;
-    }
+
 }
