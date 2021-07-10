@@ -36,6 +36,7 @@
         </tbody>
     </table>
 </div>
+
 <div class="modal fade" id="viewUser" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -68,7 +69,7 @@
 <br>
 <hr/>
 </div>
-
+<!-- Modal de vista usuario -->
 <div>
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser"><i class="fas fa-users"></i>
     AGREGAR USUARIO
@@ -88,25 +89,25 @@
             <form action="{{route('a.new')}}" method="put" enctype="multipart/form-data">
                 @csrf
                 @method('put')
-                    <div class="form-group">
+                    <div class="form-group"><!--Primer nombre-->
                         <input type="text" name="persona_nombre1" class="form-control" placeholder="Primer nombre">
                         @error('persona_nombre1')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Segundo nombre-->
                         <input type="text" name="persona_nombre2" class="form-control" placeholder="Segundo nombre">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Primer apellido-->
                         <input type="text" name="persona_apellido1" class="form-control" placeholder="Primer apellido">
                         @error('persona_apellido1')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Segundo apellido-->
                         <input type="text" name="persona_apellido2" class="form-control" placeholder="Segundo apellido">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Tipos de documentos-->
                         <select name="persona_tipodocumento" id="input" class="form-control" placeholder="tipo de usuario">
                             <option value=" ">Tipo Documento</option>
                             @foreach($tipoDoc as $td)
@@ -114,51 +115,73 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--DNI-->
                         <input type="text" name="persona_dni" class="form-control" placeholder="DNI">
                         @error('persona_dni')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-
-                    <div class="form-group">
+                    <div class="form-group"><!--Telefono-->
                         <input type="text" name="persona_telefono" class="form-control" placeholder="Telefono">
                         @error('persona_telefono')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Fecha nacimiento-->
                         <input type="date" name="persona_fnacimiento" class="form-control">
                         @error('persona_fnacimiento')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-
-                    <div class="form-group">
+                    <div class="form-group"><!--Sexo-->
                         <input type="text" name="persona_sexo" class="form-control" placeholder="sexo">
                         @error('persona_sexo')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Paises-->
+                        <select name="pais_codigo" id="input" class="form-control" placeholder="tipo de usuario">
+                            <option value=" ">Pais</option>
+                            @foreach($tipoDoc as $td)
+                            <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group"><!--Departamentos-->
+                        <select name="departamento_codigo" id="input" class="form-control" placeholder="tipo de usuario">
+                            <option value=" ">Departamento</option>
+                            @foreach($tipoDoc as $td)
+                            <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group"><!--Ciudades-->
+                        <select name="ciudad_codigo" id="input" class="form-control" placeholder="tipo de usuario">
+                            <option value=" ">Ciudad</option>
+                            @foreach($tipoDoc as $td)
+                            <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group"><!--Correo-->
                         <input type="text" name="persona_email" class="form-control" placeholder="Email">
                         @error('persona_email')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Nombre de usuario-->
                         <input type="text" name="usuario_username" class="form-control" placeholder="Usuario">
                         @error('usuario_username')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Contraseña-->
                         <input type="password" name="usuario_pass" class="form-control" placeholder="Contraseña">
                         @error('usuario_pass')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"><!--Roles-->
                         <select name="roles" id="input" class="form-control" placeholder="tipo de usuario">
                             <option value=" ">Perfil</option>
                             @foreach($roles as $rol)
@@ -166,13 +189,13 @@
                             @endforeach
                         </select>
                     </div>
-                <div class="form-group " >
-                    <input type="file" class="form-control-file" name="imagen" accept="image/*">
-                    <br>
-                    @error('image')
-                        <small class="text-danger">{{$message}}</small>
-                    @enderror
-                </div>
+                    <div class="form-group " ><!--avatar-->
+                        <input type="file" class="form-control-file" name="imagen" accept="image/*">
+                        <br>
+                        @error('image')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
 
 
 
