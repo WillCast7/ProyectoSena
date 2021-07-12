@@ -212,6 +212,7 @@
 <hr/>
 </div>
 
+
 {{-- Tabla de productos --}}
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
@@ -278,88 +279,63 @@
                 @csrf
                 @method('put')
                     <div class="form-group">
-                        <input type="text" name="persona_nombre1" class="form-control" placeholder="Nombre Producto">
-                        @error('persona_nombre1')
+                        <input type="text" name="producto_nombre" class="form-control" placeholder="Nombre Producto">
+                        @error('producto_nombre')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" name="persona_nombre2" class="form-control" placeholder="Segundo nombre">
+                        <input type="text" name="producto_descripcioncorta" class="form-control" placeholder="Descripcion Corta">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="persona_apellido1" class="form-control" placeholder="Primer apellido">
-                        @error('persona_apellido1')
+                        <input type="text" name="producto_descripcion" class="form-control" placeholder="Descripcion ">
+                        @error('producto_descripcion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" name="persona_apellido2" class="form-control" placeholder="Segundo apellido">
+                        <input type="text" name="producto_stock" class="form-control" placeholder="stock del producto">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="persona_tipodocumento" class="form-control" placeholder="Tipo documento">
-                        @error('persona_tipodocumento')
+                        <input type="text" name="categoria_id" class="form-control" placeholder="id producto ">
+                        @error('categoria_id')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" name="persona_dni" class="form-control" placeholder="DNI">
-                        @error('persona_dni')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" name="persona_telefono" class="form-control" placeholder="Telefono">
-                        @error('persona_telefono')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <input type="date" name="persona_fnacimiento" class="form-control">
-                        @error('persona_fnacimiento')
+                        <input type="text" name="marca_id" class="form-control" placeholder="id marca">
+                        @error('marca_id')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
 
                     <div class="form-group">
-                        <input type="text" name="persona_sexo" class="form-control" placeholder="sexo">
-                        @error('persona_sexo')
+                        <input type="text" name="producto_estado" class="form-control" placeholder="Creado por">
+                        @error('producto_estado')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" name="persona_email" class="form-control" placeholder="Email">
-                        @error('persona_email')
+                        <input type="date" name="producto_fcreacion" class="form-control">
+                        @error('producto_fcreacion')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="producto_actualizadopor" class="form-control" placeholder="producto actualizado por">
+                        @error('producto_actualizadopor')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <input type="text" name="usuario_username" class="form-control" placeholder="Usuario">
-                        @error('usuario_username')
+                        <input type="date" name="producto_factualizacion" class="form-control" placeholder="Fecha de actualizacion">
+                        @error('producto_factualizacion')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group">
-                        <input type="password" name="usuario_pass" class="form-control" placeholder="Contraseña">
-                        @error('usuario_pass')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <select name="roles" id="input" class="form-control" placeholder="tipo de usuario">
-                            <option value=" ">Seleccione...</option>
-                            @foreach($categorias as $cat)
-                            <option value="{{$cat->categoria_id}}">{{$cat->categoria_nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                <div class="form-group " >
-                    <input type="file" class="form-control-file" name="imagen" accept="image/*">
-                    <br>
-                    @error('image')
-                        <small class="text-danger">{{$message}}</small>
-                    @enderror
-                </div>
+                    
+                   
 
 
 
