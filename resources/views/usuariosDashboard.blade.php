@@ -38,32 +38,42 @@
 </div>
 
 <!-- vistas usuario  -->
-<div class="modal fade" id="viewUser" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade bd-example-modal-lg " id="viewUser" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" >
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="title">{{$items->nombres}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-
-                <div class="form-group " >
-
-                <td>{{$items->persona_telefono}}</td>
-                <td>{{$items->usuario_username}}</td>
-                <td>{{$items->usuario_pass}}</td>
-                <td>{{$items->perfil_nombre}}</td>
-                <td>{{$items->persona_avatar}}</td>
+       
+         
+                        <div class="container p-3 my-3 bg-dark text-white">
+                            
+                                    <h2>{{$items->nombres}}</h2>
+                                    <p>INFORMACION AVANZADA DEL USUARIO</p>
+                                    <table class="table">
+                                  <thead style= "background-color:slategray;color:white; font-weight :bold;" >
+                                      <tr class="success">
+                                         <th>Telefono Usuario</th>
+                                         <th>Correo Electronico</th>
+                                         <th>Numero de Pase</th>
+                                         <th>Perfil </th>
+                                         
+                                      </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr class="danger">
+                                        <td>{{$items->persona_telefono}}</td>
+                                        <td>{{$items->usuario_username}}</td>
+                                        <td>{{$items->usuario_pass}}</td>
+                                        <td>{{$items->perfil_nombre}}</td>
+                                    </tr>      
+                    
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 </div>
 
 
 
-                <div class="modal-footer">
 
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div>
+
       </div>
     </div>
   </div>
