@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\usuario;
 use App\Models\persona;
-use App\Models\perfilPersona;
 use App\Models\productos;
 use Illuminate\Http\Request;
 
@@ -17,22 +16,18 @@ class UsuarioController extends Controller{
         $tipoDoc=usuario::getTipoDoc();
         $productos=productos::getProductosSQL();
         $categorias=productos::getCat();
+        $marcas=productos::getMarca();
         $paises=usuario::getCountry();
         $deptos=usuario::getDepartments();
         $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city'));
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
 
-    }
-
-    public function create(){
-        return view('create.usuarios');
     }
 
 
     public function new(Request $request){
         $usuario = new usuario();
         $persona = new persona();
-        $perfilPersona = new perfilPersona();
         $objData=$request->all();
 
         $persona->persona_nombre1          =$objData["persona_nombre1"];
@@ -71,23 +66,45 @@ class UsuarioController extends Controller{
         $tipoDoc=usuario::getTipoDoc();
         $productos=productos::getProductosSQL();
         $categorias=productos::getCat();
+        $marcas=productos::getMarca();
         $paises=usuario::getCountry();
         $deptos=usuario::getDepartments();
         $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city'));
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
 
         exit();
 
-
-
-        $usuario->usuario_username      = $request->usuario_username ;
-
-
-
-        $usuario=usuario::all();
-        return view('usuariosDashboard', compact('usuario'));
-
     }
 
+    public function newp(Request $request){
+        $productos = new productos();
 
+
+        $objData=$request->all();
+
+        $productos->producto_nombre              =$objData["producto_nombre"];
+        $productos->producto_referencia          =$objData["producto_referencia"];
+        $productos->producto_precio              =$objData["producto_precio"];
+        $productos->producto_descripcioncorta    =$objData["producto_descripcioncorta"];
+        $productos->producto_descripcion         =$objData["producto_descripcion"];
+        $productos->producto_stock               =$objData["producto_stock"];
+        $productos->categoria_id                 =$objData["categoria_id"];
+        $productos->marca_id                     =$objData["marca_id"];
+        $productos->save();
+
+
+
+
+        $usuarios=usuario::getUsuariosSQL();
+        $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
+        $productos=productos::getProductosSQL();
+        $categorias=productos::getCat();
+        $marcas=productos::getMarca();
+        $paises=usuario::getCountry();
+        $deptos=usuario::getDepartments();
+        $city=usuario::getCity();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        exit();
+    }
 }
