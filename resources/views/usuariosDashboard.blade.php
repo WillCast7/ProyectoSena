@@ -21,16 +21,16 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($usuarios as $item)
+            @foreach($usuarios as $items)
             <tr>
                 <td>
                     <a data-toggle="modal" data-target="#viewUser" > <i class="far fa-eye"></i> </a>
                     <a href="/" > <i class="far fa-edit"></i> </a>
                     <a href="/" ><i class="fas fa-trash-alt"></i></a>
                 </td>
-                <td>{{$item->nombres}}</td>
-                <td>{{$item->persona_telefono}}</td>
-                <td>{{$item->persona_email}}</td>
+                <td>{{$items->nombres}}</td>
+                <td>{{$items->persona_telefono}}</td>
+                <td>{{$items->persona_email}}</td>
             </tr>
             @endforeach
         </tbody>
@@ -42,7 +42,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="title">{{$item->nombres}}</h5>
+          <h5 class="title">{{$items->nombres}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -51,11 +51,11 @@
 
                 <div class="form-group " >
 
-                <td>{{$item->persona_telefono}}</td>
-                <td>{{$item->usuario_username}}</td>
-                <td>{{$item->usuario_pass}}</td>
-                <td>{{$item->perfil_nombre}}</td>
-                <td>{{$item->persona_avatar}}</td>
+                <td>{{$items->persona_telefono}}</td>
+                <td>{{$items->usuario_username}}</td>
+                <td>{{$items->usuario_pass}}</td>
+                <td>{{$items->perfil_nombre}}</td>
+                <td>{{$items->persona_avatar}}</td>
                 </div>
 
 
@@ -134,6 +134,14 @@
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
+                    <div class="form-group"><!--Ciuda de nacimiento-->
+                        <select name="persona_ciudadnacimiento" id="ciudadNacimiento" class="form-control">
+                            <option value=" ">Ciudad</option>
+                            @foreach($city as $item)
+                            <option value="{{$item->ciudad_nombre}}">{{$item->ciudad_nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group"><!--Sexo-->
                         <input type="text" name="persona_sexo" class="form-control" placeholder="sexo">
                         @error('persona_sexo')
@@ -143,26 +151,30 @@
                     <div class="form-group"><!--Paises-->
                         <select name="pais_codigo" id="input" class="form-control" placeholder="tipo de usuario">
                             <option value=" ">Pais</option>
-                            @foreach($tipoDoc as $td)
-                            <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                            @foreach($paises as $pais)
+                            <option value="{{$pais->pais_codigo}}">{{$pais->pais_nombre}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group"><!--Departamentos-->
-                        <select name="departamento_codigo" id="input" class="form-control" placeholder="tipo de usuario">
+                        <select name="departamento_codigo" id="Departamentos" class="form-control" placeholder="tipo de usuario">
                             <option value=" ">Departamento</option>
-                            @foreach($tipoDoc as $td)
-                            <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                            @foreach($deptos as $depto)
+                            <option value="{{$depto->departamento_codigo}}">{{$depto->departamento_nombre}}</option>
                             @endforeach
+
                         </select>
                     </div>
                     <div class="form-group"><!--Ciudades-->
-                        <select name="ciudad_codigo" id="input" class="form-control" placeholder="tipo de usuario">
+                        <select name="ciudad_codigo" id="ciudades" class="form-control" placeholder="tipo de usuario">
                             <option value=" ">Ciudad</option>
-                            @foreach($tipoDoc as $td)
-                            <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                            @foreach($city as $item)
+                            <option value="{{$item->ciudad_codigo}}">{{$item->ciudad_nombre}}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group"><!--Direccion-->
+                        <input type="text" name="persona_direccion" class="form-control" placeholder="sexo">
                     </div>
                     <div class="form-group"><!--Correo-->
                         <input type="text" name="persona_email" class="form-control" placeholder="Email">
@@ -183,17 +195,17 @@
                         @enderror
                     </div>
                     <div class="form-group"><!--Roles-->
-                        <select name="roles" id="input" class="form-control" placeholder="tipo de usuario">
+                        <select name="perfil_id" id="perfiles" class="form-control" placeholder="perfiles">
                             <option value=" ">Perfil</option>
                             @foreach($roles as $rol)
                             <option value="{{$rol->perfil_id}}">{{$rol->perfil_nombre}}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group " ><!--avatar-->
-                        <input type="file" class="form-control-file" name="imagen" accept="image/*">
+                    <div class="form-group" ><!--avatar-->
+                        <input type="file" class="form-control-file" name="persona_avatar" accept="image/*">
                         <br>
-                        @error('image')
+                        @error('persona_avatar')
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
@@ -378,4 +390,15 @@
 
 
   @endsection
-
+{{-- @script
+    <script>
+        $(document).ready(fuction(){
+                    const  selectElement = document.querySelector('#Departamentos')
+                    selectElement.addEventListener('change', (event) => {
+                    const resultado = document.querySelector('.resultado');
+                    resultado.textContent = `Te gusta el sabor ${event.target.value}`;
+                    });
+        });
+    </script>
+@endscript
+ --}}

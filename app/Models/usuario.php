@@ -19,8 +19,8 @@ class usuario extends Model
     public static function getUsuarios(){ //Joins usuarios y personas
 
 
-        $usuarios = DB::table('usuario')
-        ->join('personas', 'personas.persona_id', '=', 'usuario.persona_id')
+        $usuarios = DB::table('usuarios')
+        ->join('personas', 'personas.persona_id', '=', 'usuarios.persona_id')
         ->select('personas.*', 'usuario_username', 'usuario_id')
         ->get();
         return $usuarios;
@@ -56,6 +56,26 @@ class usuario extends Model
                     AND clave_parametro='tipodocumento'");
                     return $tipodoc;
         }
+    public static function getCountry(){ //Obtener Paises
+        $paises=DB::select("SELECT pais_codigo, pais_nombre
+                                FROM paises
+                                WHERE pais_estado=1");
+                    return $paises;
+     }
+    public static function getDepartments(){ //Obtener Municipios
+        $deptos=DB::select("SELECT departamento_codigo, departamento_nombre
+                            FROM departamentos
+                            WHERE departamento_estado=1
+                            AND pais_codigo='CO'");
+        return $deptos;
+     }
+    public static function getCity(){ //Obtener ciudadesa
+        $city=DB::select("SELECT ciudad_codigo, ciudad_nombre
+                        FROM ciudades
+                        WHERE ciudad_estado=1
+                        AND departamento_codigo=76");
+        return $city;
+     }
     public static function insertPersonaSQL($persona){ //insertar persona
             $usuario_id=DB::select('insert into personas(
                     persona_nombre1,
@@ -72,9 +92,9 @@ class usuario extends Model
                     persona_direccion,
                     persona_fnacimiento,
                     persona_ciudadmacimiento,
-                    persona_avatar,
-                    persona_estado
-                ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)',
+                    persona_avatar
+
+                ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                 Array(
                     $persona['persona_nombre1'],
                     $persona['persona_nombre2'],

@@ -51,6 +51,6 @@
     @include('dashboard.scripts')
 <!-- ./REQUIRED SCRIPTS -->
 
-
+@yield('script')
 </body>
 </html>
