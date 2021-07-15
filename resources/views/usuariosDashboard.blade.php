@@ -287,43 +287,55 @@
     </div>
 
 <!-- vistas producto  -->
-    <div class="modal fade" id="viewProduct" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="title">{{$producto->producto_nombre}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-
-                    <div class="form-group" >
+<div class="modal fade bd-example-modal-lg " id="viewProduct" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
 
 
-                        <td>{{$producto->producto_stock}}</td>
-                        <td>{{$producto->producto_descripcion}}</td>
-                        <td>{{$producto->marca_nombre}}</td>
-                        <td>{{$producto->marca_nombre}}</td>
-                    </div>
+                        <div class="container p-3 my-3 bg-dark text-white">
+
+                                    <h2>{{$producto->producto_nombre}}</h2>
+                                    <p>INFORMACION AVANZADA DEL PRODUCTO</p>
+                                    <table class="table">
+                                  <thead style= "background-color:slategray;color:white; font-weight :bold;" >
+                                      <tr class="success">
+                                         <th>Marca</th>
+                                         <th>Stock</th>
+                                         <th>Descripcion</th>
+                                         <th>Categoria</th>
+
+                                      </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                        <td>{{$producto->marca_nombre}}</td>
+                                        <td>{{$producto->producto_stock}}</td>
+                                        <td>{{$producto->producto_descripcion}}</td>
+                                        <td>{{$producto->categoria_nombre}}</td>
+                                    </tr>
+
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
 
 
 
-                    <div class="modal-footer">
 
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
-        </div>
+
       </div>
-        <br>
-        <hr/>
+    </div>
+  </div>
+    <br>
+    <hr/>
     </div>
 <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>
         AGREGAR PRODUCTO
     </button>
-
+    <br>
+    <hr/>
+    <br>
  <!-- Formulario producto -->
     <div class="modal fade" id="newProduct" tabindex="-1" role="dialog" aria-labelledby="newProductTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
