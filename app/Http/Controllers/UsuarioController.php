@@ -50,7 +50,6 @@ class UsuarioController extends Controller{
         $persona->persona_avatar           =$objData["persona_avatar"];
         $persona->persona_estado           =1;
         $persona->persona_creadopor        =1;
-        //$persona->persona_fcreacion        =$objData["persona_fcreacion"];
         $persona->save();
         $personaId=$persona->persona_id;
 

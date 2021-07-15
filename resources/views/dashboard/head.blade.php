@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('resourcesDashboard/dist/css/adminlte.min.css')}}">
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="{{asset('resourcesDashboard/dist/css/app.css')}}">
     <!--jquery para el select dinamico-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
