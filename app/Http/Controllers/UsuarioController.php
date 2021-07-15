@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\usuario;
 use App\Models\persona;
 use App\Models\productos;
+use App\Models\marcas;
+use App\Models\categorias;
+
 use Illuminate\Http\Request;
 
 
@@ -25,7 +28,7 @@ class UsuarioController extends Controller{
     }
 
 
-    public function new(Request $request){
+    public function new(Request $request){//Agregar Usuario-Persona
         $usuario = new usuario();
         $persona = new persona();
         $objData=$request->all();
@@ -74,9 +77,9 @@ class UsuarioController extends Controller{
 
         exit();
 
-    }
+     }
 
-    public function newp(Request $request){
+    public function newp(Request $request){//Agregar Producto
         $productos = new productos();
 
 
@@ -106,5 +109,58 @@ class UsuarioController extends Controller{
         $city=usuario::getCity();
         return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
         exit();
-    }
+     }
+
+    public function newm(Request $request){//Agregar Marca
+        $marcas = new marcas();
+
+
+        $objData=$request->all();
+
+        $marcas->marca_nombre              =$objData["marca_nombre"];
+        $marcas->marca_estado              =1;
+        $marcas->save();
+
+
+
+
+        $usuarios=usuario::getUsuariosSQL();
+        $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
+        $productos=productos::getProductosSQL();
+        $categorias=productos::getCat();
+        $marcas=productos::getMarca();
+        $paises=usuario::getCountry();
+        $deptos=usuario::getDepartments();
+        $city=usuario::getCity();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        exit();
+     }
+
+    public function newc(Request $request){//Agregar categorias
+        $categorias = new categorias();
+
+        $objData=$request->all();
+
+        $categorias->categoria_nombre               =$objData["categoria_nombre"];
+        $categorias->categoria_padre                =$objData["categoria_padre"];
+        $categorias->categoria_url                  =$objData["categoria_url"];
+        $categorias->categoria_estado               =1;
+        $categorias->save();
+
+
+
+
+        $usuarios=usuario::getUsuariosSQL();
+        $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
+        $productos=productos::getProductosSQL();
+        $categorias=productos::getCat();
+        $marcas=productos::getMarca();
+        $paises=usuario::getCountry();
+        $deptos=usuario::getDepartments();
+        $city=usuario::getCity();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        exit();
+     }
 }

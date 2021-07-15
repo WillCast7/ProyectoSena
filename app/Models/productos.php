@@ -46,7 +46,7 @@ class productos extends Model
      }
 
         public static function getCat(){ //Obtener Categorias
-            $categoria=DB::select("SELECT categoria_id, categoria_nombre
+            $categoria=DB::select("SELECT categoria_id, categoria_nombre, categoria_padre, categoria_url
                                         FROM categorias
                                         WHERE categoria_estado=1");
             return $categoria;
