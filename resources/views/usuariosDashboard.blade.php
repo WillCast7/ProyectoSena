@@ -3,6 +3,7 @@
 @section('contenido')
 
 {{-- Tabla de usuarios --}}
+<h5>USUARIOS</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
             <thead class="thead-dark">
@@ -39,6 +40,7 @@
     </div>
 
 <!-- vistas usuario  -->
+
 <div class="modal fade bd-example-modal-lg " id="viewUser" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
@@ -239,6 +241,7 @@
 
 
 {{-- Tabla de productos --}}
+<h5>PRODUCTOS</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
             <thead class="thead-dark">
@@ -395,8 +398,9 @@
 <br>
 
 {{-- Tabla de Marcas --}}
+<h5>MARCAS</h5>
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
-    <tazble class="table table-bordered table-striped mb-0">
+    <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">
             <tr>
                 <th>
@@ -414,7 +418,6 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
-                    <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                     <a href="/" > <i class="far fa-edit"></i> </a>
                     <a href="/" ><i class="fas fa-trash-alt"></i></a>
                 </td>
@@ -447,8 +450,9 @@
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Guardar" class="btn btn-primary">
-                        </form>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </form>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -459,6 +463,7 @@
 <br>
 
 {{-- Tabla de Categorias --}}
+<h5>CATEGORIAS</h5>
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">
@@ -481,7 +486,6 @@
             @foreach($categorias as $categoria)
             <tr>
                 <td>
-                    <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                     <a href="/" > <i class="far fa-edit"></i> </a>
                     <a href="/" ><i class="fas fa-trash-alt"></i></a>
                 </td>
