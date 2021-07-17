@@ -6,7 +6,8 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" role="form">
+                <form action="{{route('auth')}}" method="post" role="form">
+                    @csrf
                     <div class="form-group">
                         <label for="">Enter Email</label>
                         <input type="email" class="form-control">

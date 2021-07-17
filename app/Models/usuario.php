@@ -29,14 +29,40 @@ class usuario extends Model
     public static function getUsuariosSQL(){ //Obtener usuarios
 
         $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
+                                            per.persona_nombre1,
+                                            per.persona_nombre2,
+                                            per.persona_apellido1,
+                                            per.persona_apellido2,
+                                            per.persona_tipodocumento,
+                                            pc.nombre_largo_parametro,
+                                            pai.pais_nombre,
+                                            dep.departamento_nombre,
+                                            ciu.ciudad_nombre,
+                                            per.persona_dni,
                                             per.persona_telefono,
+                                            per.persona_estado,
+                                            per.pais_codigo,
+                                            per.departamento_codigo,
+                                            per.ciudad_codigo,
+                                            per.persona_direccion,
+                                            per.persona_fnacimiento,
+                                            per.persona_ciudadnacimiento,
+                                            per.persona_avatar,
                                             per.persona_email,
-                                            usr.usuario_username, usr.usuario_pass, p.perfil_nombre, per.persona_avatar
+                                            usr.usuario_username, usr.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
                                         FROM personas per
                                         INNER JOIN usuarios  usr
                                             ON per.persona_id=usr.persona_id
+                                        INNER JOIN parametros_configuracion pc
+                                            ON per.persona_tipodocumento=pc.id_parametro
                                         INNER JOIN perfiles p
                                             ON p.perfil_id=usr.perfil_id
+                                        INNER JOIN paises pai
+                                            ON pai.pais_codigo=per.pais_codigo
+                                        INNER JOIN departamentos dep
+                                            ON dep.departamento_codigo=per.departamento_codigo
+                                        INNER JOIN ciudades ciu
+                                            ON ciu.ciudad_codigo=per.ciudad_codigo
                                         WHERE per.persona_estado=1");
         return $usuarios;
 
@@ -50,10 +76,10 @@ class usuario extends Model
                     return $roles;
         }
     public static function getTipoDoc(){ //Obtener Tipo dee documento
-        $tipodoc=DB::select("SELECT nombre_parametro, nombre_largo_parametro
-                    FROM parametros_configuracion
-                    WHERE estado=1
-                    AND clave_parametro='tipodocumento'");
+        $tipodoc=DB::select("SELECT id_parametro, nombre_parametro, nombre_largo_parametro
+                                FROM parametros_configuracion
+                                WHERE estado=1
+                                AND clave_parametro='tipodocumento'");
                     return $tipodoc;
         }
     public static function getCountry(){ //Obtener Paises
@@ -114,5 +140,11 @@ class usuario extends Model
                 ));
                 return $usuario_id;
      }
-
+    /* public static function getSex(){//obtener sexos
+        $sex=DB::select("SELECT id_parametro, nombre_parametro, nombre_largo_parametro
+                            FROM parametros_configuracion
+                            WHERE estado=1
+                            AND clave_parametro='sexo'");
+        return $sex;
+     } */
 }

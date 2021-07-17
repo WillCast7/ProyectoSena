@@ -50,7 +50,11 @@ class UsuarioController extends Controller{
         $persona->persona_avatar           =$objData["persona_avatar"];
         $persona->persona_estado           =1;
         $persona->persona_creadopor        =1;
-        $persona->save();
+        if($persona->persona_id==null){
+            $persona->save();
+        }else{
+            echo"aqui va el codigo para actualizar";
+        };
         $personaId=$persona->persona_id;
 
 
@@ -162,4 +166,13 @@ class UsuarioController extends Controller{
         return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
         exit();
      }
+
+//
+    public function deleteu(Request $request){
+        $objData=$request->all();
+    }
+    public function auth(Request $request){
+        $objData=$request->all();
+        return $objData;
+    }
 }
