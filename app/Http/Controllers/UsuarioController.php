@@ -162,4 +162,14 @@ class UsuarioController extends Controller{
         return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
         exit();
      }
+
+ public function edit(persona $persona){
+   
+    $persona=persona::findOrFFail($id);
+
+
+    return view('usuario.edit', compact($persona));
+
+    }
+     
 }
