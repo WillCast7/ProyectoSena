@@ -25,7 +25,7 @@ class UsuarioController extends Controller{
         $city=usuario::getCity();
         return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
 
-    }
+     }
 
 
     public function new(Request $request){//Agregar Usuario-Persona
@@ -167,12 +167,12 @@ class UsuarioController extends Controller{
         exit();
      }
 
-//
+
     public function deleteu(Request $request){
         $objData=$request->all();
-    }
+     }
     public function auth(Request $request){
         $objData=$request->all();
         return $objData;
-    }
+     }
 }
