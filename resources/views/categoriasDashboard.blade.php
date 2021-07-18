@@ -1,0 +1,79 @@
+@extends('dashboard.base')
+@section('contenido')
+{{-- Tabla de Categorias --}}
+<h5>CATEGORIAS</h5>
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-bordered table-striped mb-0">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    ACCIONES
+                </th>
+                <th>
+                    NOMBRE
+                </th>
+                <th>
+                    Categoria padre
+                </th>
+                <th>
+                    URL
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($categorias as $categoria)
+            <tr>
+                <td>
+                    <a href="/" > <i class="far fa-edit"></i> </a>
+                    <a href="/" ><i class="fas fa-trash-alt"></i></a>
+                </td>
+                <td>{{$categoria->categoria_nombre}}</td>
+                <td>{{$categoria->categoria_padre}}</td>
+                <td>{{$categoria->categoria_url}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCategoria"><i class="fas fa-users"></i>
+        AGREGAR CATEGORIA
+    </button>
+
+ <!-- Formulario Categoria -->
+    <div class="modal fade" id="newCategoria" tabindex="-1" role="dialog" aria-labelledby="newCategoriaTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="title">AGREGAR CATEGORIA</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('c.new')}}" method="put" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
+                            <div class="form-group"><!--nombre-->
+                                <input type="text" name="Categoria_nombre" class="form-control" placeholder="Nombre Categoria">
+                            </div>
+                            <div class="form-group"><!--nombre-->
+                                <input type="text" name="Categoria_url" class="form-control" placeholder="URL Categoria">
+                            </div>
+                            <div class="form-group"><!--categoria padre-->
+                                <select name="categoria_padre" id="Categoria" class="form-control">
+                                    <option value=" ">Seleccione categoria padre</option>
+                                    @foreach($categorias as $categoria)
+                                    <option value="{{$categoria->categoria_id}}">{{$categoria->categoria_nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" value="Guardar" class="btn btn-primary">
+                            </form>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+@endsection

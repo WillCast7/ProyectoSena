@@ -175,4 +175,7 @@ class UsuarioController extends Controller{
         $objData=$request->all();
         return $objData;
      }
+    public function edit(usuario $usuario){
+        return view('parametros.usuarioEdit', compact('usuario'));
+    }
 }
