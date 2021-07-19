@@ -50,11 +50,7 @@ class UsuarioController extends Controller{
         $persona->persona_avatar           =$objData["persona_avatar"];
         $persona->persona_estado           =1;
         $persona->persona_creadopor        =1;
-        if($persona->persona_id==null){
-            $persona->save();
-        }else{
-            echo"aqui va el codigo para actualizar";
-        };
+        $persona->save();
         $personaId=$persona->persona_id;
 
 
@@ -63,7 +59,6 @@ class UsuarioController extends Controller{
         $usuario->perfil_id                 =$objData["perfil_id"];
         $usuario->persona_id                =$personaId;
         $usuario->usuario_estado            =1;
-        //$usuario->estado=$objData["usuario_fcreacion"];
         $usuario->save();
         $usuario_id=$usuario->usuario_id;
 
@@ -175,7 +170,50 @@ class UsuarioController extends Controller{
         $objData=$request->all();
         return $objData;
      }
-    public function edit(usuario $usuario){
+    public function editUser($persona_id){
+        $usuario=usuario::getUsuario($persona_id);
+/*         $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
+        $paises=usuario::getCountry();
+        $deptos=usuario::getDepartments();
+        $city=usuario::getCity(); */
+        /* echo"<pre>";print_r($usuario); */
         return view('parametros.usuarioEdit', compact('usuario'));
+     }
+     public static function updateUser(Request $request,$persona_id){
+        $objData=$request->all();
+        $objData1=$objData;
+        usuario::updatePerson($objData);
+        usuario::updateUser($objData1);
+        return view();
     }
+
+    public function updateUser2(Request $request,$persona_id){
+        echo "<pre>";
+        print_r($request->all());
+        echo $persona_id;
+    }
+
+    /* public function updateUser(Request $request,usuario $usuario, persona $persona){
+        $persona->persona_nombre1           = $request->persona_nombre1;
+        $persona->persona_nombre2           = $request->persona_nombre2;
+        $persona->persona_apellido1         = $request->persona_apellido1;
+        $persona->persona_apellido2         = $request->persona_apellido2;
+        $persona->persona_tipodocumento     = $request->persona_tipodocumento;
+        $persona->persona_dni               = $request->persona_dni;
+        $persona->persona_telefono          = $request->persona_telefono;
+        $persona->persona_fnacimiento       = $request->persona_fnacimiento;
+        $persona->persona_ciudadnacimiento  = $request->persona_ciudadnacimiento;
+        $persona->pais_codigo               = $request->pais_codigo;
+        $persona->departamento_codigo       = $request->departamento_codigo;
+        $persona->ciudad_codigo             = $request->ciudad_codigo;
+        $persona->persona_direccion         = $request->persona_direccion;
+
+        $persona-> save();
+
+        $usuario->usuario_username      = $request->usuario_username;
+        $usuario->usuario_pass          = $request->usuario_pass;
+        $usuario->perfil_id             = $request->perfil_id;
+        $usuario-> save();
+    } */
 }

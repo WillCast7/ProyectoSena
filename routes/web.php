@@ -35,8 +35,14 @@ Route::get('/dashboard/usuarios/create/newm', [UsuarioController::class, 'newm']
 Route::get('/dashboard/usuarios/create/newc', [UsuarioController::class, 'newc'])->name('c.new');
 
 //Editar//
-Route::get('/dashboard/usuarios/edit/{usuario}', [UsuarioController::class, 'edit'])->name('u.edit');
-Route::put('/dashboard/usuarios/update/{usuario}', [UsuarioController::class, 'update'])->name('a.update');
+Route::get('/dashboard/usuarios/edit/{persona_id}', [UsuarioController::class, 'editUser'])->name('u.edit');
+/* Route::put('/dashboard/usuarios/updateUser/{persona_id}',function(Request $request){
+    UsuarioController::updateUser($persona_id,$request);
+})->name('u.update'); */
+Route::put('/dashboard/usuarios/updateUser/{persona_id}',[UsuarioController::class,'updateUser'])->name('u.update');
+/* Route::put('/dashboard/usuarios/updateUser/{persona_id}', [UsuarioController::class, 'updateUser'])->name('u.update'); */
+
+
 Route::get('/ecomerce', function () {
     return view('ecomerce');
 });

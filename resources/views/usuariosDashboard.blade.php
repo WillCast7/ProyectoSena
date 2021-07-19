@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-{{-- Tabla de usuarios --}}
+<!-- Tabla de usuarios -->
 <h5>USUARIOS</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
@@ -27,8 +27,8 @@
                     <tr>
                         <td>
                              <a data-toggle="modal" data-target="#viewUser" onclick=""> <i class="far fa-eye"></i> </a>
-                            {{--<a href="{{route('u.edit', $usuario)}}" > <i class="far fa-edit"></i> </a>--}}
-                            <a data-toggle="modal" data-target="#updateUser"> <i class="far fa-edit"></i> </a>
+                             <a href="{{route('u.edit', $items->persona_id)}}"> <i class="far fa-edit"></i> </a>
+                           <!-- <a data-toggle="modal" data-target="#updateUser"> <i class="far fa-edit"></i> </a>-->
                             <a href="/" ><i class="fas fa-trash-alt"></i></a>
                         </td>
                         <td>{{$items->nombres}}</td>
@@ -38,7 +38,7 @@
                 @endforeach
             </tbody>
         </table>
-    </div>
+    </div> --}}
 
 
 <!-- editar usuarios -->
@@ -115,138 +115,7 @@
 <br>
 <hr/>
 <br>
-<!-- Actualizar usuario-->
-<div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="title">ACTUALIZAR USUARIO</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('a.new')}}" method="put" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <div class="form-group"><!--Primer nombre-->
-                        <input type="text" name="persona_nombre1" class="form-control" value="{{$items->persona_nombre1}}">
-                    </div>
-                    <div class="form-group"><!--Segundo nombre-->
-                        <input type="text" name="persona_nombre2" class="form-control" value="{{$items->persona_nombre2}}">
-                    </div>
-                    <div class="form-group"><!--Primer apellido-->
-                        <input type="text" name="persona_apellido1" class="form-control" value="{{$items->persona_apellido1}}">
-                        @error('persona_apellido1')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Segundo apellido-->
-                        <input type="text" name="persona_apellido2" class="form-control" value="{{$items->persona_apellido2}}">
-                    </div>
-                    <div class="form-group"><!--Tipos de documentos-->
-                        <select name="persona_tipodocumento" id="input" class="form-control" value="{{$items->persona_tipodocumento}}">
-                            <option value="{{$items->persona_tipodocumento}}">{{$items->nombre_largo_parametro}}</option>
-                            @foreach($tipoDoc as $td)
-                            <option value="{{$td->id_parametro}}">{{$td->nombre_largo_parametro}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group"><!--DNI-->
-                        <input type="text" name="persona_dni" class="form-control" value="{{$items->persona_dni}}">
-                        @error('persona_dni')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Telefono-->
-                        <input type="text" name="persona_telefono" class="form-control" value="{{$items->persona_telefono}}">
-                        @error('persona_telefono')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Fecha nacimiento-->
-                        <input type="date" name="persona_fnacimiento" class="form-control" value="{{$items->persona_fnacimiento}}">
-                        @error('persona_fnacimiento')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Ciuda de nacimiento-->
-                        <select name="persona_ciudadnacimiento" id="ciudadNacimiento" class="form-control">
-                            <option value="{{$items->persona_ciudadnacimiento}}">{{$items->persona_ciudadnacimiento}}</option>
-                            @foreach($city as $item)
-                            <option value="{{$item->ciudad_nombre}}">{{$item->ciudad_nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group"><!--Paises-->
-                        <select name="pais_codigo" id="input" class="form-control">
-                            <option value="{{$items->pais_codigo}}">{{$items->pais_nombre}}</option>
-                            @foreach($paises as $pais)
-                            <option value="{{$pais->pais_codigo}}">{{$pais->pais_nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group"><!--Departamentos-->
-                        <select name="departamento_codigo" id="Departamentos" class="form-control">
-                            <option value="{{$items->departamento_codigo}}">{{$items->departamento_nombre}}</option>
-                            @foreach($deptos as $depto)
-                            <option value="{{$depto->departamento_codigo}}">{{$depto->departamento_nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group"><!--Ciudades-->
-                        <select name="ciudad_codigo" id="ciudades" class="form-control">
-                            <option value="{{$items->ciudad_codigo}}">{{$items->ciudad_nombre}}</option>
-                            @foreach($city as $item)
-                            <option value="{{$item->ciudad_codigo}}">{{$item->ciudad_nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group"><!--Direccion-->
-                        <input type="text" name="persona_direccion" class="form-control" value="{{$items->persona_direccion}}">
-                    </div>
-                    <div class="form-group"><!--Correo-->
-                        <input type="text" name="persona_email" class="form-control" value="{{$items->persona_email}}">
-                        @error('persona_email')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Nombre de usuario-->
-                        <input type="text" name="usuario_username" class="form-control" value="{{$items->usuario_username}}">
-                        @error('usuario_username')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Contraseña-->
-                        <input type="password" name="usuario_pass" class="form-control" value="{{$items->usuario_pass}}">
-                        @error('usuario_pass')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group"><!--Roles-->
-                        <select name="perfil_id" id="perfiles" class="form-control">
-                            <option value="{{$items->perfil_id}}">{{$items->perfil_nombre}}</option>
-                            @foreach($roles as $rol)
-                            <option value="{{$rol->perfil_id}}">{{$rol->perfil_nombre}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group" ><!--avatar-->
-                        <input type="file" class="form-control-file" name="persona_avatar" accept="image/*">
-                        <br>
-                        @error('persona_avatar')
-                            <small class="text-danger">{{$message}}</small>
-                        @enderror
-                    </div>
-                    <div class="modal-footer">
-                        <input type="submit" value="Guardar" class="btn btn-primary">
-                    </div>
-                </form>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!-- Formulario usuario -->
 <div class="modal fade" id="newUser" tabindex="-1" role="dialog" aria-hidden="true">
@@ -284,7 +153,7 @@
                             <select name="persona_tipodocumento" id="input" class="form-control" placeholder="tipo de usuario">
                                 <option value=" ">Tipo Documento</option>
                                 @foreach($tipoDoc as $td)
-                                <option value="{{$td->id_parametro}}">{{$td->nombre_largo_parametro}}</option>
+                                <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
                                 @endforeach
                             </select>
                         </div>
