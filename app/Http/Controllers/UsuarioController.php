@@ -96,11 +96,7 @@ class UsuarioController extends Controller{
         return back();
      }
 
-    public function updateUser2(Request $request,$persona_id){
-        echo "<pre>";
-        print_r($request->all());
-        echo $persona_id;
-     }
+
 
     public function deleteUser(Request $request){
 

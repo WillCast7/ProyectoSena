@@ -21,4 +21,16 @@ class MarcasController extends Controller{
 
         return back();
      }
+     public function editMarca($marca_id){
+        $marcas=marcas::getMarcaSQL($marca_id);
+        /*         $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
+        $paises=usuario::getCountry();
+        $deptos=usuario::getDepartments();
+        $city=usuario::getCity(); */
+        /* echo"<pre>";print_r($usuario); */
+        return view('parametros.marcasEdit', compact('marcas'));
+     }
+
+    
 }
