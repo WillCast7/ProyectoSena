@@ -20,4 +20,10 @@ class marcas extends Model
                             ");
         return $marca;
      }
+    public static function getMarcaSQL($marca_id){
+        $marca=DB::select("SELECT marca_id, marca_nombre, marca_estado
+                            FROM marcas
+                            ");
+        return $marca;
+     }
 }

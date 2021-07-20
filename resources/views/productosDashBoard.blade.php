@@ -42,7 +42,7 @@
                 <tr>
                     <td>
                         <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                        <a href="/" > <i class="far fa-edit"></i> </a>
+                        <a href="{{route('p.edit' $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
 
                     </td>
                     <td>

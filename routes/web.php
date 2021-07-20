@@ -53,9 +53,13 @@ Route::get('/dashboard/usuarios/create/newMarca',       [MarcasController::class
 Route::get('/dashboard/usuarios/create/newCategoria',   [CategoriasController::class, 'newCategoria'])->name('c.new');
 
 //Editar//
-Route::get('/dashboard/usuarios/edit/{persona_id}', [UsuarioController::class, 'editUser'])->name('u.edit');
+Route::get('/dashboard/usuarios/edit/{persona_id}',     [UsuarioController::class, 'editUser'        ])->name('u.edit');
+Route::get('/dashboard/productos/edit/{producto_id}',   [ProductosController::class, 'editProducto'  ])->name('p.edit');
+Route::get('/dashboard/categorias/edit/{categoria_id}', [CategoriasController::class, 'editCategoria'])->name('c.edit');
+Route::get('/dashboard/marcas/edit/{marca_id}',         [MarcasController::class, 'editMarca'        ])->name('m.edit');
 
 //Update
+
 Route::put('/dashboard/usuarios/updateUser/{persona_id}',[UsuarioController::class,'updateUser'])->name('u.update');
 
 
