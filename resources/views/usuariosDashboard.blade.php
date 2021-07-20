@@ -12,6 +12,9 @@
                         ACCIONES
                     </th>
                     <th>
+                        ESTADO
+                    </th>
+                    <th>
                         NOMBRE COMPLETO
                     </th>
                     <th>
@@ -20,55 +23,43 @@
                     <th>
                         CORREO ELECTRONICO
                     </th>
-                    <th>
-                        ESTADO 
-                    </th>
-                    <th>
-                        ACCION 2
-                    </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($usuarios as $items)
                     <tr>
                         <td>
-                             <a data-toggle="modal" data-target="#viewUser" onclick=""> <i class="far fa-eye"></i> </a>
-                             <a href="{{route('u.edit', $items->persona_id)}}"> <i class="far fa-edit"></i> </a>
-                           <!-- <a data-toggle="modal" data-target="#updateUser"> <i class="far fa-edit"></i> </a>-->
-                            <a href="/" ><i class="fas fa-trash-alt"></i></a>
-                            
+                            <div class="incons">
+                                <a class="iconA" data-toggle="modal" data-target="#viewUser" onclick=""> <i class="far fa-eye"></i> </a>
+                                <a class="iconA" href="{{route('u.edit', $items->persona_id)}}"> <i class="far fa-edit"></i> </a>
+                            </div>
+                        </td>
+                        <td>
+                            <br>
+                              @if($items->persona_estado == 1)
+                              <button type="button" class="btn btn-sm btn-success">Activa</button>
+                                  @else
+                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
+                              @endif
+
                         </td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
-                        <td id="resp{{ persona->persona_id }}">
-                          <br>
-                            @if($persona->persona_estado == 1)
-                            <button type="button" class="btn btn-sm btn-success">Activa</button>
-                                @else
-                            <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
-                            @endif
-                        
-                        </td>
-                        <td>
-                            <br>
-                            <label class="switch">
-                                <input data-id="{{ $persona->persona_id }}" class="mi_checkbox" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $persona->persona_estado ? 'checked' : '' }}>
-                                <span class="slider round"></span>
-                            </label>
-                        </td>
+
+
                     </tr>
                 @endforeach
             </tbody>
         </table>
-    </div> --}}
+    </div>
 
 
 <!-- editar usuarios -->
 <div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">  
+            <div class="modal-header">
             <h5 class="title">EDITAR USUARIO</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

@@ -53,4 +53,5 @@ Route::get('/ecomerce', function () {
     return view('ecomerce');
 });
 
-Route::get('estadoPersona','UsuarioController@uptadeEstadoUs')->name('uptadeEstadoUs');
+/* Route::put('/dashboard/usuarios/deleteUser/{persona_id}',[UsuarioController::class,'deleteUser'])->name('u.update'); */
+/* Route::get('estadoPersona','UsuarioController@uptadeEstadoUs')->name('uptadeEstadoUs'); */

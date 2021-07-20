@@ -93,7 +93,7 @@ class UsuarioController extends Controller{
         $objData=$request->all();
         usuario::updatePersonSQL($objData);
        /*     usuario::updateUser($objData1); */
-        return view();
+        return back();
      }
 
     public function updateUser2(Request $request,$persona_id){
@@ -102,9 +102,9 @@ class UsuarioController extends Controller{
         echo $persona_id;
      }
 
-    public function uptadeEstadoUs(Request $request){
-            
-            $personaUptade = persona::findOrFail($request->persona_id)->update(['persona_estado' => $request->persona_estado]); 
+    public function deleteUser(Request $request){
+
+            $personaUptade = persona::findOrFail($request->persona_id)->update(['persona_estado' => $request->persona_estado]);
 
             if($request->persona_estado == 0)  {
                 $newEstado = '<br> <button type="button" class="btn btn-sm btn-danger">Inactiva</button>';
@@ -113,7 +113,7 @@ class UsuarioController extends Controller{
             }
 
             return response()->json(['var'=>''.$newEstado.'']);
-            
+
 
             }
 

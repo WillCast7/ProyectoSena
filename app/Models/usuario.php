@@ -39,24 +39,23 @@ class usuario extends Model
                                             per.persona_ciudadnacimiento,
                                             per.persona_avatar,
                                             per.persona_email,
-                                            usr.usuario_id, usr.usuario_username, usr.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
+                                            per.usuario_username,
+                                            per.usuario_pass,
+                                            p.perfil_id, p.perfil_nombre, per.persona_avatar
                                         FROM personas per
-                                        INNER JOIN usuarios  usr
-                                            ON per.persona_id=usr.persona_id
                                         INNER JOIN parametros_configuracion pc
                                             ON per.persona_tipodocumento=pc.id_parametro
                                         INNER JOIN perfiles p
-                                            ON p.perfil_id=usr.perfil_id
+                                            ON p.perfil_id=per.perfil_id
                                         INNER JOIN paises pai
                                             ON pai.pais_codigo=per.pais_codigo
                                         INNER JOIN departamentos dep
                                             ON dep.departamento_codigo=per.departamento_codigo
                                         INNER JOIN ciudades ciu
-                                            ON ciu.ciudad_codigo=per.ciudad_codigo
-                                        WHERE per.persona_estado=1");
-        return $usuarios;
+                                            ON ciu.ciudad_codigo=per.ciudad_codigo");
+         return $usuarios;
 
-     }
+         }
     public static function getUsuarioSQL($persona_id){ //Obtener usuarios
 
         $sql="SELECT per.persona_id,
@@ -80,14 +79,12 @@ class usuario extends Model
                      pai.pais_nombre,
                      dep.departamento_nombre,
                      ciu.ciudad_nombre,
-                     usr.usuario_id, usr.usuario_username, usr.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
+                     per.usuario_username, per.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
                 FROM personas per
-                INNER JOIN usuarios  usr
-                    ON per.persona_id=usr.persona_id
                 INNER JOIN parametros_configuracion pc
                     ON per.persona_tipodocumento=pc.id_parametro
                 INNER JOIN perfiles p
-                    ON p.perfil_id=usr.perfil_id
+                    ON p.perfil_id=per.perfil_id
                 INNER JOIN paises pai
                     ON pai.pais_codigo=per.pais_codigo
                 INNER JOIN departamentos dep
@@ -95,7 +92,7 @@ class usuario extends Model
                 INNER JOIN ciudades ciu
                     ON ciu.ciudad_codigo=per.ciudad_codigo
                 WHERE per.persona_estado=1
-                AND usr.persona_id=?";
+                AND per.persona_id=?";
         $usuario = DB::select($sql,array($persona_id));
         return $usuario;
 
@@ -158,14 +155,13 @@ class usuario extends Model
                                                 per.persona_ciudadnacimiento,
                                                 per.persona_avatar,
                                                 per.persona_email,
-                                                usr.usuario_id, usr.usuario_username, usr.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
+                                                per.usuario_username,
+                                                per.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
                                             FROM personas per
-                                            INNER JOIN usuarios  usr
-                                                ON per.persona_id=usr.persona_id
                                             INNER JOIN parametros_configuracion pc
                                                 ON per.persona_tipodocumento=pc.id_parametro
                                             INNER JOIN perfiles p
-                                                ON p.perfil_id=usr.perfil_id
+                                                ON p.perfil_id=per.perfil_id
                                             INNER JOIN paises pai
                                                 ON pai.pais_codigo=per.pais_codigo
                                             INNER JOIN departamentos dep
@@ -216,25 +212,9 @@ class usuario extends Model
                                 $usuario->usuario_pass,
                                 $usuario->usuario_perfil_id));
      }
-/*     public static function updateUser($usuario){//actualizar usuarios
-        $sql="UPDATE usuarios
-                    SET usuario_username=?,
-                        usuario_pass=?,
-                        perfil_id=?
-                WHERE persona_id=?";
-        DB::select($sql,array($usuario->usuario_username, $usuario->usuario_pass, $usuario->usuario_perfil_id, $usuario->persona_id));
+    public function deleteUser($persona_id){
+
      }
-<<<<<<< HEAD
 
 
-
-
-
-     
-
-
-=======
-} */
->>>>>>> f2a68cc0c6f355220471a2d25f92c7ce8309da70
 }
- 
