@@ -21,7 +21,8 @@ class productos extends Model
                                     pr.producto_descripcion,
                                     cat.categoria_nombre,
                                     mr.marca_nombre,
-                                    pri.imagen_url
+                                    pri.imagen_url,
+                                    pr.producto_estado
                                 FROM productos pr
                                 INNER JOIN categorias cat
                                     ON cat.categoria_id=pr.categoria_id
@@ -29,7 +30,7 @@ class productos extends Model
                                     ON mr.marca_id=pr.marca_id
                                 LEFT JOIN productos_imagenes pri
                                     ON pri.producto_id=pr.producto_id
-                                WHERE producto_estado=1");
+                                ");
         return $productos;
 
      }

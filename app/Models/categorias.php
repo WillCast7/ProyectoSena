@@ -15,9 +15,9 @@ class categorias extends Model
     public $timestamps=false;
 
     public static function getCategoriasSQL(){ //Obtener Categorias
-        $categoria=DB::select("SELECT categoria_id, categoria_nombre, categoria_padre, categoria_url
+        $categoria=DB::select("SELECT categoria_id, categoria_nombre, categoria_padre, categoria_url, categoria_estado
                                     FROM categorias
-                                    WHERE categoria_estado=1");
+                                    ");
         return $categoria;
      }
 

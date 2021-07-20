@@ -10,6 +10,9 @@
                     ACCIONES
                 </th>
                 <th>
+                    ESTADO
+                </th>
+                <th>
                     NOMBRE
                 </th>
                 <th>
@@ -21,9 +24,19 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
+                    <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                     <a href="/" > <i class="far fa-edit"></i> </a>
-                    <a href="/" ><i class="fas fa-trash-alt"></i></a>
+                    
                 </td>
+                <td>
+                            <br>
+                              @if($marca->marca_estado == 1)
+                              <button type="button" class="btn btn-sm btn-success">Activa</button>
+                                  @else
+                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
+                              @endif
+
+                        </td>
                 <td>{{$marca->marca_nombre}}</td>
             </tr>
             @endforeach

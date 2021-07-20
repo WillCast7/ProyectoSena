@@ -15,9 +15,9 @@ class marcas extends Model
     public $timestamps=false;
 
     public static function getMarcasSQL(){
-        $marca=DB::select("SELECT marca_id, marca_nombre
+        $marca=DB::select("SELECT marca_id, marca_nombre, marca_estado
                             FROM marcas
-                            WHERE marca_estado=1");
+                            ");
         return $marca;
      }
 }

@@ -10,6 +10,9 @@
                     ACCIONES
                 </th>
                 <th>
+                    ESTADO
+                </th>
+                <th>
                     NOMBRE
                 </th>
                 <th>
@@ -24,9 +27,19 @@
             @foreach($categorias as $categoria)
             <tr>
                 <td>
+                <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                     <a href="/" > <i class="far fa-edit"></i> </a>
-                    <a href="/" ><i class="fas fa-trash-alt"></i></a>
+                    
                 </td>
+                <td>
+                            <br>
+                              @if($categoria->categoria_estado == 1)
+                              <button type="button" class="btn btn-sm btn-success">Activa</button>
+                                  @else
+                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
+                              @endif
+
+                        </td>
                 <td>{{$categoria->categoria_nombre}}</td>
                 <td>{{$categoria->categoria_padre}}</td>
                 <td>{{$categoria->categoria_url}}</td>
