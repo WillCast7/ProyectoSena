@@ -10,6 +10,9 @@
                         ACCIONES
                     </th>
                     <th>
+                        ESTADO
+                    </th>
+                    <th>
                         PRODUCTO
                     </th>
                     <th>
@@ -35,8 +38,17 @@
                     <td>
                         <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                         <a href="/" > <i class="far fa-edit"></i> </a>
-                        <a href="/" ><i class="fas fa-trash-alt"></i></a>
+                        
                     </td>
+                    <td>
+                            <br>
+                              @if($producto->producto_estado == 1)
+                              <button type="button" class="btn btn-sm btn-success">Activa</button>
+                                  @else
+                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
+                              @endif
+
+                        </td>
                     <td>{{$producto->producto_nombre}}</td>
                     <td>{{$producto->producto_stock}}</td>
                     <td>{{$producto->producto_descripcion}}</td>

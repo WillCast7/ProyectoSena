@@ -3,25 +3,19 @@ namespace App\Http\Controllers;
 
 use App\Models\usuario;
 use App\Models\productos;
+use App\Models\marcas;
+use App\Models\categorias;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller{
-    public function listado(){
-
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
+    public function getProductos(){
         $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        $sex=usuario::getSex();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas', 'sex'));
+        $categorias=categorias::getCategoriasSQL();
+        $marcas=marcas::getMarcasSQL();
+        return view('productosDashboard', compact('productos', 'categorias', 'marcas'));
 
-    }
-    public function newp(Request $request){
+     }
+    public function newProducto(Request $request){//Agregar Producto
         $productos = new productos();
 
 
@@ -40,16 +34,6 @@ class ProductosController extends Controller{
 
 
 
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
-        exit();
-    }
+        return back();
+     }
 }

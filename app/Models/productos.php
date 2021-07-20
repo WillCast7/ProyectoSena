@@ -21,31 +21,17 @@ class productos extends Model
                                     pr.producto_descripcion,
                                     cat.categoria_nombre,
                                     mr.marca_nombre,
-                                    pri.imagen_url
+                                    pri.imagen_url,
+                                    pr.producto_estado
                                 FROM productos pr
                                 INNER JOIN categorias cat
                                     ON cat.categoria_id=pr.categoria_id
                                 INNER JOIN marcas mr
                                     ON mr.marca_id=pr.marca_id
                                 LEFT JOIN productos_imagenes pri
-                                    ON pri.producto_id=pr.producto_id"
-                            );
+                                    ON pri.producto_id=pr.producto_id
+                                ");
         return $productos;
 
      }
-
-        public static function getCat(){ //Obtener Categorias
-            $categoria=DB::select("SELECT categoria_id, categoria_nombre, categoria_padre, categoria_url
-                                        FROM categorias
-                                        WHERE categoria_estado=1");
-            return $categoria;
-        }
-
-        public static function getMarca(){ //Obtener Categorias
-            $marca=DB::select("SELECT marca_id, marca_nombre
-                                FROM marcas
-                                WHERE marca_estado=1");
-            return $marca;
-        }
-
 }
