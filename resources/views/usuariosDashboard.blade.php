@@ -37,9 +37,9 @@
                         <td>
                             <br>
                               @if($items->persona_estado == 1)
-                              <button type="button" class="btn btn-sm btn-success">Activa</button>
-                                  @else
-                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
+                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
+                                @else
+                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
                               @endif
 
                         </td>

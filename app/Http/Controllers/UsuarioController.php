@@ -81,62 +81,23 @@ class UsuarioController extends Controller{
      }
     public function editUser($persona_id){
         $usuario=usuario::getUsuarioSQL($persona_id);
-        /*         $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity(); */
-        /* echo"<pre>";print_r($usuario); */
         return view('parametros.usuarioEdit', compact('usuario'));
      }
     public static function updateUser(Request $request,$persona_id){
         $objData=$request->all();
-        usuario::updatePersonSQL($objData);
-       /*     usuario::updateUser($objData1); */
+        usuario::updatePersonSQL($request, $persona_id);
+         return redirect('/dashboard/usuarios');
+     }
+
+    public function deleteUser($persona_id){
+        usuario::deleteUserSQL($persona_id);
         return back();
-     }
-
-    public function updateUser2(Request $request,$persona_id){
-        echo "<pre>";
-        print_r($request->all());
-        echo $persona_id;
-     }
-
-    public function deleteUser(Request $request){
-
-            $personaUptade = persona::findOrFail($request->persona_id)->update(['persona_estado' => $request->persona_estado]);
-
-            if($request->persona_estado == 0)  {
-                $newEstado = '<br> <button type="button" class="btn btn-sm btn-danger">Inactiva</button>';
-            }else{
-                $newEstado ='<br> <button type="button" class="btn btn-sm btn-success">Activa</button>';
             }
 
-            return response()->json(['var'=>''.$newEstado.'']);
-
-
+    public static function undeleteUser($persona_id){
+        usuario::undeleteUserSQL($persona_id);
+        return back();
             }
 
-    /* public function updateUser(Request $request,usuario $usuario, persona $persona){
-        $persona->persona_nombre1           = $request->persona_nombre1;
-        $persona->persona_nombre2           = $request->persona_nombre2;
-        $persona->persona_apellido1         = $request->persona_apellido1;
-        $persona->persona_apellido2         = $request->persona_apellido2;
-        $persona->persona_tipodocumento     = $request->persona_tipodocumento;
-        $persona->persona_dni               = $request->persona_dni;
-        $persona->persona_telefono          = $request->persona_telefono;
-        $persona->persona_fnacimiento       = $request->persona_fnacimiento;
-        $persona->persona_ciudadnacimiento  = $request->persona_ciudadnacimiento;
-        $persona->pais_codigo               = $request->pais_codigo;
-        $persona->departamento_codigo       = $request->departamento_codigo;
-        $persona->ciudad_codigo             = $request->ciudad_codigo;
-        $persona->persona_direccion         = $request->persona_direccion;
 
-        $persona-> save();
-
-        $usuario->usuario_username      = $request->usuario_username;
-        $usuario->usuario_pass          = $request->usuario_pass;
-        $usuario->perfil_id             = $request->perfil_id;
-        $usuario-> save();
-     } */
 }
