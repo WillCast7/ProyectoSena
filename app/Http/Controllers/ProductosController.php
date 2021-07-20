@@ -17,7 +17,8 @@ class ProductosController extends Controller{
         $paises=usuario::getCountry();
         $deptos=usuario::getDepartments();
         $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        $sex=usuario::getSex();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas', 'sex'));
 
     }
     public function newp(Request $request){

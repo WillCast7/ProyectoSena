@@ -20,16 +20,6 @@ class productos extends Model
                                     pr.producto_stock,
                                     pr.producto_descripcion,
                                     cat.categoria_nombre,
-                                    mr.marca_nombre
-                                FROM productos pr
-                                INNER JOIN categorias cat
-                                    ON cat.categoria_id=pr.categoria_id
-                                INNER JOIN marcas mr
-                                    ON mr.marca_id=pr.marca_id
-                                /* SELECT pr.producto_nombre,
-                                    pr.producto_stock,
-                                    pr.producto_descripcion,
-                                    cat.categoria_nombre,
                                     mr.marca_nombre,
                                     pri.imagen_url
                                 FROM productos pr
@@ -37,9 +27,8 @@ class productos extends Model
                                     ON cat.categoria_id=pr.categoria_id
                                 INNER JOIN marcas mr
                                     ON mr.marca_id=pr.marca_id
-                                INNER JOIN productos_imagenes pri
-                                    ON pri.producto_id=pr.producto_id
-                                ORDER BY cat.categoria_nombre */"
+                                LEFT JOIN productos_imagenes pri
+                                    ON pri.producto_id=pr.producto_id"
                             );
         return $productos;
 
