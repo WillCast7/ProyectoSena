@@ -25,10 +25,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 //Vistas principales
-Route::get('/dashboard/usuarios',   [UsuarioController::class, 'getUsuarios'     ]);
-Route::get('/dashboard/productos',  [ProductosController::class, 'getProductos'  ]);
-Route::get('/dashboard/marcas',     [MarcasController::class, 'getMarcas'        ]);
-Route::get('/dashboard/categorias', [CategoriasController::class, 'getCategorias']);
+Route::get('/dashboard/usuarios',   [UsuarioController::class, 'getUsuarios'     ])->name('Usuarios');
+Route::get('/dashboard/productos',  [ProductosController::class, 'getProductos'  ])->name('Productos');
+Route::get('/dashboard/marcas',     [MarcasController::class, 'getMarcas'        ])->name('Marcas');
+Route::get('/dashboard/categorias', [CategoriasController::class, 'getCategorias'])->name('Categorias');
 
 //borrar
 Route::get('/dashboard/usuarios/delete/{persona_id}', [UsuarioController::class, 'deleteUser'])->name('u.delete');
