@@ -1,7 +1,5 @@
 @extends('dashboard.base')
-
 @section('contenido')
-<?php   print_r($usuario);?>
 @foreach($usuario as $item)
 @endforeach
  <!-- Actualizar usuario-->

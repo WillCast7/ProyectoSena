@@ -30,7 +30,9 @@ Route::get('/dashboard/productos',  [ProductosController::class, 'getProductos' 
 Route::get('/dashboard/marcas',     [MarcasController::class, 'getMarcas'        ]);
 Route::get('/dashboard/categorias', [CategoriasController::class, 'getCategorias']);
 
-
+//borrar
+Route::get('/dashboard/usuarios/delete/{persona_id}', [UsuarioController::class, 'deleteUser'])->name('u.delete');
+Route::get('/dashboard/usuarios/undelete/{persona_id}', [UsuarioController::class, 'undeleteUser'])->name('u.undelete');
 //login
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 

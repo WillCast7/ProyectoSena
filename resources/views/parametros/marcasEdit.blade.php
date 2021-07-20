@@ -6,7 +6,7 @@
 @endforeach
 
 <!-- actualizar marca -->
-<div class="form" id="updateUser" tabindex="-1" role="dialog">
+<div class="form" id="updateMar" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,6 +19,11 @@
                 <button type="button" class="close" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                </div>
+            <div class="modal-body">
+                <form action="{{route('u.update', $item->persona_id)}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
             </div>
          
                     <div class="modal-footer">

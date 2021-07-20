@@ -56,7 +56,7 @@ class usuario extends Model
          return $usuarios;
 
          }
-    public static function getUsuarioSQL($persona_id){ //Obtener usuarios
+    public static function getUsuarioSQL($persona_id){ //Obtener usuario
 
         $sql="SELECT per.persona_id,
                      per.persona_nombre1,
@@ -133,67 +133,27 @@ class usuario extends Model
         return $city;
      }
 
-    public static function getUserIDSQL($persona){//obtener usuario por id
-        $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
-                                                per.persona_nombre1,
-                                                per.persona_nombre2,
-                                                per.persona_apellido1,
-                                                per.persona_apellido2,
-                                                per.persona_tipodocumento,
-                                                pc.nombre_largo_parametro,
-                                                pai.pais_nombre,
-                                                dep.departamento_nombre,
-                                                ciu.ciudad_nombre,
-                                                per.persona_dni,
-                                                per.persona_telefono,
-                                                per.persona_estado,
-                                                per.pais_codigo,
-                                                per.departamento_codigo,
-                                                per.ciudad_codigo,
-                                                per.persona_direccion,
-                                                per.persona_fnacimiento,
-                                                per.persona_ciudadnacimiento,
-                                                per.persona_avatar,
-                                                per.persona_email,
-                                                per.usuario_username,
-                                                per.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
-                                            FROM personas per
-                                            INNER JOIN parametros_configuracion pc
-                                                ON per.persona_tipodocumento=pc.id_parametro
-                                            INNER JOIN perfiles p
-                                                ON p.perfil_id=per.perfil_id
-                                            INNER JOIN paises pai
-                                                ON pai.pais_codigo=per.pais_codigo
-                                            INNER JOIN departamentos dep
-                                                ON dep.departamento_codigo=per.departamento_codigo
-                                            INNER JOIN ciudades ciu
-                                                ON ciu.ciudad_codigo=per.ciudad_codigo
-                                            WHERE per.persona_estado=1");
-        return $usuarios;
 
-     }
-    public static function updatePersonSQL($usuario){//actualizar personas
-        $sql="UPDATE personas p
-                    INNER JOIN usuarios u
-                        ON u.persona_id=p.persona_id
-                            SET p.persona_nombre1=?,
-                                p.persona_nombre2=?,
-                                p.persona_apellido1=?,
-                                p.persona_apellido2=?,
-                                p.persona_tipodocumento=?,
-                                p.persona_dni=?,
-                                p.persona_telefono=?,
-                                p.persona_fnacimiento=?,
-                                p.persona_ciudadnacimiento=?,
-                                p.pais_codigo=?,
-                                p.departamento_codigo=?,
-                                p.ciudad_codigo=?,
-                                p.persona_direccion=?,
-                                p.persona_email=?,
-                                usuario_username=?,
-                                usuario_pass=?,
-                                perfil_id=?
-                        WHERE p.persona_id=?";
+    public static function updatePersonSQL($usuario, $persona_id){//actualizar personas
+         $sql="UPDATE personas
+                    SET persona_nombre1=?,
+                        persona_nombre2=?,
+                        persona_apellido1=?,
+                        persona_apellido2=?,
+                        persona_tipodocumento=?,
+                        persona_dni=?,
+                        persona_telefono=?,
+                        persona_fnacimiento=?,
+                        persona_ciudadnacimiento=?,
+                        pais_codigo=?,
+                        departamento_codigo=?,
+                        ciudad_codigo=?,
+                        persona_direccion=?,
+                        persona_email=?,
+                        usuario_username=?,
+                        usuario_pass=?,
+                        perfil_id=?
+                WHERE persona_id=?";
         DB::select($sql,array($usuario->persona_nombre1,
                                 $usuario->persona_nombre2,
                                 $usuario->persona_apellido1,
@@ -210,10 +170,23 @@ class usuario extends Model
                                 $usuario->persona_email,
                                 $usuario->usuario_username,
                                 $usuario->usuario_pass,
-                                $usuario->usuario_perfil_id));
-     }
-    public function deleteUser($persona_id){
+                                $usuario->perfil_id,
+                                $persona_id));
 
+     }
+
+    public static function deleteUserSQL($persona_id){
+        $sql="UPDATE personas
+                    SET persona_estado=0
+                WHERE persona_id=?";
+        DB::select($sql,array($persona_id));
+     }
+
+    public static function undeleteUserSQL($persona_id){
+        $sql="UPDATE personas
+                    SET persona_estado=1
+                WHERE persona_id=?";
+        DB::select($sql,array($persona_id));
      }
 
 
