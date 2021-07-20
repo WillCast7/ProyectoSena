@@ -99,12 +99,12 @@ class UsuarioController extends Controller{
     public function deleteUser($persona_id){
         usuario::deleteUserSQL($persona_id);
         return back();
-            }
+        }
 
     public static function undeleteUser($persona_id){
         usuario::undeleteUserSQL($persona_id);
         return back();
-            }
+        }
 
 
 }

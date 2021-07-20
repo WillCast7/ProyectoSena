@@ -17,6 +17,7 @@ class productos extends Model
     public static function getProductosSQL(){ //Obtener usuarios
 
         $productos=DB::select("SELECT pr.producto_nombre,
+                                    pr.producto_id,
                                     pr.producto_stock,
                                     pr.producto_descripcion,
                                     cat.categoria_nombre,
@@ -33,7 +34,7 @@ class productos extends Model
         return $productos;
 
      }
-    public static function getUsuarioSQL($producto_id){ //Obtener usuario
+    public static function getProductoSQL($producto_id){ //Obtener usuario
 
         $sql="SELECT pr.producto_nombre,
                         pr.producto_stock,
@@ -53,17 +54,17 @@ class productos extends Model
                 $producto=DB::select($sql,array($producto_id));
         return $producto;
      }
-    public static function deleteUserSQL($persona_id){//Desactivar usuario
-        $sql="UPDATE personas
-                    SET persona_estado=0
-                WHERE persona_id=?";
-        DB::select($sql,array($persona_id));
+    public static function deleteProductoSQL($producto_id){//Desactivar usuario
+        $sql="UPDATE productos
+                    SET producto_estado=0
+                WHERE producto_id=?";
+        DB::select($sql,array($producto_id));
      }
 
-    public static function undeleteUserSQL($persona_id){//Activar usuario
-        $sql="UPDATE personas
-                    SET persona_estado=1
-                WHERE persona_id=?";
-        DB::select($sql,array($persona_id));
+    public static function undeleteProductoSQL($producto_id){//Activar usuario
+        $sql="UPDATE productos
+                    SET producto_estado=1
+                WHERE producto_id=?";
+        DB::select($sql,array($producto_id));
      }
 }

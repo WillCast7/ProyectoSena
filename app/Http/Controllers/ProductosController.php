@@ -36,4 +36,13 @@ class ProductosController extends Controller{
 
         return back();
      }
+    public function deleteProducto($producto_id){
+        productos::deleteProductoSQL($producto_id);
+        return back();
+        }
+
+    public static function undeleteProducto($producto_id){
+        productos::undeleteProductoSQL($producto_id);
+        return back();
+        }
 }

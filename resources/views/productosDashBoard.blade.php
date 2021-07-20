@@ -42,14 +42,14 @@
                 <tr>
                     <td>
                         <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                        <a href="{{route('p.edit' $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
+                        <a href="{{route('p.edit', $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
 
                     </td>
                     <td>
-                        @if($items->persona_estado == 1)
-                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
+                        @if($producto->producto_estado == 1)
+                                    <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}">Activo</i> </a>
                             @else
-                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
+                                    <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}">Inactivo</i> </a>
                         @endif
 
                     </td>
