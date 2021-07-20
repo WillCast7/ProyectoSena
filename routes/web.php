@@ -46,3 +46,5 @@ Route::put('/dashboard/usuarios/updateUser/{persona_id}',[UsuarioController::cla
 Route::get('/ecomerce', function () {
     return view('ecomerce');
 });
+
+Route::get('estadoPersona','UsuarioController@uptadeEstadoUs')->name('uptadeEstadoUs');

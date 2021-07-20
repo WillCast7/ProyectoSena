@@ -221,4 +221,13 @@ class usuario extends Model
                 WHERE persona_id=?";
         DB::select($sql,array($usuario->usuario_username, $usuario->usuario_pass, $usuario->usuario_perfil_id, $usuario->persona_id));
      }
+
+
+
+
+
+     
+
+
 }
+ 
