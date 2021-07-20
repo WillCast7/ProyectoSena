@@ -57,7 +57,7 @@ class usuario extends Model
         return $usuarios;
 
      }
-    public static function getUsuario($persona_id){ //Obtener usuarios
+    public static function getUsuarioSQL($persona_id){ //Obtener usuarios
 
         $sql="SELECT per.persona_id,
                      per.persona_nombre1,
@@ -102,33 +102,33 @@ class usuario extends Model
      }
 
 
-    public static function getRol(){ //Obtener roles
+    public static function getRolSQL(){ //Obtener roles
         $roles=DB::select("SELECT perfil_id, perfil_nombre, perfil_descripcion
                     FROM perfiles
                     WHERE estado=1");
                     return $roles;
         }
-    public static function getTipoDoc(){ //Obtener Tipo dee documento
+    public static function getTipoDocSQL(){ //Obtener Tipo dee documento
         $tipodoc=DB::select("SELECT id_parametro, nombre_parametro, nombre_largo_parametro
                                 FROM parametros_configuracion
                                 WHERE estado=1
                                 AND clave_parametro='tipodocumento'");
                     return $tipodoc;
         }
-    public static function getCountry(){ //Obtener Paises
+    public static function getCountrySQL(){ //Obtener Paises
         $paises=DB::select("SELECT pais_codigo, pais_nombre
                                 FROM paises
                                 WHERE pais_estado=1");
                     return $paises;
      }
-    public static function getDepartments(){ //Obtener Municipios
+    public static function getDepartmentsSQL(){ //Obtener Municipios
         $deptos=DB::select("SELECT departamento_codigo, departamento_nombre
                             FROM departamentos
                             WHERE departamento_estado=1
                             AND pais_codigo='CO'");
         return $deptos;
      }
-    public static function getCity(){ //Obtener ciudades
+    public static function getCitySQL(){ //Obtener ciudades
         $city=DB::select("SELECT ciudad_codigo, ciudad_nombre
                         FROM ciudades
                         WHERE ciudad_estado=1
@@ -136,7 +136,7 @@ class usuario extends Model
         return $city;
      }
 
-    public static function getUserID($persona){//obtener usuario por id
+    public static function getUserIDSQL($persona){//obtener usuario por id
         $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
                                                 per.persona_nombre1,
                                                 per.persona_nombre2,
@@ -176,7 +176,7 @@ class usuario extends Model
         return $usuarios;
 
      }
-    public static function updatePerson($usuario){//actualizar personas
+    public static function updatePersonSQL($usuario){//actualizar personas
         $sql="UPDATE personas p
                     INNER JOIN usuarios u
                         ON u.persona_id=p.persona_id

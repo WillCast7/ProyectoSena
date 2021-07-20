@@ -14,20 +14,6 @@ class productos extends Model
     public $incrementing=true;
     public $timestamps=false;
 
-    public function listado(){
-
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
-
-     }
     public static function getProductosSQL(){ //Obtener usuarios
 
         $productos=DB::select("SELECT pr.producto_nombre,
@@ -47,19 +33,4 @@ class productos extends Model
         return $productos;
 
      }
-
-        public static function getCat(){ //Obtener Categorias
-            $categoria=DB::select("SELECT categoria_id, categoria_nombre, categoria_padre, categoria_url
-                                        FROM categorias
-                                        WHERE categoria_estado=1");
-            return $categoria;
-        }
-
-        public static function getMarca(){ //Obtener Categorias
-            $marca=DB::select("SELECT marca_id, marca_nombre
-                                FROM marcas
-                                WHERE marca_estado=1");
-            return $marca;
-        }
-
 }

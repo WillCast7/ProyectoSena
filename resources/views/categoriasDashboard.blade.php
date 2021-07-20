@@ -55,10 +55,10 @@
                         @csrf
                         @method('put')
                             <div class="form-group"><!--nombre-->
-                                <input type="text" name="Categoria_nombre" class="form-control" placeholder="Nombre Categoria">
+                                <input type="text" name="categoria_nombre" class="form-control" placeholder="Nombre Categoria">
                             </div>
                             <div class="form-group"><!--nombre-->
-                                <input type="text" name="Categoria_url" class="form-control" placeholder="URL Categoria">
+                                <input type="text" name="categoria_url" class="form-control" placeholder="URL Categoria">
                             </div>
                             <div class="form-group"><!--categoria padre-->
                                 <select name="categoria_padre" id="Categoria" class="form-control">

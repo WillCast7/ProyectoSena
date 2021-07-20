@@ -12,23 +12,23 @@ use Illuminate\Http\Request;
 
 
 class UsuarioController extends Controller{
-    public function listado(){
+    public function getUsuarios(){
 
         $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
+        $roles=usuario::getRolSQL();
+        $tipoDoc=usuario::getTipoDocSQL();
         $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
+        $categorias=categorias::getCategoriasSQL();
+        $marcas=marcas::getMarcasSQL();
+        $paises=usuario::getCountrySQL();
+        $deptos=usuario::getDepartmentsSQL();
+        $city=usuario::getCitySQL();
         return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
 
      }
 
 
-    public function new(Request $request){//Agregar Usuario-Persona
+    public function newUser(Request $request){//Agregar Usuario-Persona
         $usuario = new usuario();
         $persona = new persona();
         $objData=$request->all();
@@ -62,105 +62,14 @@ class UsuarioController extends Controller{
         $usuario->save();
         $usuario_id=$usuario->usuario_id;
 
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
-
-        exit();
+        return back();
 
      }
 
-    public function newp(Request $request){//Agregar Producto
-        $productos = new productos();
-
-
-        $objData=$request->all();
-
-        $productos->producto_nombre              =$objData["producto_nombre"];
-        $productos->producto_referencia          =$objData["producto_referencia"];
-        $productos->producto_precio              =$objData["producto_precio"];
-        $productos->producto_descripcioncorta    =$objData["producto_descripcioncorta"];
-        $productos->producto_descripcion         =$objData["producto_descripcion"];
-        $productos->producto_stock               =$objData["producto_stock"];
-        $productos->categoria_id                 =$objData["categoria_id"];
-        $productos->marca_id                     =$objData["marca_id"];
-        $productos->save();
 
 
 
 
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
-        exit();
-     }
-
-    public function newm(Request $request){//Agregar Marca
-        $marcas = new marcas();
-
-
-        $objData=$request->all();
-
-        $marcas->marca_nombre              =$objData["marca_nombre"];
-        $marcas->marca_estado              =1;
-        $marcas->save();
-
-
-
-
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
-        exit();
-     }
-
-    public function newc(Request $request){//Agregar categorias
-        $categorias = new categorias();
-
-        $objData=$request->all();
-
-        $categorias->categoria_nombre               =$objData["categoria_nombre"];
-        $categorias->categoria_padre                =$objData["categoria_padre"];
-        $categorias->categoria_url                  =$objData["categoria_url"];
-        $categorias->categoria_estado               =1;
-        $categorias->save();
-
-
-
-
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $productos=productos::getProductosSQL();
-        $categorias=productos::getCat();
-        $marcas=productos::getMarca();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
-        exit();
-     }
 
 
     public function deleteu(Request $request){
@@ -171,8 +80,8 @@ class UsuarioController extends Controller{
         return $objData;
      }
     public function editUser($persona_id){
-        $usuario=usuario::getUsuario($persona_id);
-/*         $roles=usuario::getRol();
+        $usuario=usuario::getUsuarioSQL($persona_id);
+        /*         $roles=usuario::getRol();
         $tipoDoc=usuario::getTipoDoc();
         $paises=usuario::getCountry();
         $deptos=usuario::getDepartments();
@@ -180,18 +89,18 @@ class UsuarioController extends Controller{
         /* echo"<pre>";print_r($usuario); */
         return view('parametros.usuarioEdit', compact('usuario'));
      }
-     public static function updateUser(Request $request,$persona_id){
+    public static function updateUser(Request $request,$persona_id){
         $objData=$request->all();
-        usuario::updatePerson($objData);
-    /*     usuario::updateUser($objData1); */
+        usuario::updatePersonSQL($objData);
+       /*     usuario::updateUser($objData1); */
         return view();
-    }
+     }
 
     public function updateUser2(Request $request,$persona_id){
         echo "<pre>";
         print_r($request->all());
         echo $persona_id;
-    }
+     }
 
     /* public function updateUser(Request $request,usuario $usuario, persona $persona){
         $persona->persona_nombre1           = $request->persona_nombre1;
@@ -214,5 +123,5 @@ class UsuarioController extends Controller{
         $usuario->usuario_pass          = $request->usuario_pass;
         $usuario->perfil_id             = $request->perfil_id;
         $usuario-> save();
-    } */
+     } */
 }
