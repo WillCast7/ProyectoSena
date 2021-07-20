@@ -30,9 +30,19 @@ Route::get('/dashboard/productos',  [ProductosController::class, 'getProductos' 
 Route::get('/dashboard/marcas',     [MarcasController::class, 'getMarcas'        ]);
 Route::get('/dashboard/categorias', [CategoriasController::class, 'getCategorias']);
 
-//borrar
-Route::get('/dashboard/usuarios/delete/{persona_id}', [UsuarioController::class, 'deleteUser'])->name('u.delete');
-Route::get('/dashboard/usuarios/undelete/{persona_id}', [UsuarioController::class, 'undeleteUser'])->name('u.undelete');
+//Borrar(activar/desactivar)
+Route::get('/dashboard/usuarios/delete/{persona_id}',       [UsuarioController::class, 'deleteUser'  ])->name('u.delete');
+Route::get('/dashboard/usuarios/undelete/{persona_id}',     [UsuarioController::class, 'undeleteUser'])->name('u.undelete');
+
+Route::get('/dashboard/productos/delete/{producto_id}',     [UsuarioController::class, 'deleteUser'  ])->name('p.delete');
+Route::get('/dashboard/productos/undelete/{producto_id}',   [UsuarioController::class, 'undeleteUser'])->name('p.undelete');
+
+Route::get('/dashboard/marcas/delete/{marca_id}',           [UsuarioController::class, 'deleteUser'  ])->name('m.delete');
+Route::get('/dashboard/marcas/undelete/{marca_id}',         [UsuarioController::class, 'undeleteUser'])->name('m.undelete');
+
+Route::get('/dashboard/categorias/delete/{categoria_id}',   [UsuarioController::class, 'deleteUser'  ])->name('c.delete');
+Route::get('/dashboard/categorias/undelete/{categoria_id}', [UsuarioController::class, 'undeleteUser'])->name('c.undelete');
+
 //login
 Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 
@@ -44,16 +54,12 @@ Route::get('/dashboard/usuarios/create/newCategoria',   [CategoriasController::c
 
 //Editar//
 Route::get('/dashboard/usuarios/edit/{persona_id}', [UsuarioController::class, 'editUser'])->name('u.edit');
-/* Route::put('/dashboard/usuarios/updateUser/{persona_id}',function(Request $request){
-    UsuarioController::updateUser($persona_id,$request);
-})->name('u.update'); */
+
+//Update
 Route::put('/dashboard/usuarios/updateUser/{persona_id}',[UsuarioController::class,'updateUser'])->name('u.update');
-/* Route::put('/dashboard/usuarios/updateUser/{persona_id}', [UsuarioController::class, 'updateUser'])->name('u.update'); */
+
 
 
 Route::get('/ecomerce', function () {
     return view('ecomerce');
 });
-
-/* Route::put('/dashboard/usuarios/deleteUser/{persona_id}',[UsuarioController::class,'deleteUser'])->name('u.update'); */
-/* Route::get('estadoPersona','UsuarioController@uptadeEstadoUs')->name('uptadeEstadoUs'); */

@@ -81,7 +81,14 @@ class UsuarioController extends Controller{
      }
     public function editUser($persona_id){
         $usuario=usuario::getUsuarioSQL($persona_id);
-        return view('parametros.usuarioEdit', compact('usuario'));
+        $roles=usuario::getRolSQL();
+        $tipoDoc=usuario::getTipoDocSQL();
+        $categorias=categorias::getCategoriasSQL();
+        $marcas=marcas::getMarcasSQL();
+        $paises=usuario::getCountrySQL();
+        $deptos=usuario::getDepartmentsSQL();
+        $city=usuario::getCitySQL();
+        return view('parametros.usuarioEdit', compact('usuario', 'roles', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
      }
     public static function updateUser(Request $request,$persona_id){
         $objData=$request->all();

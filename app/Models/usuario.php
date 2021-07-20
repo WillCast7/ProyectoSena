@@ -58,7 +58,7 @@ class usuario extends Model
          }
     public static function getUsuarioSQL($persona_id){ //Obtener usuario
 
-        $sql="SELECT per.persona_id,
+        /* $sql="SELECT per.persona_id,
                      per.persona_nombre1,
                      per.persona_nombre2,
                      per.persona_apellido1,
@@ -92,7 +92,47 @@ class usuario extends Model
                 INNER JOIN ciudades ciu
                     ON ciu.ciudad_codigo=per.ciudad_codigo
                 WHERE per.persona_estado=1
-                AND per.persona_id=?";
+                AND per.persona_id=?"; */
+        $sql="SELECT per.persona_id,
+                     per.persona_nombre1,
+                     per.persona_nombre2,
+                     per.persona_apellido1,
+                     per.persona_apellido2,
+                     per.persona_tipodocumento,
+                     per.persona_dni,
+                     per.persona_telefono,
+                     per.persona_estado,
+                     per.pais_codigo,
+                     per.departamento_codigo,
+                     per.ciudad_codigo,
+                     per.persona_direccion,
+                     per.persona_fnacimiento,
+                     per.persona_ciudadnacimiento,
+                     per.persona_avatar,
+                     per.persona_email,
+                     per.persona_tipodocumento,
+                     per.pais_codigo,
+                     per.usuario_username,
+                     per.usuario_pass,
+                     per.perfil_id,
+                     per.persona_avatar,
+                     pc.nombre_largo_parametro,
+                     p.perfil_nombre,
+                     pai.pais_nombre,
+                     dep.departamento_nombre,
+                     ciu.ciudad_nombre
+                FROM personas per
+                INNER JOIN parametros_configuracion pc
+                    ON pc.id_parametro=per.persona_tipodocumento
+                INNER JOIN perfiles p
+                    ON p.perfil_id=per.perfil_id
+                INNER JOIN paises pai
+                    ON pai.pais_codigo=per.pais_codigo
+                INNER JOIN departamentos dep
+                    ON dep.departamento_codigo=per.departamento_codigo
+                INNER JOIN ciudades ciu
+                    ON ciu.ciudad_codigo=per.ciudad_codigo
+                WHERE per.persona_id=?";
         $usuario = DB::select($sql,array($persona_id));
         return $usuario;
 
@@ -175,14 +215,14 @@ class usuario extends Model
 
      }
 
-    public static function deleteUserSQL($persona_id){
+    public static function deleteUserSQL($persona_id){//Desactivar usuario
         $sql="UPDATE personas
                     SET persona_estado=0
                 WHERE persona_id=?";
         DB::select($sql,array($persona_id));
      }
 
-    public static function undeleteUserSQL($persona_id){
+    public static function undeleteUserSQL($persona_id){//Activar usuario
         $sql="UPDATE personas
                     SET persona_estado=1
                 WHERE persona_id=?";

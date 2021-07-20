@@ -1,9 +1,13 @@
 @extends('dashboard.base')
-
+@section('titulo')
+    Gestion de usuarios
+@endsection
+@section('direccion')
+    usuarios
+@endsection
 @section('contenido')
 
 <!-- Tabla de usuarios -->
-<h5>USUARIOS</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
             <thead class="thead-dark">
@@ -35,13 +39,11 @@
                             </div>
                         </td>
                         <td>
-                            <br>
                               @if($items->persona_estado == 1)
                                     <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
                                 @else
                                     <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
                               @endif
-
                         </td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
