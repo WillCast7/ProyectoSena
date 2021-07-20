@@ -12,18 +12,26 @@ use Illuminate\Http\Request;
 
 
 class UsuarioController extends Controller{
-    public function getUsuarios(){
+    public function getUsuarios(){//obtiene usuarios
 
         $usuarios=usuario::getUsuariosSQL();
         $roles=usuario::getRolSQL();
         $tipoDoc=usuario::getTipoDocSQL();
-        $productos=productos::getProductosSQL();
-        $categorias=categorias::getCategoriasSQL();
-        $marcas=marcas::getMarcasSQL();
         $paises=usuario::getCountrySQL();
         $deptos=usuario::getDepartmentsSQL();
         $city=usuario::getCitySQL();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
+
+     }
+    public function getFormUsuarios(){//obtiene usuarios activos
+
+        $usuarios=usuario::getFormUsuariosSQL();
+        $roles=usuario::getRolSQL();
+        $tipoDoc=usuario::getTipoDocSQL();
+        $paises=usuario::getCountrySQL();
+        $deptos=usuario::getDepartmentsSQL();
+        $city=usuario::getCitySQL();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
 
      }
 
@@ -81,10 +89,14 @@ class UsuarioController extends Controller{
      }
     public function editUser($persona_id){
         $usuario=usuario::getUsuarioSQL($persona_id);
-        return view('parametros.usuarioEdit', compact('usuario'));
+        $roles=usuario::getRolSQL();
+        $tipoDoc=usuario::getTipoDocSQL();
+        $paises=usuario::getCountrySQL();
+        $deptos=usuario::getDepartmentsSQL();
+        $city=usuario::getCitySQL();
+        return view('parametros.usuarioEdit', compact('usuario', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
      }
     public static function updateUser(Request $request,$persona_id){
-        $objData=$request->all();
         usuario::updatePersonSQL($request, $persona_id);
          return redirect('/dashboard/usuarios');
      }
@@ -92,12 +104,12 @@ class UsuarioController extends Controller{
     public function deleteUser($persona_id){
         usuario::deleteUserSQL($persona_id);
         return back();
-            }
+        }
 
     public static function undeleteUser($persona_id){
         usuario::undeleteUserSQL($persona_id);
         return back();
-            }
+        }
 
 
 }

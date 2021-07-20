@@ -3,8 +3,120 @@
     position: fixed;
     height: 100%;
 }
-.iconA{
-font-style: none;
-color: black;
+#Marco1{
+    margin-top: 2%;
+    margin-left: 25%;
+}
+#Marco2{
+    margin-left: 25%;
+}
+#Listado{
+    display: inline-block;
+    margin: 30px;
+    border-radius: 100% 0% 100% 0% / 0% 27% 73% 100%;
+    overflow: visible;
+    margin-left: 0 auto 10px;
+    border: 3px solid #283747;
+    text-align: center;
+    padding-bottom: 70px;
+}
+#imagen-listado{
+    margin-top: 70px;
+    color: black;
+}
+#texto-listado{
+    margin-left: 70px;
+    margin-right: 70px;
+    color: black;
+}
+#Listado:hover{
+    background: #AEB6BF;
+    box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
+    transition-delay: 0.2s;
+    color: black;
+}
+#Marcas{
+    display: inline-block;
+    margin: 30px;
+    border-radius: 0% 100% 0% 100% / 30% 0% 100% 70%;
+    overflow: visible;
+    margin: 0 auto 10px;
+    border: 3px solid #283747;
+    text-align: center;
+    padding-bottom: 70px;
+}
+#imagen-marcas{
+    margin-top: 70px;
+    color: black;
+}
+#texto-marcas{
+    margin-left: 70px;
+    margin-right: 70px;
+    color: black;
+}
+#Marcas:hover{
+    background: #AEB6BF;
+    box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
+    transition-delay: 0.2s;
+    color: black;
+}
+#Categorias{
+    display: inline-block;
+    margin: 30px;
+    border-radius: 0% 100% 0% 100% / 100% 73% 27% 0%;
+    overflow: visible;
+    margin-left: 0 auto 10px;
+    border: 3px solid #283747;
+    text-align: center;
+    padding-bottom: 70px;
+}
+#imagen-categorias{
+    margin-top: 70px;
+    color: black;
+}
+#texto-categorias{
+    margin-left: 60px;
+    margin-right: 60px;
+    color: black;
+}
+#Categorias:hover{
+    background: #AEB6BF;
+    box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
+    transition-delay: 0.2s;
+    color: black;
+}
+#Eccomerce{
+    display: inline-block;
+    margin: 30px;
+    border-radius: 100% 0% 100% 0% / 73% 100% 0% 27%;
+    overflow: visible;
+    margin: 0 auto 10px;
+    border: 3px solid #283747;
+    text-align: center;
+    padding-bottom: 70px;
+}
+#imagen-eccomerce{
+    margin-top: 70px;
+    color: black;
+}
+#texto-eccomerce{
+    margin-left: 60px;
+    margin-right: 60px;
+    color: black;
+}
+#Eccomerce:hover{
+    background: #AEB6BF;
+    box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
+    transition-delay: 0.2s;
+    color: black;
 }
 
+/*Pendiente para ajustar*/
+.title{
+    color: brown;
+}
+
+.HomeDireccion{
+    font-style: none;
+    color: black;
+}

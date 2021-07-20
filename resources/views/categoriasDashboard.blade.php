@@ -29,16 +29,14 @@
                 <td>
                 <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                     <a href="{{route('c.edit', $categoria->categoria_id)}}" > <i class="far fa-edit"></i> </a>
-                    
+
                 </td>
                 <td>
-                            <br>
-                              @if($categoria->categoria_estado == 1)
-                              <button type="button" class="btn btn-sm btn-success">Activa</button>
-                                  @else
-                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
-                              @endif
-
+                    @if($categoria->categoria_estado == 1)
+                        <a class="btn btn-success" href="{{route('c.delete', $categoria->categoria_id)}}">Activo</i> </a>
+                    @else
+                        <a class="btn btn-danger" href="{{route('c.undelete', $categoria->categoria_id)}}">Inactivo</i> </a>
+                    @endif
                         </td>
                 <td>{{$categoria->categoria_nombre}}</td>
                 <td>{{$categoria->categoria_padre}}</td>

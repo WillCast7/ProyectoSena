@@ -21,7 +21,7 @@ class MarcasController extends Controller{
 
         return back();
      }
-     public function editMarca($marca_id){
+    public function editMarca($marca_id){
         $marcas=marcas::getMarcaSQL($marca_id);
         return view('parametros.marcasEdit', compact('marcas'));
 
@@ -36,4 +36,15 @@ class MarcasController extends Controller{
      }
 
     
+     
+    public function deleteMarca($marca_id){
+        marcas::deleteMarcaSQL($marca_id);
+        return back();
+        }
+
+    public static function undeleteMarca($marca_id){
+        marcas::undeleteMarcaSQL($marca_id);
+        return back();
+        }
+
 }

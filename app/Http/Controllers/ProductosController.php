@@ -8,13 +8,31 @@ use App\Models\categorias;
 use Illuminate\Http\Request;
 
 class ProductosController extends Controller{
-    public function getProductos(){
+    public function getProductos(){//obtiene los productos
         $productos=productos::getProductosSQL();
-        $categorias=categorias::getCategoriasSQL();
-        $marcas=marcas::getMarcasSQL();
+        $categorias=categorias::getFormCategoriasSQL();
+        $marcas=marcas::getFormMarcasSQL();
         return view('productosDashboard', compact('productos', 'categorias', 'marcas'));
 
      }
+    public function getFormProductos(){//obtiene los productos activos
+        $productos=productos::getFormProductosSQL();
+        $categorias=categorias::getFormCategoriasSQL();
+        $marcas=marcas::getFormMarcasSQL();
+        return view('productosDashboard', compact('productos', 'categorias', 'marcas'));
+
+     }
+    public function editProducto($producto_id){
+        $productos=productos::getProductoSQL($producto_id);
+        $categorias=categorias::getFormCategoriasSQL();
+        $marcas=marcas::getFormMarcasSQL();
+        return view('parametros.productosEdit', compact('productos', 'categorias', 'marcas'));
+        }
+    public static function updateProducto(Request $request,$producto_id){
+            productos::updateProductoSQL($request, $producto_id);
+             return redirect('/dashboard/productos');
+         }
+
     public function newProducto(Request $request){//Agregar Producto
         $productos = new productos();
 
@@ -36,4 +54,13 @@ class ProductosController extends Controller{
 
         return back();
      }
+    public function deleteProducto($producto_id){
+        productos::deleteProductoSQL($producto_id);
+        return back();
+        }
+
+    public static function undeleteProducto($producto_id){
+        productos::undeleteProductoSQL($producto_id);
+        return back();
+        }
 }
