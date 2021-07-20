@@ -28,24 +28,9 @@ class productos extends Model
                                 INNER JOIN marcas mr
                                     ON mr.marca_id=pr.marca_id
                                 LEFT JOIN productos_imagenes pri
-                                    ON pri.producto_id=pr.producto_id"
-                            );
+                                    ON pri.producto_id=pr.producto_id
+                                WHERE producto_estado=1");
         return $productos;
 
      }
-
-        public static function getCat(){ //Obtener Categorias
-            $categoria=DB::select("SELECT categoria_id, categoria_nombre, categoria_padre, categoria_url
-                                        FROM categorias
-                                        WHERE categoria_estado=1");
-            return $categoria;
-        }
-
-        public static function getMarca(){ //Obtener Categorias
-            $marca=DB::select("SELECT marca_id, marca_nombre
-                                FROM marcas
-                                WHERE marca_estado=1");
-            return $marca;
-        }
-
 }

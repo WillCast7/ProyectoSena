@@ -57,7 +57,7 @@ class usuario extends Model
         return $usuarios;
 
      }
-    public static function getUsuario($persona_id){ //Obtener usuarios
+    public static function getUsuarioSQL($persona_id){ //Obtener usuarios
 
         $sql="SELECT per.persona_id,
                      per.persona_nombre1,
@@ -102,33 +102,33 @@ class usuario extends Model
      }
 
 
-    public static function getRol(){ //Obtener roles
+    public static function getRolSQL(){ //Obtener roles
         $roles=DB::select("SELECT perfil_id, perfil_nombre, perfil_descripcion
                     FROM perfiles
                     WHERE estado=1");
                     return $roles;
         }
-    public static function getTipoDoc(){ //Obtener Tipo dee documento
+    public static function getTipoDocSQL(){ //Obtener Tipo dee documento
         $tipodoc=DB::select("SELECT id_parametro, nombre_parametro, nombre_largo_parametro
                                 FROM parametros_configuracion
                                 WHERE estado=1
                                 AND clave_parametro='tipodocumento'");
                     return $tipodoc;
         }
-    public static function getCountry(){ //Obtener Paises
+    public static function getCountrySQL(){ //Obtener Paises
         $paises=DB::select("SELECT pais_codigo, pais_nombre
                                 FROM paises
                                 WHERE pais_estado=1");
                     return $paises;
      }
-    public static function getDepartments(){ //Obtener Municipios
+    public static function getDepartmentsSQL(){ //Obtener Municipios
         $deptos=DB::select("SELECT departamento_codigo, departamento_nombre
                             FROM departamentos
                             WHERE departamento_estado=1
                             AND pais_codigo='CO'");
         return $deptos;
      }
-    public static function getCity(){ //Obtener ciudades
+    public static function getCitySQL(){ //Obtener ciudades
         $city=DB::select("SELECT ciudad_codigo, ciudad_nombre
                         FROM ciudades
                         WHERE ciudad_estado=1
@@ -136,7 +136,7 @@ class usuario extends Model
         return $city;
      }
 
-    public static function getUserID($persona){//obtener usuario por id
+    public static function getUserIDSQL($persona){//obtener usuario por id
         $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
                                                 per.persona_nombre1,
                                                 per.persona_nombre2,
@@ -176,23 +176,28 @@ class usuario extends Model
         return $usuarios;
 
      }
-    public static function updatePerson($usuario){//actualizar personas
-        $sql="UPDATE personas
-                            SET persona_nombre1=?,
-                                persona_nombre2=?,
-                                persona_apellido1=?,
-                                persona_apellido2=?,
-                                persona_tipodocumento=?,
-                                persona_dni=?,
-                                persona_telefono=?,
-                                persona_fnacimiento=?,
-                                persona_ciudadnacimiento=?,
-                                pais_codigo=?,
-                                departamento_codigo=?,
-                                ciudad_codigo=?,
-                                persona_direccion=?,
-                                persona_email=?
-                    WHERE persona_id=?";
+    public static function updatePersonSQL($usuario){//actualizar personas
+        $sql="UPDATE personas p
+                    INNER JOIN usuarios u
+                        ON u.persona_id=p.persona_id
+                            SET p.persona_nombre1=?,
+                                p.persona_nombre2=?,
+                                p.persona_apellido1=?,
+                                p.persona_apellido2=?,
+                                p.persona_tipodocumento=?,
+                                p.persona_dni=?,
+                                p.persona_telefono=?,
+                                p.persona_fnacimiento=?,
+                                p.persona_ciudadnacimiento=?,
+                                p.pais_codigo=?,
+                                p.departamento_codigo=?,
+                                p.ciudad_codigo=?,
+                                p.persona_direccion=?,
+                                p.persona_email=?,
+                                usuario_username=?,
+                                usuario_pass=?,
+                                perfil_id=?
+                        WHERE p.persona_id=?";
         DB::select($sql,array($usuario->persona_nombre1,
                                 $usuario->persona_nombre2,
                                 $usuario->persona_apellido1,
@@ -207,13 +212,11 @@ class usuario extends Model
                                 $usuario->ciudad_codigo,
                                 $usuario->persona_direccion,
                                 $usuario->persona_email,
-                                $usuario->persona_id,
                                 $usuario->usuario_username,
                                 $usuario->usuario_pass,
-                                $usuario->usuario_perfil_id,
-                                $usuario->persona_id));
+                                $usuario->usuario_perfil_id));
      }
-    public static function updateUser($usuario){//actualizar usuarios
+/*     public static function updateUser($usuario){//actualizar usuarios
         $sql="UPDATE usuarios
                     SET usuario_username=?,
                         usuario_pass=?,
@@ -221,6 +224,7 @@ class usuario extends Model
                 WHERE persona_id=?";
         DB::select($sql,array($usuario->usuario_username, $usuario->usuario_pass, $usuario->usuario_perfil_id, $usuario->persona_id));
      }
+<<<<<<< HEAD
 
 
 
@@ -229,5 +233,8 @@ class usuario extends Model
      
 
 
+=======
+} */
+>>>>>>> f2a68cc0c6f355220471a2d25f92c7ce8309da70
 }
  
