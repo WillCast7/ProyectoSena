@@ -14,6 +14,20 @@ class productos extends Model
     public $incrementing=true;
     public $timestamps=false;
 
+    public function listado(){
+
+        $usuarios=usuario::getUsuariosSQL();
+        $roles=usuario::getRol();
+        $tipoDoc=usuario::getTipoDoc();
+        $productos=productos::getProductosSQL();
+        $categorias=productos::getCat();
+        $marcas=productos::getMarca();
+        $paises=usuario::getCountry();
+        $deptos=usuario::getDepartments();
+        $city=usuario::getCity();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+
+     }
     public static function getProductosSQL(){ //Obtener usuarios
 
         $productos=DB::select("SELECT pr.producto_nombre,
@@ -28,8 +42,8 @@ class productos extends Model
                                 INNER JOIN marcas mr
                                     ON mr.marca_id=pr.marca_id
                                 LEFT JOIN productos_imagenes pri
-                                    ON pri.producto_id=pr.producto_id"
-                            );
+                                    ON pri.producto_id=pr.producto_id
+                                WHERE producto_estado=1");
         return $productos;
 
      }

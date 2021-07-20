@@ -182,9 +182,8 @@ class UsuarioController extends Controller{
      }
      public static function updateUser(Request $request,$persona_id){
         $objData=$request->all();
-        $objData1=$objData;
         usuario::updatePerson($objData);
-        usuario::updateUser($objData1);
+    /*     usuario::updateUser($objData1); */
         return view();
     }
 

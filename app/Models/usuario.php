@@ -177,22 +177,27 @@ class usuario extends Model
 
      }
     public static function updatePerson($usuario){//actualizar personas
-        $sql="UPDATE personas
-                            SET persona_nombre1=?,
-                                persona_nombre2=?,
-                                persona_apellido1=?,
-                                persona_apellido2=?,
-                                persona_tipodocumento=?,
-                                persona_dni=?,
-                                persona_telefono=?,
-                                persona_fnacimiento=?,
-                                persona_ciudadnacimiento=?,
-                                pais_codigo=?,
-                                departamento_codigo=?,
-                                ciudad_codigo=?,
-                                persona_direccion=?,
-                                persona_email=?
-                    WHERE persona_id=?";
+        $sql="UPDATE personas p
+                    INNER JOIN usuarios u
+                        ON u.persona_id=p.persona_id
+                            SET p.persona_nombre1=?,
+                                p.persona_nombre2=?,
+                                p.persona_apellido1=?,
+                                p.persona_apellido2=?,
+                                p.persona_tipodocumento=?,
+                                p.persona_dni=?,
+                                p.persona_telefono=?,
+                                p.persona_fnacimiento=?,
+                                p.persona_ciudadnacimiento=?,
+                                p.pais_codigo=?,
+                                p.departamento_codigo=?,
+                                p.ciudad_codigo=?,
+                                p.persona_direccion=?,
+                                p.persona_email=?,
+                                usuario_username=?,
+                                usuario_pass=?,
+                                perfil_id=?
+                        WHERE p.persona_id=?";
         DB::select($sql,array($usuario->persona_nombre1,
                                 $usuario->persona_nombre2,
                                 $usuario->persona_apellido1,
@@ -207,13 +212,11 @@ class usuario extends Model
                                 $usuario->ciudad_codigo,
                                 $usuario->persona_direccion,
                                 $usuario->persona_email,
-                                $usuario->persona_id,
                                 $usuario->usuario_username,
                                 $usuario->usuario_pass,
-                                $usuario->usuario_perfil_id,
-                                $usuario->persona_id));
+                                $usuario->usuario_perfil_id));
      }
-    public static function updateUser($usuario){//actualizar usuarios
+/*     public static function updateUser($usuario){//actualizar usuarios
         $sql="UPDATE usuarios
                     SET usuario_username=?,
                         usuario_pass=?,
@@ -221,4 +224,5 @@ class usuario extends Model
                 WHERE persona_id=?";
         DB::select($sql,array($usuario->usuario_username, $usuario->usuario_pass, $usuario->usuario_perfil_id, $usuario->persona_id));
      }
+} */
 }
