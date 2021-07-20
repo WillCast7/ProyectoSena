@@ -20,6 +20,9 @@
                     <th>
                         CORREO ELECTRONICO
                     </th>
+                    <th>
+                        ESTADO 
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +32,17 @@
                         <a data-toggle="modal" data-target="#viewUser"> <i class="far fa-eye"></i> </a>
                         <a data-toggle="modal"   data-target="#editUser"> <i class="far fa-edit"></i> </a>
                         <a href="/" ><i class="fas fa-trash-alt"></i></a>
+
+                        <br>
+                        <label class="switch">
+
+                      <span class="slider round"></span>
+
+
+
+                        </label>
+
+
                     </td>
                     <td>{{$items->nombres}}</td>
                     <td>{{$items->persona_telefono}}</td>
@@ -41,41 +55,6 @@
 
 
 <!-- editar usuarios -->
-<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="title">EDITAR USUARIO</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                
-            <div class="form-group"><!--Primer nombre-->
-                            <input type="text" name="persona_nombre1" value="{{  $items->persona_nombre1 }}" class="form-control" placeholder="Primer nombre">
-                            @error('persona_nombre1')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
-                        </div>
-               
-
-                    <div class="modal-footer">
-                    <input type="submit" value="Guardar Cambios " class="btn btn-primary">
-            </form>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    <br>
-    <hr/>
-    <br>
-    <br>
-</div>
-
-
-
 
 
 
