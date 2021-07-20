@@ -216,25 +216,6 @@ class usuario extends Model
                                 $usuario->usuario_pass,
                                 $usuario->usuario_perfil_id));
      }
-/*     public static function updateUser($usuario){//actualizar usuarios
-        $sql="UPDATE usuarios
-                    SET usuario_username=?,
-                        usuario_pass=?,
-                        perfil_id=?
-                WHERE persona_id=?";
-        DB::select($sql,array($usuario->usuario_username, $usuario->usuario_pass, $usuario->usuario_perfil_id, $usuario->persona_id));
-     }
-<<<<<<< HEAD
 
-
-
-
-
-     
-
-
-=======
-} */
->>>>>>> f2a68cc0c6f355220471a2d25f92c7ce8309da70
 }
  

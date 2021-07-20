@@ -41,9 +41,9 @@
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
-                        <td id="resp{{ persona->persona_id }}">
+                        <td id="resp{{ $items->persona_id }}">
                           <br>
-                            @if($persona->persona_estado == 1)
+                            @if($items->persona_estado == 1)
                             <button type="button" class="btn btn-sm btn-success">Activa</button>
                                 @else
                             <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
@@ -53,7 +53,7 @@
                         <td>
                             <br>
                             <label class="switch">
-                                <input data-id="{{ $persona->persona_id }}" class="mi_checkbox" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $persona->persona_estado ? 'checked' : '' }}>
+                                <input data-id="{{ $items->persona_id }}" class="mi_checkbox" type="checkbox" data-onstyle="success" data-offstyle="danger" data-toggle="toggle" data-on="Active" data-off="InActive" {{ $items->persona_estado ? 'checked' : '' }}>
                                 <span class="slider round"></span>
                             </label>
                         </td>
