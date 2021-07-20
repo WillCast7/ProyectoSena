@@ -3,3 +3,102 @@
     position: fixed;
     height: 100%;
 }
+#Marco{
+    margin-top: 10%;
+    margin-left: 20%;
+}
+#Listado{
+    display: inline-block;
+    margin: 10px;
+    border-radius: 20px;
+    overflow: visible;
+    margin: 0 auto 10px;
+    border: 3px solid #74bae6;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#imagen-listado{
+    margin-top: 30px;
+}
+#texto-listado{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+#Listado:hover{
+    background: #D6EAF8;
+    box-shadow: 0 0 3px #D6EAF8, 0 0 10px #D6EAF8, 0 0 10px #D6EAF8;
+    transition-delay: 0.2s;
+}
+
+
+#Marcas{
+    display: inline-block;
+    margin: 10px;
+    border-radius: 20px;
+    overflow: visible;
+    margin: 0 auto 10px;
+    border: 3px solid #74bae6;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#imagen-marcas{
+    margin-top: 30px;
+}
+#texto-marcas{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+#Marcas:hover{
+    background: #D6EAF8;
+    box-shadow: 0 0 3px #D6EAF8, 0 0 10px #D6EAF8, 0 0 10px #D6EAF8;
+    transition-delay: 0.2s;
+}
+
+
+#Categorias{
+    display: inline-block;
+    margin: 10px;
+    border-radius: 20px;
+    overflow: visible;
+    margin: 0 auto 10px;
+    border: 3px solid #74bae6;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#imagen-categorias{
+    margin-top: 30px;
+}
+#texto-categorias{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#Categorias:hover{
+    background: #D6EAF8;
+    box-shadow: 0 0 3px #D6EAF8, 0 0 10px #D6EAF8, 0 0 10px #D6EAF8;
+    transition-delay: 0.2s;
+}
+
+
+
+#Eccomerce{
+    display: inline-block;
+    margin: 10px;
+    border-radius: 20px;
+    overflow: visible;
+    margin: 0 auto 10px;
+    border: 3px solid #74bae6;
+    text-align: center;
+    padding-bottom: 30px;
+}
+#imagen-eccomerce{
+    margin-top: 30px;
+}
+#texto-eccomerce{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#Eccomerce:hover{
+    background: #D6EAF8;
+    box-shadow: 0 0 3px #D6EAF8, 0 0 10px #D6EAF8, 0 0 10px #D6EAF8;
+    transition-delay: 0.2s;
+}
