@@ -5,15 +5,12 @@
 }
 #Marco1{
     margin-top: 2%;
-    margin-left: 25%;
-}
-#Marco2{
-    margin-left: 25%;
+    margin-left: 7%;
 }
 #Listado{
     display: inline-block;
     margin: 30px;
-    border-radius: 100% 0% 100% 0% / 0% 27% 73% 100%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin-left: 0 auto 10px;
     border: 3px solid #283747;
@@ -38,7 +35,7 @@
 #Marcas{
     display: inline-block;
     margin: 30px;
-    border-radius: 0% 100% 0% 100% / 30% 0% 100% 70%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin: 0 auto 10px;
     border: 3px solid #283747;
@@ -63,7 +60,7 @@
 #Categorias{
     display: inline-block;
     margin: 30px;
-    border-radius: 0% 100% 0% 100% / 100% 73% 27% 0%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin-left: 0 auto 10px;
     border: 3px solid #283747;
@@ -88,7 +85,7 @@
 #Eccomerce{
     display: inline-block;
     margin: 30px;
-    border-radius: 100% 0% 100% 0% / 73% 100% 0% 27%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin: 0 auto 10px;
     border: 3px solid #283747;
