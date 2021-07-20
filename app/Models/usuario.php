@@ -56,43 +56,49 @@ class usuario extends Model
          return $usuarios;
 
          }
-    public static function getUsuarioSQL($persona_id){ //Obtener usuario
+    public static function getFormUsuariosSQL(){ //Obtener usuarios activos
 
-        /* $sql="SELECT per.persona_id,
-                     per.persona_nombre1,
-                     per.persona_nombre2,
-                     per.persona_apellido1,
-                     per.persona_apellido2,
-                     per.persona_tipodocumento,
-                     per.persona_dni,
-                     per.persona_telefono,
-                     per.persona_estado,
-                     per.pais_codigo,
-                     per.departamento_codigo,
-                     per.ciudad_codigo,
-                     per.persona_direccion,
-                     per.persona_fnacimiento,
-                     per.persona_ciudadnacimiento,
-                     per.persona_avatar,
-                     per.persona_email,
-                     pc.nombre_largo_parametro,
-                     pai.pais_nombre,
-                     dep.departamento_nombre,
-                     ciu.ciudad_nombre,
-                     per.usuario_username, per.usuario_pass,p.perfil_id, p.perfil_nombre, per.persona_avatar
-                FROM personas per
-                INNER JOIN parametros_configuracion pc
-                    ON per.persona_tipodocumento=pc.id_parametro
-                INNER JOIN perfiles p
-                    ON p.perfil_id=per.perfil_id
-                INNER JOIN paises pai
-                    ON pai.pais_codigo=per.pais_codigo
-                INNER JOIN departamentos dep
-                    ON dep.departamento_codigo=per.departamento_codigo
-                INNER JOIN ciudades ciu
-                    ON ciu.ciudad_codigo=per.ciudad_codigo
-                WHERE per.persona_estado=1
-                AND per.persona_id=?"; */
+        $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
+                                            per.persona_id,
+                                            per.persona_nombre1,
+                                            per.persona_nombre2,
+                                            per.persona_apellido1,
+                                            per.persona_apellido2,
+                                            per.persona_tipodocumento,
+                                            pc.nombre_largo_parametro,
+                                            pai.pais_nombre,
+                                            dep.departamento_nombre,
+                                            ciu.ciudad_nombre,
+                                            per.persona_dni,
+                                            per.persona_telefono,
+                                            per.persona_estado,
+                                            per.pais_codigo,
+                                            per.departamento_codigo,
+                                            per.ciudad_codigo,
+                                            per.persona_direccion,
+                                            per.persona_fnacimiento,
+                                            per.persona_ciudadnacimiento,
+                                            per.persona_avatar,
+                                            per.persona_email,
+                                            per.usuario_username,
+                                            per.usuario_pass,
+                                            p.perfil_id, p.perfil_nombre, per.persona_avatar
+                                        FROM personas per
+                                        INNER JOIN parametros_configuracion pc
+                                            ON per.persona_tipodocumento=pc.id_parametro
+                                        INNER JOIN perfiles p
+                                            ON p.perfil_id=per.perfil_id
+                                        INNER JOIN paises pai
+                                            ON pai.pais_codigo=per.pais_codigo
+                                        INNER JOIN departamentos dep
+                                            ON dep.departamento_codigo=per.departamento_codigo
+                                        INNER JOIN ciudades ciu
+                                            ON ciu.ciudad_codigo=per.ciudad_codigo
+                                        WHERE per.persona_estado=1");
+         return $usuarios;
+
+         }
+    public static function getUsuarioSQL($persona_id){ //Obtener usuario
         $sql="SELECT per.persona_id,
                      per.persona_nombre1,
                      per.persona_nombre2,

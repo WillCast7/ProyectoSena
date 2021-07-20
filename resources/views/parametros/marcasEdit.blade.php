@@ -1,39 +1,32 @@
 @extends('dashboard.base')
 
 @section('contenido')
-<?php   print_r($marcas);?>
 @foreach($marcas as $marca)
 @endforeach
-
+@section('titulo')
+    Edicion de la marca -{{$marca->marca_nombre}}-
+@endsection
+@section('direccion')
+    usuarios / editar marca
+@endsection
 <!-- actualizar marca -->
-<div class="form" id="updateMar" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="title">ACTUALIZAR MARCA</h5>
-                <br>
-                <label for="">{{$marca->nombre_marcas}}</label>
-                <div style="padding-left:25%">
-                    <label style="float: right">{{$item->persona_id}}</label>
-                </div>
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-            <div class="modal-body">
-                <form action="{{route('u.update', $item->persona_id)}}" method="post" enctype="multipart/form-data">
+
+            <div>
+                <form action="{{route('m.update', $marca->marca_id)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-            </div>
-         
-                    <div class="modal-footer">
-                        <input type="submit" value="Guardar" class="btn btn-primary">
+                    <div class="form-group"><!--Nombre-->
+                        <input type="text" name="marca_nombre" class="form-control" value="{{$marca->marca_nombre}}">
                     </div>
-                </form>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
+                    <div class="form-group" ><!--avatar-->
+                        <input type="file" class="form-control-file" name="marca_imagen" accept="image/*">
+                        <br>
+                        @error('persona_avatar')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                        <input type="button" class="btn btn-danger" onclick="history.back()" name="Volver" value="Volver">
+                    </form>
+                    </div>
 @endsection

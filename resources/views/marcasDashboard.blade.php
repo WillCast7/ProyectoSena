@@ -26,18 +26,17 @@
                 <td>
                     <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
                     <a href="{{route('m.edit', $marca->marca_id)}}" > <i class="far fa-edit"></i> </a>
-                    
+
                 </td>
                 <td>
-                            <br>
-                              @if($marca->marca_estado == 1)
-                              <button type="button" class="btn btn-sm btn-success">Activa</button>
-                                  @else
-                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
-                              @endif
-
-                        </td>
+                    @if($marca->marca_estado == 1)
+                        <a class="btn btn-success" href="{{route('m.delete', $marca->marca_id)}}">Activo</i> </a>
+                    @else
+                        <a class="btn btn-danger" href="{{route('m.undelete', $marca->marca_id)}}">Inactivo</i> </a>
+                    @endif
+                </td>
                 <td>{{$marca->marca_nombre}}</td>
+                <td>{{$marca->marca_imagen}}</td>
             </tr>
             @endforeach
         </tbody>

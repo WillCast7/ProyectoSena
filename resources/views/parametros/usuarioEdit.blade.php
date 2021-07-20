@@ -3,7 +3,7 @@
 @foreach($usuario as $item)
 @endforeach
 @section('titulo')
-    Edicion del usuario {{$item->persona_nombre1}} {{$item->persona_apellido1}}
+    Edicion del usuario -{{$item->persona_nombre1}} {{$item->persona_apellido1}}-
 @endsection
 @section('direccion')
     usuarios / editar usuario
@@ -124,6 +124,7 @@
                     </div>
                     <div class="modal-footer">
                         <input type="submit" value="Guardar" class="btn btn-primary">
+                        <input type="button" class="btn btn-danger" onclick="history.back()" name="Volver" value="Volver">
                     </div>
                 </form>
 

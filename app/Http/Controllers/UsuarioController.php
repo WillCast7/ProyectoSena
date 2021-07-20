@@ -12,18 +12,26 @@ use Illuminate\Http\Request;
 
 
 class UsuarioController extends Controller{
-    public function getUsuarios(){
+    public function getUsuarios(){//obtiene usuarios
 
         $usuarios=usuario::getUsuariosSQL();
         $roles=usuario::getRolSQL();
         $tipoDoc=usuario::getTipoDocSQL();
-        $productos=productos::getProductosSQL();
-        $categorias=categorias::getCategoriasSQL();
-        $marcas=marcas::getMarcasSQL();
         $paises=usuario::getCountrySQL();
         $deptos=usuario::getDepartmentsSQL();
         $city=usuario::getCitySQL();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'productos', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
+
+     }
+    public function getFormUsuarios(){//obtiene usuarios activos
+
+        $usuarios=usuario::getFormUsuariosSQL();
+        $roles=usuario::getRolSQL();
+        $tipoDoc=usuario::getTipoDocSQL();
+        $paises=usuario::getCountrySQL();
+        $deptos=usuario::getDepartmentsSQL();
+        $city=usuario::getCitySQL();
+        return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
 
      }
 
@@ -83,15 +91,12 @@ class UsuarioController extends Controller{
         $usuario=usuario::getUsuarioSQL($persona_id);
         $roles=usuario::getRolSQL();
         $tipoDoc=usuario::getTipoDocSQL();
-        $categorias=categorias::getCategoriasSQL();
-        $marcas=marcas::getMarcasSQL();
         $paises=usuario::getCountrySQL();
         $deptos=usuario::getDepartmentsSQL();
         $city=usuario::getCitySQL();
-        return view('parametros.usuarioEdit', compact('usuario', 'roles', 'categorias', 'tipoDoc', 'paises', 'deptos', 'city', 'marcas'));
+        return view('parametros.usuarioEdit', compact('usuario', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
      }
     public static function updateUser(Request $request,$persona_id){
-        $objData=$request->all();
         usuario::updatePersonSQL($request, $persona_id);
          return redirect('/dashboard/usuarios');
      }
