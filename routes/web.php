@@ -51,6 +51,9 @@ Route::get('/dashboard/marcas/edit/{marca_id}', [MarcasController::class, 'editM
     UsuarioController::updateUser($persona_id,$request);
 })->name('u.update'); */
 Route::put('/dashboard/usuarios/updateUser/{persona_id}',[UsuarioController::class,'updateUser'])->name('u.update');
+Route::put('/dashboard/productos/updateProducto/{producto_id}',[ProductosController::class,'updateProducto'])->name('p.update');
+Route::put('/dashboard/categorias/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
+Route::put('/dashboard/marcas/updateMarca/{marca_id}',[MarcasController::class,'updateMarca'])->name('m.update');
 /* Route::put('/dashboard/usuarios/updateUser/{persona_id}', [UsuarioController::class, 'updateUser'])->name('u.update'); */
 
 

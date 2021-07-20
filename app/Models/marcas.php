@@ -25,5 +25,14 @@ class marcas extends Model
                             FROM marcas
                             ");
         return $marca;
+
+     }
+       public static function updateMarcaSQL($marcas, $marca_id){//actualizar marcas
+         $sql="UPDATE marcas 
+                    SET marca_nombre, marca_estado
+                WHERE marca_id=?";
+        DB::select($sql,array($marcas->marca_nombre,
+                                $marcas->marca_id));
+
      }
 }
