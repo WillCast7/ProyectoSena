@@ -194,6 +194,21 @@ class UsuarioController extends Controller{
         echo $persona_id;
     }
 
+    public function uptadeEstadoUs(Request $request){
+            
+            $personaUptade = persona::findOrFail($request->persona_id)->update(['persona_estado' => $request->persona_estado]); 
+
+            if($request->persona_estado == 0)  {
+                $newEstado = '<br> <button type="button" class="btn btn-sm btn-danger">Inactiva</button>';
+            }else{
+                $newEstado ='<br> <button type="button" class="btn btn-sm btn-success">Activa</button>';
+            }
+
+            return response()->json(['var'=>''.$newEstado.'']);
+            
+
+            }
+
     /* public function updateUser(Request $request,usuario $usuario, persona $persona){
         $persona->persona_nombre1           = $request->persona_nombre1;
         $persona->persona_nombre2           = $request->persona_nombre2;
