@@ -51,7 +51,8 @@
                   </div>
                 </div>
 
-                <form action="" class="row" method="POST" role="form">
+                <form action="/checkout" class="row" method="POST" role="form">
+                    @csrf;
                   <div class="col-12">
                     <div class="page-header">
                       <h4>Dirección de envío</h4>
@@ -59,24 +60,24 @@
                   </div>
                   <div class="form-group col-md-6 col-12">
                     <label for="">Primer Nombre</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" name="firstname" required class="form-control">
                   </div>
                   <div class="form-group col-md-6 col-12">
                     <label for="">Apellidos</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" name="lastname" required class="form-control">
                   </div>
                   <div class="form-group col-md-6 col-12">
                     <label for="">Email</label>
-                    <input type="email" class="form-control" id="">
+                    <input type="email" name="email" required class="form-control">
                   </div>
                   <div class="form-group col-md-6 col-12">
                     <label for="">Teléfono</label>
-                    <input type="text" class="form-control" id="">
+                    <input type="text" name="phone" class="form-control">
                   </div>
                   <!-- <div class="form-group col-md-6 col-12"> -->
-                  <div class="form-group col-md-6 col-12">
+                  <div class="form-group col-md-6 col-12 mb-3">
                     <label for="departamento">Departamento</label>
-                    <select class="input-group form-select" id="departamento">
+                    <select required class="input-group form-select" name="department" id="departamento" onchange="getCiudades(this)">
                         <option value="">Seleccione..</option>
                         @foreach($departamentos as $departamento)
                             <option value="{{$departamento->codigo}}">{{$departamento->nombre}}</option>
@@ -94,13 +95,10 @@
                     </div> -->
                   </div>
                     <!-- ciudad -->
-                  <div class="form-group col-md-6 col-12">
-                    <label for="departamento">Ciudad</label>
-                    <select class="input-group form-select" id="departamento">
+                  <div class="form-group col-md-6 col-12 mb-3">
+                    <label for="ciudades">Ciudad</label>
+                    <select required class="input-group form-select" name="city" id="ciudadesCheckout" >
                         <option value="">Seleccione..</option>
-                        @foreach($ciudades as $ciudad)
-                            <option value="{{$departamento->codigo}}">{{$departamento->nombre}}</option>
-                        @endforeach
                     </select>
                   </div>
 
@@ -120,13 +118,13 @@
                   </div> -->
                   <div class="form-group col-md-6 col-12">
                     <label for="">Dirección</label>
-                    <input type="text" class="form-control" id="">
+                    <input required type="text" name="address" class="form-control">
                   </div>
                   <div class="form-group col-md-6 col-12">
-                    <label for="">Zip Code</label>
-                    <input type="text" class="form-control" id="">
+                    <label for="">Codigo ZIP</label>
+                    <input required type="text" name="zipcode" class="form-control">
                   </div>
-                  <div class="col-12">
+                  <!-- <div class="col-12">
                     <div class="page-header">
                       <h4>Select A Shipping Method</h4>
                     </div>
@@ -152,12 +150,13 @@
                       <label for="checkbox4"><span></span>UPS 1 Business Day - $35.00</label>
                       <small>Orders placed by 9:45AM PST will ship same day.</small>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-12">
                     <div class="well well-lg clearfix">
-                      <ul class="pager">
-                        <li class="next "><a class="btn btn-primary btn-default float-right" href="checkout-step-2.html">Continue <i class="fa fa-angle-right"></i></a></li>
-                      </ul>
+                        <button class="btn btn-primary float-right" type="submit">Continuar</button>
+                      <!-- <ul class="pager">
+                        <li class="next "><a class="btn btn-primary btn-default float-right" href="checkout-step-2.html">Continuar <i class="fa fa-angle-right"></i></a></li>
+                      </ul> -->
                     </div>
                   </div>
                 </form>
@@ -165,24 +164,24 @@
             </div>
             <div class="col-md-4">
               <div class="summery-box">
-                <h4>Order Summery</h4>
-                <p>Excepteur sint occaecat cupidat non proi dent sunt.officia.</p>
+                <h4>Resumen</h4>
+                <p>El resumen de tu orden es.</p>
                 <ul class="list-unstyled">
                   <li class="d-flex justify-content-between">
                     <span class="tag">Subtotal</span>
-                    <span class="val">$237.00</span>
+                    <span class="val">$ {{number_format($subtotal,2,',','.')}}</span>
                   </li>
-                  <li class="d-flex justify-content-between">
+                  <!-- <li class="d-flex justify-content-between">
                     <span class="tag">Shipping & Handling</span>
                     <span class="val">$12.00 </span>
-                  </li>
+                  </li> -->
                   <li class="d-flex justify-content-between">
-                    <span class="tag">Estimated Tax</span>
+                    <span class="tag">Impuesto</span>
                     <span class="val">$0.00 </span>
                   </li>
                   <li class="d-flex justify-content-between">
                     <span class="tag">Total</span>
-                    <span class="val">USD  $249.00 </span>
+                    <span class="val">$ {{number_format($total,2,',','.')}} </span>
                   </li>
                 </ul>
               </div>

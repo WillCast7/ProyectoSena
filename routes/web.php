@@ -62,6 +62,7 @@ Route::get('categorias/{categoria}',[CategoriesController::class,'shopCategories
 Route::get('categorias/{categoria}/{subcategoria}',[CategoriesController::class,'shopCategories']);
 Route::get('cart',[CartController::class,'getCart']);
 Route::get('checkout',[CheckoutController::class,'oneStep']);
+Route::post('checkout',[CheckoutController::class,'twoStep']);
 
 
 Route::get('/',function(){ return view('home');})->name("ecommerce");

@@ -17,7 +17,7 @@ class GeneralController extends Controller{
             case 'getCity':
                 $department = $request->input('departamento');
                 $cities = GeneralModel::getCities($department);
-                return $cities;
+                return $this->returnData($cities);
             break;
             default:
             break;
@@ -25,14 +25,34 @@ class GeneralController extends Controller{
     }
 
 
-    public function returnData($data){
-
+    public function returnData($data,$msg='Se produjo un error'){
+        if(sizeof($data) > 0){
+            $data = array(
+                'success'=> true,
+                'data'  => $data
+            );
+        }else{
+            $data = array(
+                'success'=> false,
+                'message'=> $msg
+            );
+        }
+        return json_encode($data);
     }
 
 
     public static function getDepartments($country='CO'){
         $departments = GeneralModel::getDepartments($country);
         return $departments;
+    }
+
+    public static function getDepartmentById($department){
+        $department = GeneralModel::getDepartmentById($department);
+        return $department;
+    }
+    public static function getCityById($city){
+        $department = GeneralModel::getCityById($city);
+        return $department;
     }
 
 

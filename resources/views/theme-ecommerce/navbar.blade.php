@@ -50,8 +50,8 @@
                 <li class="nav-item dropdown ">
                     <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta</a>
                     <ul class="dropdown-menu dropdown-menu-right">
-                    <li class=""><a href="account-dashboard.html">Dashboard</a></li>
-                    <li class=""><a href="account-profile.html">Profile</a></li>
+                    <!-- <li class=""><a href="account-dashboard.html">Dashboard</a></li> -->
+                    <li class=""><a href="account-profile.html">Perfil</a></li>
                     <!-- <li class=""><a href="account-all-orders.html">All Orders</a></li> -->
                     <!-- <li class=""><a href="account-single-order.html">Single Order</a></li> -->
                     <!-- <li class=""><a href="account-wishlist.html">Wishlist</a></li> -->

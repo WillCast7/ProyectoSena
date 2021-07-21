@@ -108,8 +108,6 @@ function updateCart(){
         let route = '/cart?'+url.toString();
         let routeCheckout = '/checkout?'+url.toString();
 
-        document.querySelector('#checkout-bold-btn').href = routeCheckout;
-
         htmlCart += `<li>
                         <div class="btn-group" role="group" aria-label="...">
                             <a type="button" class="btn btn-default" href="${route}">Carrito</a>
@@ -117,6 +115,11 @@ function updateCart(){
                     </li>`;
         document.querySelector('#cartShop').innerHTML = htmlCart;
         document.querySelector('#items-cart').innerHTML = '<i class="fa fa-shopping-cart"></i>'+items;
+
+        if(document.contains(document.querySelector('#checkout-bold-btn'))){
+            let anchor = document.querySelector('#checkout-bold-btn');
+            anchor.href = routeCheckout;
+        }
 
     }
 }
@@ -197,4 +200,48 @@ function updateCartCantities(){
         url.append('cantidades',JSON.stringify(cantidades));
         window.location.href= window.location.pathname+"?"+url.toString();
     }
+}
+
+
+// funciones de checkout
+
+function getCiudades(e){
+    let departamento = e.value;
+    getApiService('/general',{
+        action: 'getCity',
+        departamento
+    })
+    .then(response=>response.json())
+    .then(data=>{
+        if(data.success){
+            options = "<option value=''>Seleccione..</option>";
+            datos = data.data;
+            datos.forEach(item=>{
+                options += `<option value="${item.codigo}">${item.nombre}</option>`;
+            })
+            document.querySelector('#ciudadesCheckout').innerHTML = options;
+        }else{ 
+            alert('Se produjo un error al consultar las ciudades');
+        }
+    })
+    .catch(error=>console.log(error));
+    // console.log(e.targetElement);
+}
+
+
+
+function getApiService(url,params){
+    header = {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json'
+        }
+    }
+    let queryStirng = (new URLSearchParams(params).toString() != "") ? "?"+new URLSearchParams(params).toString():"";
+    let urlString = url+queryStirng;
+    return fetch(urlString,header);
+}
+
+function back(){
+    window.history.back();
 }
