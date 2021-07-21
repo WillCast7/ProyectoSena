@@ -98,6 +98,13 @@
                         <div class="form-group"><!--nombre-->
                             <input type="text" name="marca_nombre" class="form-control" placeholder="Nombre Marca">
                         </div>
+                        <div class="form-group" ><!--avatar-->
+                            <input type="file" class="form-control-file" name="marca_imagen" accept="image/*">
+                            <br>
+                            @error('marca_imagen')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
                         <div class="modal-footer">
                             <input type="submit" value="Guardar" class="btn btn-primary">
                 </form>

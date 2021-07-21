@@ -14,8 +14,9 @@ class MarcasController extends Controller{
         $marcas = new marcas();
 
         $objData=$request->all();
-
+        //echo"<pre>"; print_r($objData);
         $marcas->marca_nombre              =$objData["marca_nombre"];
+        $marcas->marca_imagen              =$objData["marca_imagen"];
         $marcas->marca_estado              =1;
         $marcas->save();
 
@@ -35,8 +36,8 @@ class MarcasController extends Controller{
 
      }
 
-    
-     
+
+
     public function deleteMarca($marca_id){
         marcas::deleteMarcaSQL($marca_id);
         return back();
