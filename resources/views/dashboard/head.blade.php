@@ -15,4 +15,8 @@
     <link rel="stylesheet" href="{{asset('resourcesDashboard/dist/css/app.css')}}">
     <!--jquery para el select dinamico-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- CSS datatables -->
+    <link rel="stylesheet" href="{{asset('https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css')}}">
   </head>

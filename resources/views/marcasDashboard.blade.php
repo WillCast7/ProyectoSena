@@ -8,7 +8,7 @@
 @section('contenido')
 {{-- Tabla de Marcas --}}
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
-    <table class="table table-bordered table-striped mb-0">
+    <table id="tablita" class="table table-striped table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th style="width: 200px">
