@@ -1,105 +1,164 @@
+<<<<<<< HEAD
 #Marco1{
     margin-top: 2%;
     margin-left: 25%;
+=======
+.AsideElement{
+    display: flex;
+    position: fixed;
+    height: 100%;
 }
-#Marco2{
-    margin-left: 25%;
+#Marco1{/* Este es el marco de los 4 modulos */
+    margin-left: 8%;
+>>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
 }
-#Listado{
+#Listado{/* Este es el marco del modulo listado */
     display: inline-block;
     margin: 30px;
-    border-radius: 100% 0% 100% 0% / 0% 27% 73% 100%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin-left: 0 auto 10px;
     border: 3px solid #283747;
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 }
-#imagen-listado{
-    margin-top: 70px;
+#imagen-listado{/* Este es el div del icono listado */
+    margin-top: 50px;
     color: black;
 }
-#texto-listado{
-    margin-left: 70px;
-    margin-right: 70px;
+#imagen-listado{/* Esta es la primera parte del zoom del icono listado */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-listado:hover{/* Esta es la segunda parte del zoom del icono listado */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-listado{/* Esta es el texto del modulo listado */
+    margin-left: 50px;
+    margin-right: 50px;
     color: black;
 }
-#Listado:hover{
+#Listado:hover{/* Esta es el cambio de color del modulo listado */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
-    color: black;
+    color: black;    
 }
-#Marcas{
+#Marcas{/* Este es el marco del modulo marcas */
     display: inline-block;
     margin: 30px;
-    border-radius: 0% 100% 0% 100% / 30% 0% 100% 70%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin: 0 auto 10px;
     border: 3px solid #283747;
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 }
-#imagen-marcas{
-    margin-top: 70px;
+#imagen-marcas{/* Este es el div del icono marcas */
+    margin-top: 50px;
     color: black;
 }
-#texto-marcas{
-    margin-left: 70px;
-    margin-right: 70px;
+#imagen-marcas{/* Esta es la primera parte del zoom del icono marcas */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-marcas:hover{/* Esta es la segunda parte del zoom del icono marcas */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-marcas{/* Esta es el texto del modulo marcas */
+    margin-left: 50px;
+    margin-right: 50px;
     color: black;
 }
-#Marcas:hover{
+#Marcas:hover{/* Esta es el cambio de color del modulo marcas */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
     color: black;
 }
-#Categorias{
+#Categorias{/* Este es el marco del modulo Categorias */
     display: inline-block;
     margin: 30px;
-    border-radius: 0% 100% 0% 100% / 100% 73% 27% 0%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin-left: 0 auto 10px;
     border: 3px solid #283747;
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 }
-#imagen-categorias{
-    margin-top: 70px;
+#imagen-categorias{/* Este es el div del icono categorias */
+    margin-top: 50px;
     color: black;
 }
-#texto-categorias{
-    margin-left: 60px;
-    margin-right: 60px;
+#imagen-categorias{/* Esta es la primera parte del zoom del icono categorias */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-categorias:hover{/* Esta es la segunda parte del zoom del icono categorias */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-categorias{/* Esta es el texto del modulo categorias */
+    margin-left: 40px;
+    margin-right: 40px;
     color: black;
 }
-#Categorias:hover{
+#Categorias:hover{/* Esta es el cambio de color del modulo categorias */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
     color: black;
 }
-#Eccomerce{
+#Eccomerce{/* Este es el marco del modulo eccomerce */
     display: inline-block;
     margin: 30px;
-    border-radius: 100% 0% 100% 0% / 73% 100% 0% 27%;
+    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin: 0 auto 10px;
     border: 3px solid #283747;
     text-align: center;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 }
-#imagen-eccomerce{
-    margin-top: 70px;
+#imagen-eccomerce{/* Este es el div del icono eccomerce */
+    margin-top: 50px;
     color: black;
 }
-#texto-eccomerce{
-    margin-left: 60px;
-    margin-right: 60px;
+#imagen-eccomerce{/* Esta es la primera parte del zoom del icono eccomerce */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-eccomerce:hover{/* Esta es la segunda parte del zoom del icono eccomerce */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-eccomerce{/* Esta es el texto del modulo eccomerce */
+    margin-left: 40px;
+    margin-right: 40px;
     color: black;
 }
-#Eccomerce:hover{
+#Eccomerce:hover{/* Esta es el cambio de color del modulo eccomerce */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
@@ -107,11 +166,17 @@
 }
 
 /*Pendiente para ajustar*/
-.title{
-    color: brown;
+.titulo{
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
 }
-
 .HomeDireccion{
     font-style: none;
     color: black;
 }
+#Titulo-Dashboard{/* Div referente al texto y posición externa */
+    font-family: sans-serif;
+    text-align: center;
+    padding: 3%;
+}    

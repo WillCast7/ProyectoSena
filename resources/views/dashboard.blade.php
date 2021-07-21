@@ -1,4 +1,4 @@
-@extends('dashboard.base')
+@extends('dashboard.base')      
 @section('contenido')
 <div>
     <ul>
@@ -15,8 +15,6 @@
                     <span id="texto-marcas">Marcas</span>
                 </div>
             </a>
-        </div>
-        <div id="Marco2">
             <a href="{{route('Categorias')}}">
                 <div id="Categorias">
                     <div id="imagen-categorias"><i class="fas fa-angle-double-down"></i></div>
@@ -33,3 +31,8 @@
     </ul>
 </div>
 @endsection
+@section('titulo')
+@section('titulo')
+    MODULOS
+@endsection
+@endsection            

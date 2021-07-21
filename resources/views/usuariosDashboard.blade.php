@@ -1,6 +1,6 @@
 @extends('dashboard.base')
 @section('titulo')
-    Gestion de usuarios
+    GESTIÓN DE USUARIOS
 @endsection
 @section('direccion')
     usuarios
@@ -12,7 +12,7 @@
         <table class="table table-bordered table-striped mb-0">
             <thead class="thead-dark">
                 <tr>
-                    <th>
+                    <th style="width: 200px">
                         ACCIONES
                     </th>
                     <th>
@@ -24,6 +24,9 @@
                     <th>
                         CORREO ELECTRONICO
                     </th>
+                    <th>
+                        PERFIL  
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +34,7 @@
                     <tr>
                         <td>
                             <div class="incons">
+<<<<<<< HEAD
                                 <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""> Ver </a>
                                 <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}">Editar</a>
 
@@ -39,11 +43,23 @@
                                 @else
                                     <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
                                 @endif
+=======
+                                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
+                                <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
+                              @if($items->persona_estado == 1)
+                                    <a class="btn btn-outline-success" href="{{route('u.delete', $items->persona_id)}}"><i class="fas fa-signal"></i></a>
+                                @else
+                                    <a class="btn btn-outline-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</a>
+                              @endif
+>>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
                             </div>
                         </td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
+                        <td>
+                            
+                        </td>
 
 
                     </tr>
@@ -98,18 +114,23 @@
                     <thead style= "background-color:slategray;color:white; font-weight :bold;" >
                         <tr class="success">
                             <th>Telefono Usuario</th>
-                            <th>Correo Electronico</th>
-                            <th>Numero de Pase</th>
-                            <th>Perfil </th>
+                            <th>Tipo Documento</th>
+                            <th>DNI </th>
+                            <th>Direccion</th>
+                            <th>nacimiento</th>
+                            <th>Ciudad Nacimiento</th>
 
                         </tr>
                     </thead>
                 <tbody>
                     <tr class="danger">
                         <td>{{$items->persona_telefono}}</td>
-                        <td>{{$items->usuario_username}}</td>
-                        <td>{{$items->usuario_pass}}</td>
-                        <td>{{$items->perfil_nombre}}</td>
+                        <td>{{$items->persona_tipodocumento}}</td>
+                        <td>{{$items->persona_dni}}</td>
+                        <td>{{$items->persona_direccion}}</td>
+                        <td>{{$items->persona_fnacimiento}}</td>
+                        <td>{{$items->persona_ciudadnacimiento}}</td>
+
                     </tr>
                 </tbody>
             </table>

@@ -15,6 +15,10 @@
     usuarios / editar marca
 @endsection
 <!-- actualizar marca -->
+<<<<<<< HEAD
+=======
+
+>>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
             <div>
                 <form action="{{route('m.update', $marca->marca_id)}}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -29,8 +33,15 @@
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
+<<<<<<< HEAD
                     <input type="submit" value="Guardar" class="btn btn-primary">
                     <input type="button" class="btn btn-danger" onclick="history.back()" name="Volver" value="Volver">
                 </form>
             </div>
+=======
+                        <input type="submit" value="Guardar" class="btn btn-primary">
+                        <input type="button" class="btn btn-danger" onclick="history.back()" name="Volver" value="Volver">
+                    </form>
+                    </div>
+>>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
 @endsection
