@@ -16,6 +16,9 @@
                         ACCIONES
                     </th>
                     <th>
+                        DNI 
+                    </th>
+                    <th>
                         NOMBRE COMPLETO
                     </th>
                     <th>
@@ -43,6 +46,7 @@
                               @endif
                             </div>
                         </td>
+                        <td>{{items->persona_dni}}</td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
