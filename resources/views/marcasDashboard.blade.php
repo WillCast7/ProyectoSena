@@ -93,9 +93,11 @@
                     @csrf
                     @method('put')
                         <div class="form-group"><!--nombre-->
+                        <label for="marca_nombre">Nombre de la marca</label>
                             <input type="text" name="marca_nombre" class="form-control" placeholder="Nombre Marca">
                         </div>
                         <div class="form-group" ><!--avatar-->
+                             <label for="marca_imagen">Imagen de la marca</label>
                             <input type="file" class="form-control-file" name="marca_imagen" accept="image/*">
                             <br>
                             @error('marca_imagen')
