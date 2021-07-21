@@ -32,7 +32,7 @@
 </div>
 @endsection
 @section('titulo')
-<div id="Titulo-Dashboard">
-    <h1>MODULOS DEL DASHBOARD</h1>
-</div>
+@section('titulo')
+    MODULOS
+@endsection
 @endsection            
