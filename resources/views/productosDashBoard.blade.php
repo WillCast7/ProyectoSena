@@ -1,7 +1,12 @@
 @extends('dashboard.base')
 @section('contenido')
+@section('titulo')
+    Gestion de Productos
+@endsection
+@section('direccion')
+    productos
+@endsection
 {{-- Tabla de productos --}}
-<h5>PRODUCTOS</h5>
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-bordered table-striped mb-0">
             <thead class="thead-dark">
@@ -37,18 +42,17 @@
                 <tr>
                     <td>
                         <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                        <a href="{{route('p.edit' $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
-                        
+                        <a href="{{route('p.edit', $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
+
                     </td>
                     <td>
-                            <br>
-                              @if($producto->producto_estado == 1)
-                              <button type="button" class="btn btn-sm btn-success">Activa</button>
-                                  @else
-                              <button type="button" class="btn btn-sm btn-danger">Inactiva</button>
-                              @endif
+                        @if($producto->producto_estado == 1)
+                                    <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}">Activo</i> </a>
+                            @else
+                                    <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}">Inactivo</i> </a>
+                        @endif
 
-                        </td>
+                    </td>
                     <td>{{$producto->producto_nombre}}</td>
                     <td>{{$producto->producto_stock}}</td>
                     <td>{{$producto->producto_descripcion}}</td>

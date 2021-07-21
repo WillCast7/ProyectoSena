@@ -107,3 +107,13 @@
     transition-delay: 0.2s;
     color: black;
 }
+
+/*Pendiente para ajustar*/
+.title{
+    color: brown;
+}
+
+.HomeDireccion{
+    font-style: none;
+    color: black;
+}

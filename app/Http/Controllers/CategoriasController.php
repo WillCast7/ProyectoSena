@@ -9,10 +9,25 @@ use App\Models\categorias;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller{
-    public function getCategorias(){
+    public function getCategorias(){//Trae las categorias
         $categorias=categorias::getCategoriasSQL();
         return view('categoriasDashboard', compact('categorias'));
         }
+    public function getFormCategorias(){//Trae las categorias Activas
+        $categorias=categorias::getFormCategoriasSQL();
+        return view('categoriasDashboard', compact('categorias'));
+        }
+
+    public function editCategoria($categoria_id){
+            $categorias=categorias::getcategoriaSQL($categoria_id);
+            $cate=categorias::getFormcategoriasSQL();
+            return view('parametros.categoriasEdit', compact('categorias', 'cate'));
+        }
+
+    public static function updateCategoria(Request $request,$categoria_id){
+            categorias::updateCategoriaSQL($request, $categoria_id);
+             return redirect('/dashboard/categorias');
+         }
 
     public function newCategoria(Request $request){//Agregar categorias
         $categorias = new categorias();
@@ -27,4 +42,14 @@ class CategoriasController extends Controller{
 
         return back();
      }
+
+    public function deleteCategoria($categoria_id){
+        categorias::deleteCategoriaSQL($categoria_id);
+        return back();
+        }
+
+    public static function undeleteCategoria($categoria_id){
+        categorias::undeleteCategoriaSQL($categoria_id);
+        return back();
+        }
 }

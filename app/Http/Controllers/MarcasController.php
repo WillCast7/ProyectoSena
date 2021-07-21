@@ -14,23 +14,38 @@ class MarcasController extends Controller{
         $marcas = new marcas();
 
         $objData=$request->all();
-
+        //echo"<pre>"; print_r($objData);
         $marcas->marca_nombre              =$objData["marca_nombre"];
+        $marcas->marca_imagen              =$objData["marca_imagen"];
         $marcas->marca_estado              =1;
         $marcas->save();
 
         return back();
      }
-     public function editMarca($marca_id){
+    public function editMarca($marca_id){
         $marcas=marcas::getMarcaSQL($marca_id);
-        /*         $roles=usuario::getRol();
-        $tipoDoc=usuario::getTipoDoc();
-        $paises=usuario::getCountry();
-        $deptos=usuario::getDepartments();
-        $city=usuario::getCity(); */
-        /* echo"<pre>";print_r($usuario); */
         return view('parametros.marcasEdit', compact('marcas'));
+
      }
 
-    
+     public function updateMarca(Request $request,$marca_id){
+      $objData=$request->all();
+      marcas::updateMarcaSQL($request, $marca_id);
+       return redirect('/dashboard/marcas');
+
+
+     }
+
+
+
+    public function deleteMarca($marca_id){
+        marcas::deleteMarcaSQL($marca_id);
+        return back();
+        }
+
+    public static function undeleteMarca($marca_id){
+        marcas::undeleteMarcaSQL($marca_id);
+        return back();
+        }
+
 }
