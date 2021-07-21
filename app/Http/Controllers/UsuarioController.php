@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller{
     public function getUsuarios(){//obtiene usuarios
-        if(session()->get('rol') == 1){
+        if(session()->get('rol') != null && session()->get('rol') !=4 ){
             $usuarios=usuario::getUsuariosSQL();
             $roles=usuario::getRolSQL();
             $tipoDoc=usuario::getTipoDocSQL();
@@ -39,38 +39,7 @@ class UsuarioController extends Controller{
 
 
     public function newUser(Request $request){//Agregar Usuario-Persona
-/*         $usuario = new usuario(); */
-        $persona = new persona();
-        $objData=$request->all();
 
-        $persona->persona_nombre1          =$objData["persona_nombre1"];
-        $persona->persona_nombre2          =$objData["persona_nombre2"];
-        $persona->persona_apellido1        =$objData["persona_apellido1"];
-        $persona->persona_apellido2        =$objData["persona_apellido2"];
-        $persona->persona_tipodocumento    =$objData["persona_tipodocumento"];
-        $persona->persona_dni              =$objData["persona_dni"];
-        $persona->persona_telefono         =$objData["persona_telefono"];
-        $persona->persona_email            =$objData["persona_email"];
-        $persona->pais_codigo              =$objData["pais_codigo"];
-        $persona->departamento_codigo      =$objData["departamento_codigo"];
-        $persona->ciudad_codigo            =$objData["ciudad_codigo"];
-        $persona->persona_direccion        =$objData["persona_direccion"];
-        $persona->persona_fnacimiento      =$objData["persona_fnacimiento"];
-        $persona->persona_ciudadnacimiento =$objData["persona_ciudadnacimiento"];
-        $persona->persona_avatar           =$objData["persona_avatar"];
-        $persona->persona_estado           =1;
-        $persona->persona_creadopor        =1;
-        $persona->usuario_username          =$objData["usuario_username"];
-        $persona->usuario_pass              =Crypt::encryptString($objData["usuario_pass"]);//para desencriptar Crypt::decryptString()
-        $persona->perfil_id                 =$objData["perfil_id"];
-        $persona->save();
-        $personaId=$persona->persona_id;
-
-
-/*         $usuario->persona_id                =$personaId;
-        $usuario->usuario_estado            =1;
-        $usuario->save();
-        $usuario_id=$usuario->usuario_id; */
 
         return back();
 
@@ -116,9 +85,4 @@ class UsuarioController extends Controller{
         usuario::undeleteUserSQL($persona_id);
         return back();
         }
-
-
-         
-
-
 }
