@@ -10,9 +10,6 @@
                     ACCIONES
                 </th>
                 <th>
-                    ESTADO
-                </th>
-                <th>
                     NOMBRE
                 </th>
                 <th>
@@ -24,11 +21,8 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
-                    <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                    <a href="{{route('m.edit', $marca->marca_id)}}" > <i class="far fa-edit"></i> </a>
-
-                </td>
-                <td>
+                    <a data-toggle="modal" data-target="#viewProduct">VER</a>
+                    <a href="{{route('m.edit', $marca->marca_id)}}">EDITAR</a>
                     @if($marca->marca_estado == 1)
                         <a class="btn btn-success" href="{{route('m.delete', $marca->marca_id)}}">Activo</i> </a>
                     @else
