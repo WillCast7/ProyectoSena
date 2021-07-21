@@ -10,9 +10,9 @@ class ProfileController extends Controller{
     
     public function getProfile(Request $request,$persona_id){
 
-        if( session()->get('persona_id') != null ){
-            echo "<h1>usted inicio sesion</h1>";
-        }
+        // if( session()->get('persona_id') != null ){
+        //     echo "<h1>usted inicio sesion</h1>";
+        // }
 
         // // productos
         $persona = Persona::find($persona_id);

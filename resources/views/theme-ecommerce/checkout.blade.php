@@ -40,22 +40,16 @@
               <div class="innerWrapper clearfix stepsPage">
                 <div class="row progress-wizard" style="border-bottom:0;">
 
-                  <div class="col-4 progress-wizard-step active">
+                  <div class="col-6 progress-wizard-step active">
                     <div class="text-center progress-wizard-stepnum">Método de envío</div>
                     <div class="progress"><div class="progress-bar"></div></div>
-                    <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
+                    <a href="#" class="progress-wizard-dot"></a>
                   </div>
 
-                  <div class="col-4 progress-wizard-step disabled">
+                  <div class="col-6 progress-wizard-step disabled">
                     <div class="text-center progress-wizard-stepnum">Método de pago</div>
                     <div class="progress"><div class="progress-bar"></div></div>
-                    <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
-                  </div>
-
-                  <div class="col-4 progress-wizard-step disabled">
-                    <div class="text-center progress-wizard-stepnum">Revisión</div>
-                    <div class="progress"><div class="progress-bar"></div></div>
-                    <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
+                    <a href="#" class="progress-wizard-dot"></a>
                   </div>
                 </div>
 
