@@ -7,7 +7,7 @@ use App\Models\persona;
 use App\Models\productos;
 use App\Models\marcas;
 use App\Models\categorias;
-
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 
 
@@ -37,7 +37,7 @@ class UsuarioController extends Controller{
 
 
     public function newUser(Request $request){//Agregar Usuario-Persona
-        $usuario = new usuario();
+/*         $usuario = new usuario(); */
         $persona = new persona();
         $objData=$request->all();
 
@@ -58,17 +58,17 @@ class UsuarioController extends Controller{
         $persona->persona_avatar           =$objData["persona_avatar"];
         $persona->persona_estado           =1;
         $persona->persona_creadopor        =1;
+        $persona->usuario_username          =$objData["usuario_username"];
+        $persona->usuario_pass              =Crypt::encryptString($objData["usuario_pass"]);//para desencriptar Crypt::decryptString()
+        $persona->perfil_id                 =$objData["perfil_id"];
         $persona->save();
         $personaId=$persona->persona_id;
 
 
-        $usuario->usuario_username          =$objData["usuario_username"];
-        $usuario->usuario_pass              =$objData["usuario_pass"];
-        $usuario->perfil_id                 =$objData["perfil_id"];
-        $usuario->persona_id                =$personaId;
+/*         $usuario->persona_id                =$personaId;
         $usuario->usuario_estado            =1;
         $usuario->save();
-        $usuario_id=$usuario->usuario_id;
+        $usuario_id=$usuario->usuario_id; */
 
         return back();
 

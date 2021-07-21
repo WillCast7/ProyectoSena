@@ -64,7 +64,7 @@
         </table>
     </div>
 
-<!-- vistas producto  -->
+{{-- <!-- vistas producto  -->
     <div class="modal fade" id="viewProduct" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -95,7 +95,7 @@
         </div>
       </div>
         <br>
-    </div>
+    </div> --}}
     <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>
         AGREGAR PRODUCTO
