@@ -56,6 +56,17 @@ Route::get('/dashboard/usuarios/create/newCategoria',   [CategoriasController::c
 Route::get('/dashboard/usuarios/edit/{persona_id}',     [UsuarioController::class, 'editUser'        ])->name('u.edit');
 Route::get('/dashboard/productos/edit/{producto_id}',   [ProductosController::class, 'editProducto'  ])->name('p.edit');
 Route::get('/dashboard/categorias/edit/{categoria_id}', [CategoriasController::class, 'editCategoria'])->name('c.edit');
+<<<<<<< HEAD
+Route::get('/dashboard/marcas/edit/{marca_id}', [MarcasController::class, 'editMarca'])->name('m.edit');
+/* Route::put('/dashboard/usuarios/updateUser/{persona_id}',function(Request $request){
+    UsuarioController::updateUser($persona_id,$request);
+})->name('u.update'); */
+Route::put('/dashboard/usuarios/updateUser/{persona_id}',[UsuarioController::class,'updateUser'])->name('u.update');
+Route::put('/dashboard/productos/updateProducto/{producto_id}',[ProductosController::class,'updateProducto'])->name('p.update');
+Route::put('/dashboard/categorias/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
+Route::put('/dashboard/marcas/updateMarca/{marca_id}',[MarcasController::class,'updateMarca'])->name('m.update');
+/* Route::put('/dashboard/usuarios/updateUser/{persona_id}', [UsuarioController::class, 'updateUser'])->name('u.update'); */
+=======
 Route::get('/dashboard/marcas/edit/{marca_id}',         [MarcasController::class, 'editMarca'        ])->name('m.edit');
 
 //Update
@@ -64,6 +75,7 @@ Route::put('/dashboard/usuarios/updateProducto/{producto_id}',  [ProductosContro
 Route::put('/dashboard/usuarios/updateMarca/{marca_id}',        [MarcasController::class,'updateMarca'        ])->name('m.update');
 Route::put('/dashboard/usuarios/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
 
+>>>>>>> 7d08a466edb7f033ea53882529d2dcb6f7f69835
 
 
 Route::get('/ecomerce', function () {
