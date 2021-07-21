@@ -1,14 +1,14 @@
 @extends('dashboard.base')
 @section('titulo')
-    Gestion de Categorias
+    Gestion de Pedidos
 @endsection
 @section('direccion')
-    categorias
+    pedidos
 @endsection
 @section('contenido')
-{{-- Tabla de Categorias --}}
+{{-- Tabla de Pedidos --}}
 @section('titulo')
-    CATEGORIAS
+    PEDIDOS
 @endsection
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table id="tablita" class="table table-striped table-bordered">
@@ -21,7 +21,7 @@
                     NOMBRE
                 </th>
                 <th>
-                    CAT. PADRE
+                    Categoria padre
                 </th>
                 <th>
                     URL

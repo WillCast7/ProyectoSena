@@ -235,7 +235,7 @@ class usuario extends Model
                                 $usuario->ciudad_codigo,
                                 $usuario->persona_direccion,
                                 $usuario->persona_email,
-                                $usuario->usuario_username,
+                                $usuario->persona_email,
                                 $usuario->usuario_pass,
                                 $usuario->perfil_id,
                                 $usuario->persona_avatar,

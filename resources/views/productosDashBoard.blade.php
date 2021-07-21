@@ -39,8 +39,8 @@ productos
                 <tr>
                     <td>
                         <a class="btn btn-info"data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
-                        <a class="btn btn-warning" href="{{route('p.edit', $producto->producto_id)}}" title="Editar"><i class="far fa-edit"></i></a>
-                        <a class="btn btn-secondary" data-toggle="modal" data-target="#images" title="Imagenes"><i class="fas fa-plus"></i></a>
+                        <a class="btn btn-info" href="{{route('p.edit', $producto->producto_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                        <a class="btn btn-info" data-toggle="modal" data-target="#images" title="Imagenes"><i class="fas fa-plus"></i></a>
                         @if($producto->producto_estado == 1)
                         <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}" title="Activo"><i class="fas fa-check"></i></a>
                         @else

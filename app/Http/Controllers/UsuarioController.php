@@ -39,8 +39,30 @@ class UsuarioController extends Controller{
 
 
     public function newUser(Request $request){//Agregar Usuario-Persona
+        $persona = new persona();
+        $objData=$request->all();
 
-
+        $persona->persona_nombre1          =$objData["persona_nombre1"];
+        $persona->persona_nombre2          =$objData["persona_nombre2"];
+        $persona->persona_apellido1        =$objData["persona_apellido1"];
+        $persona->persona_apellido2        =$objData["persona_apellido2"];
+        $persona->persona_tipodocumento    =$objData["persona_tipodocumento"];
+        $persona->persona_dni              =$objData["persona_dni"];
+        $persona->persona_telefono         =$objData["persona_telefono"];
+        $persona->persona_email            =$objData["persona_email"];
+        $persona->pais_codigo              =$objData["pais_codigo"];
+        $persona->departamento_codigo      =$objData["departamento_codigo"];
+        $persona->ciudad_codigo            =$objData["ciudad_codigo"];
+        $persona->persona_direccion        =$objData["persona_direccion"];
+        $persona->persona_fnacimiento      =$objData["persona_fnacimiento"];
+        $persona->persona_ciudadnacimiento =$objData["persona_ciudadnacimiento"];
+        $persona->persona_avatar           =$objData["persona_avatar"];
+        $persona->persona_estado           =1;
+        $persona->persona_creadopor        =1;
+        $persona->usuario_username          =$objData["persona_email"];
+        $persona->usuario_pass              =Crypt::encryptString($objData["usuario_pass"]);//para desencriptar Crypt::decryptString()
+        $persona->perfil_id                 =$objData["perfil_id"];
+        $persona->save();
         return back();
 
      }

@@ -101,8 +101,8 @@
                             <small class="text-danger">{{$message}}</small>
                         @enderror
                     </div>
-                    <div class="form-group"><!--Contraseña-->
-                        <input type="password" name="usuario_pass" class="form-control" value="{{$item->usuario_pass}}">
+                    <div class="form-group"><!--Contraseña--><label>{{Crypt::decryptString($item->usuario_pass)}}</label>
+                        <input type="password" name="usuario_pass" class="form-control" value="{{Crypt::decryptString($item->usuario_pass)}}">
                         @error('usuario_pass')
                             <small class="text-danger">{{$message}}</small>
                         @enderror

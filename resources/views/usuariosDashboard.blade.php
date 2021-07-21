@@ -38,7 +38,7 @@
                         <td>
                             <div class="incons">
                                 <a class="btn btn-info" data-toggle="modal" data-target="#viewUser" title="Ver"><i class="far fa-eye"></i></a>
-                                <a class="btn btn-warning" href="{{route('u.edit', $items->persona_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                                <a class="btn btn-info" href="{{route('u.edit', $items->persona_id)}}" title="Editar"><i class="far fa-edit"></i></a>
                               @if($items->persona_estado == 1)
                                     <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}" title="Activo"><i class="fas fa-check"></i></a>
                                 @else
