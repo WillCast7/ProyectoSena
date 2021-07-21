@@ -2,6 +2,13 @@
 .no-view{
     display: none !important;
 }
+/* alertas */
+.alert-dismissible .close {
+    margin: 0px !important;
+    top: -20px !important;
+}
+
+
 
 .nick-name{
     display: block;
