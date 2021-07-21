@@ -37,8 +37,8 @@
                     <tr>
                         <td>
                             <div class="incons">
-                                <a class="btn btn-secondary" data-toggle="modal" data-target="#viewUser" title="Ver"><i class="far fa-eye"></i></a>
-                                <a class="btn btn-secondary"  href="{{route('u.edit', $items->persona_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                                <a class="btn btn-info" data-toggle="modal" data-target="#viewUser" title="Ver"><i class="far fa-eye"></i></a>
+                                <a class="btn btn-warning" href="{{route('u.edit', $items->persona_id)}}" title="Editar"><i class="far fa-edit"></i></a>
                               @if($items->persona_estado == 1)
                                     <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}" title="Activo"><i class="fas fa-check"></i></a>
                                 @else
@@ -65,6 +65,10 @@
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="container p-3 my-3 bg-dark text-white">
+        <div class="modal-body">
+                <form action="{{route('Usuarios')}}" method="get" enctype="multipart/form-data">
+                    @csrf
+                    @method('get')
 
             <h2>{{$items->nombres}}</h2>
             <p>INFORMACION AVANZADA DEL USUARIO</p>
@@ -97,15 +101,8 @@
       </div>
     </div>
 </div>
-<br>
-<div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser">
-            AGREGAR USUARIO
-        </button>
-</div>
-<br>
-<hr/>
-<br>
+
+
 
 
 <!-- Formulario usuario -->

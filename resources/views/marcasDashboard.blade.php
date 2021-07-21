@@ -26,8 +26,8 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
-                    <a class="btn btn-secondary" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
-                    <a class="btn btn-secondary" href="{{route('m.edit', $marca->marca_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                    <a class="btn btn-info" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
+                    <a class="btn btn-warning" href="{{route('m.edit', $marca->marca_id)}}" title="Editar"><i class="far fa-edit"></i></a>
                     @if($marca->marca_estado == 1)
                         <a class="btn btn-success" href="{{route('m.delete', $marca->marca_id)}}" title="Activo"><i class="fas fa-check"></i></a>
                     @else

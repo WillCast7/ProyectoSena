@@ -1,6 +1,6 @@
 #Marco1{
     margin-top: 2%;
-    margin-left: 12%;
+    margin-left: 8%;
 }
 #Listado{/* Este es el marco del modulo listado */
     display: inline-block;
@@ -8,10 +8,9 @@
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin-left: 0 auto 10px;
-    border: 2px solid #1A5276;
+    border: 4px solid #51A9AF;
     text-align: center;
     padding-bottom: 50px;
-    background: #AED6F1;
 }
 #imagen-listado{/* Este es el div del icono listado */
     margin-top: 50px;
@@ -36,10 +35,7 @@
     color: black;
 }
 #Listado:hover{/* Esta es el cambio de color del modulo listado */
-    background: #5499C7;
-    box-shadow: 0 0 3px #5499C7, 0 0 10px #5499C7, 0 0 10px #5499C7;
-    transition-delay: 0.2s;
-    color: black;    
+    background: #73D9E0;
 }
 #Marcas{/* Este es el marco del modulo marcas */
     display: inline-block;
@@ -47,10 +43,9 @@
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin: 0 auto 10px;
-    border: 2px solid #196F3D;
+    border: 4px solid #51A9AF;
     text-align: center;
     padding-bottom: 50px;
-    background: #A9DFBF;
 }
 #imagen-marcas{/* Este es el div del icono marcas */
     margin-top: 50px;
@@ -75,10 +70,7 @@
     color: black;
 }
 #Marcas:hover{/* Esta es el cambio de color del modulo marcas */
-    background: #7DCEA0;
-    box-shadow: 0 0 3px #7DCEA0, 0 0 10px #7DCEA0, 0 0 10px #7DCEA0;
-    transition-delay: 0.2s;
-    color: black;
+    background: #73D9E0;
 }
 #Categorias{/* Este es el marco del modulo Categorias */
     display: inline-block;
@@ -86,10 +78,9 @@
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin-left: 0 auto 10px;
-    border: 3px solid #B7950B;
+    border: 4px solid #51A9AF;
     text-align: center;
     padding-bottom: 50px;
-    background: #F9E79F;
 }
 #imagen-categorias{/* Este es el div del icono categorias */
     margin-top: 50px;
@@ -114,10 +105,7 @@
     color: black;
 }
 #Categorias:hover{/* Esta es el cambio de color del modulo categorias */
-    background: #F4D03F;
-    box-shadow: 0 0 3px #F4D03F, 0 0 10px #F4D03F, 0 0 10px #F4D03F;
-    transition-delay: 0.2s;
-    color: black;
+    background: #73D9E0;
 }
 #Eccomerce{/* Este es el marco del modulo eccomerce */
     display: inline-block;
@@ -125,10 +113,9 @@
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
     overflow: visible;
     margin: 0 auto 10px;
-    border: 3px solid #922B21;
+    border: 4px solid #51A9AF;
     text-align: center;
     padding-bottom: 50px;
-    background: #EC7063;
 }
 #imagen-eccomerce{/* Este es el div del icono eccomerce */
     margin-top: 50px;
@@ -153,10 +140,7 @@
     color: black;
 }
 #Eccomerce:hover{/* Esta es el cambio de color del modulo eccomerce */
-    background: #CD6155;
-    box-shadow: 0 0 3px #CD6155, 0 0 10px #CD6155, 0 0 10px #CD6155;
-    transition-delay: 0.2s;
-    color: black;
+    background: #73D9E0;
 }
 
 /*Pendiente para ajustar*/
