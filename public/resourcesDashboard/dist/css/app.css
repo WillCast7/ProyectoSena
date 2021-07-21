@@ -1,16 +1,6 @@
-<<<<<<< HEAD
 #Marco1{
     margin-top: 2%;
-    margin-left: 25%;
-=======
-.AsideElement{
-    display: flex;
-    position: fixed;
-    height: 100%;
-}
-#Marco1{/* Este es el marco de los 4 modulos */
-    margin-left: 8%;
->>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
+    margin-left: 12%;
 }
 #Listado{/* Este es el marco del modulo listado */
     display: inline-block;
