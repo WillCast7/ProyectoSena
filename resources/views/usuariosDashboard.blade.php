@@ -1,6 +1,6 @@
 @extends('dashboard.base')
 @section('titulo')
-    Gestion de usuarios
+    GESTIÓN DE USUARIOS
 @endsection
 @section('direccion')
     usuarios

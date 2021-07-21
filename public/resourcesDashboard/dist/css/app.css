@@ -160,8 +160,10 @@
 }
 
 /*Pendiente para ajustar*/
-.title{
+.titulo{
     color: black;
+    font-family: sans-serif;
+    text-align: center;
 }
 .HomeDireccion{
     font-style: none;
