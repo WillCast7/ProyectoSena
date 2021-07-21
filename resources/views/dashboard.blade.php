@@ -1,4 +1,4 @@
-@extends('dashboard.base')
+@extends('dashboard.base')      
 @section('contenido')
 <div>
     <ul>
@@ -31,3 +31,8 @@
     </ul>
 </div>
 @endsection
+@section('titulo')
+<div id="Titulo-Dashboard">
+    <h1>MODULOS DEL DASHBOARD</h1>
+</div>
+@endsection            

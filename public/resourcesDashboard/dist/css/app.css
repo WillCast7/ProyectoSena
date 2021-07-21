@@ -3,11 +3,11 @@
     position: fixed;
     height: 100%;
 }
-#Marco1{
-    margin-top: 5%;
+#Marco1{/* Este es el marco de los 4 modulos */
+    margin-top: 2%;
     margin-left: 7%;
 }
-#Listado{
+#Listado{/* Este es el marco del modulo listado */
     display: inline-block;
     margin: 30px;
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
@@ -17,22 +17,35 @@
     text-align: center;
     padding-bottom: 70px;
 }
-#imagen-listado{
+#imagen-listado{/* Este es el div del icono listado */
     margin-top: 70px;
     color: black;
 }
-#texto-listado{
+#imagen-listado{/* Esta es la primera parte del zoom del icono listado */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-listado:hover{/* Esta es la segunda parte del zoom del icono listado */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-listado{/* Esta es el texto del modulo listado */
     margin-left: 70px;
     margin-right: 70px;
     color: black;
 }
-#Listado:hover{
+#Listado:hover{/* Esta es el cambio de color del modulo listado */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
-    color: black;
+    color: black;    
 }
-#Marcas{
+#Marcas{/* Este es el marco del modulo marcas */
     display: inline-block;
     margin: 30px;
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
@@ -42,22 +55,35 @@
     text-align: center;
     padding-bottom: 70px;
 }
-#imagen-marcas{
+#imagen-marcas{/* Este es el div del icono marcas */
     margin-top: 70px;
     color: black;
 }
-#texto-marcas{
+#imagen-marcas{/* Esta es la primera parte del zoom del icono marcas */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-marcas:hover{/* Esta es la segunda parte del zoom del icono marcas */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-marcas{/* Esta es el texto del modulo marcas */
     margin-left: 70px;
     margin-right: 70px;
     color: black;
 }
-#Marcas:hover{
+#Marcas:hover{/* Esta es el cambio de color del modulo marcas */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
     color: black;
 }
-#Categorias{
+#Categorias{/* Este es el marco del modulo Categorias */
     display: inline-block;
     margin: 30px;
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
@@ -67,22 +93,35 @@
     text-align: center;
     padding-bottom: 70px;
 }
-#imagen-categorias{
+#imagen-categorias{/* Este es el div del icono categorias */
     margin-top: 70px;
     color: black;
 }
-#texto-categorias{
+#imagen-categorias{/* Esta es la primera parte del zoom del icono categorias */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-categorias:hover{/* Esta es la segunda parte del zoom del icono categorias */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-categorias{/* Esta es el texto del modulo categorias */
     margin-left: 60px;
     margin-right: 60px;
     color: black;
 }
-#Categorias:hover{
+#Categorias:hover{/* Esta es el cambio de color del modulo categorias */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
     color: black;
 }
-#Eccomerce{
+#Eccomerce{/* Este es el marco del modulo eccomerce */
     display: inline-block;
     margin: 30px;
     border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
@@ -92,16 +131,29 @@
     text-align: center;
     padding-bottom: 70px;
 }
-#imagen-eccomerce{
+#imagen-eccomerce{/* Este es el div del icono eccomerce */
     margin-top: 70px;
     color: black;
 }
-#texto-eccomerce{
+#imagen-eccomerce{/* Esta es la primera parte del zoom del icono eccomerce */
+    transition: 1s ease;
+ 	-moz-transition: 1s ease; 
+ 	-webkit-transition: 1s ease; 
+ 	-o-transition: 1s ease; 
+}
+#imagen-eccomerce:hover{/* Esta es la segunda parte del zoom del icono eccomerce */
+    transform : scale(2);
+    -moz-transform : scale(2);
+    -webkit-transform : scale(2);
+    -o-transform : scale(2);
+    -ms-transform : scale(2);
+}
+#texto-eccomerce{/* Esta es el texto del modulo eccomerce */
     margin-left: 60px;
     margin-right: 60px;
     color: black;
 }
-#Eccomerce:hover{
+#Eccomerce:hover{/* Esta es el cambio de color del modulo eccomerce */
     background: #AEB6BF;
     box-shadow: 0 0 3px #AEB6BF, 0 0 10px #AEB6BF, 0 0 10px #AEB6BF;
     transition-delay: 0.2s;
@@ -110,10 +162,15 @@
 
 /*Pendiente para ajustar*/
 .title{
-    color: brown;
+    color: black;
 }
 
 .HomeDireccion{
     font-style: none;
     color: black;
 }
+#Titulo-Dashboard{/* Div referente al texto y posición externa */
+    font-family: sans-serif;
+    text-align: center;
+    padding: 3%;
+}    
