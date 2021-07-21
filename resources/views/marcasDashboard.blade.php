@@ -23,12 +23,12 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
-                    <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
-                    <a class="btn btn-outline-success" href="{{route('m.edit', $marca->marca_id)}}"><i class="far fa-edit"></i></a>
+                    <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
+                    <a class="btn btn-outline-warning" href="{{route('m.edit', $marca->marca_id)}}"><i class="far fa-edit"></i></a>
                     @if($marca->marca_estado == 1)
-                        <a class="btn btn-outline-success" href="{{route('m.delete', $marca->marca_id)}}"><i class="fas fa-signal"></i></a>
+                        <a class="btn btn-outline-success" href="{{route('m.delete', $marca->marca_id)}}"><i class="fas fa-check"></i></a>
                     @else
-                        <a class="btn btn-outline-danger" href="{{route('m.undelete', $marca->marca_id)}}">Inactivo</a>
+                        <a class="btn btn-outline-danger" href="{{route('m.undelete', $marca->marca_id)}}"><i class="fa fa-times-circle"></i></a>
                     @endif
                 </td>
                 <td>{{$marca->marca_nombre}}</td>

@@ -34,12 +34,12 @@
                     <tr>
                         <td>
                             <div class="incons">
-                                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
-                                <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
+                                <a class="btn btn-outline-warning" href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
                               @if($items->persona_estado == 1)
-                                    <a class="btn btn-outline-success" href="{{route('u.delete', $items->persona_id)}}"><i class="fas fa-signal"></i></a>
+                                    <a class="btn btn-outline-success" href="{{route('u.delete', $items->persona_id)}}"><i class="fas fa-check"></i></a>
                                 @else
-                                    <a class="btn btn-outline-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</a>
+                                    <a class="btn btn-outline-danger" href="{{route('u.undelete', $items->persona_id)}}"><i class="fa fa-times-circle"></i></a>
                               @endif
                             </div>
                         </td>

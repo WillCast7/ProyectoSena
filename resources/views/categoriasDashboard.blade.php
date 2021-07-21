@@ -26,12 +26,12 @@
             @foreach($categorias as $categoria)
             <tr>
                 <td>
-                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
-                    <a class="btn btn-outline-success" href="{{route('c.edit', $categoria->categoria_id)}}"><i class="far fa-edit"></i></a>
+                <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
+                    <a class="btn btn-outline-warning" href="{{route('c.edit', $categoria->categoria_id)}}"><i class="far fa-edit"></i></a>
                     @if($categoria->categoria_estado == 1)
-                        <a class="btn btn-outline-success" href="{{route('c.delete', $categoria->categoria_id)}}"><i class="fas fa-signal"></i></a>
+                        <a class="btn btn-outline-success" href="{{route('c.delete', $categoria->categoria_id)}}"><i class="fa fa-check"></i></a>
                     @else
-                        <a class="btn btn-outline-danger" href="{{route('c.undelete', $categoria->categoria_id)}}">Inactivo</a>
+                        <a class="btn btn-outline-danger" href="{{route('c.undelete', $categoria->categoria_id)}}"><i class="fa fa-times-circle"></i></a>
                     @endif
                         </td>
                 <td>{{$categoria->categoria_nombre}}</td>
