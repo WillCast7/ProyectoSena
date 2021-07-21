@@ -6,7 +6,7 @@
             <a href="{{route('Usuarios')}}">
                 <div id="Listado">
                     <div id="imagen-listado"><i class="fas fa-clipboard-list"></i></div>
-                    <span id="texto-listado">Listado</span>
+                    <span id="texto-listado">Usuarios</span>
                 </div>
             </a>
             <a href="{{route('Marcas')}}">

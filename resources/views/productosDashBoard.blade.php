@@ -15,9 +15,6 @@
                         ACCIONES
                     </th>
                     <th>
-                        ESTADO
-                    </th>
-                    <th>
                         PRODUCTO
                     </th>
                     <th>
@@ -41,17 +38,13 @@
                 @foreach($productos as $producto)
                 <tr>
                     <td>
-                        <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                        <a href="{{route('p.edit', $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
-
-                    </td>
-                    <td>
+                        <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-outline-warning" href="{{route('p.edit', $producto->producto_id)}}"><i class="far fa-edit"></i></a>
                         @if($producto->producto_estado == 1)
-                                    <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}">Activo</i> </a>
+                                    <a class="btn btn-outline-success" href="{{route('p.delete', $producto->producto_id)}}"><i class="fas fa-check"></i></a>
                             @else
-                                    <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}">Inactivo</i> </a>
+                                    <a class="btn btn-outline-danger" href="{{route('p.undelete', $producto->producto_id)}}"><i class="fa fa-times-circle"></i></a>
                         @endif
-
                     </td>
                     <td>{{$producto->producto_nombre}}</td>
                     <td>{{$producto->producto_stock}}</td>
