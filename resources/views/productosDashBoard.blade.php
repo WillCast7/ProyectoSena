@@ -59,7 +59,7 @@
                     <td>{{$producto->marca_nombre}}</td>
                     <td>{{$producto->categoria_nombre}}</td>
                     <td>
-                        
+
                     </td>
                 </tr>
                 @endforeach
@@ -67,70 +67,29 @@
         </table>
     </div>
 
-<<<<<<< HEAD
- <!-- vistas producto  -->
-    <div class="modal fade" id="viewProduct" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="title">{{$producto->producto_nombre}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group" >
-                    <td>{{$producto->producto_stock}}</td>
-                    <td>{{$producto->producto_descripcion}}</td>
-                    <td>{{$producto->marca_nombre}}</td>
-                    <td>{{$producto->marca_nombre}}</td>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-          </div>
-            <br>
-        </div>
-=======
 <!-- vistas producto  -->
 <div class="modal fade bd-example-modal-lg " id="viewProduct" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="container p-3 my-3 bg-dark text-white">
 
-            <h2>{{$productos->producto_nombre}}</h2>
+            <h2>{{$producto->producto_nombre}}</h2>
             <p>INFORMACION AVANZADA DE PRODUCTO</p>
             <table class="table">
                     <thead style= "background-color:slategray;color:white; font-weight :bold;" >
                         <tr class="success">
-                            <th>ID</th>
                             <th>Producto descripcion</th>
-                            <th>Producto stock</th>
-                            <th>categoria ID</th>
-                            <th>marca ID</th>
-                            <th>Producto Estado</th>
-                            
-                            
-
+                            <th>Productos en stock</th>
+                            <th>categoria</th>
+                            <th>marca</th>
                         </tr>
                     </thead>
                 <tbody>
                     <tr class="danger">
-                        <td>{{$producto->producto_id}}</td>
                         <td>{{$producto->producto_descripcion}}</td>
                         <td>{{$producto->producto_stock}}</td>
-                        <td>{{$producto->categoria_id}}</td>
-                        <td>{{$producto->marca_id}}</td>
-                        <td>
-                        @if($producto->producto_estado == 1)
-                                    <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}">Activo</i> </a>
-                            @else
-                                    <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}">Inactivo</i> </a>
-                        @endif
-                        </td>
-                        
-                        
+                        <td>{{$producto->categoria_nombre}}</td>
+                        <td>{{$producto->marca_nombre}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -141,7 +100,6 @@
 </div>
 
         <br>
->>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
     </div>
     <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>

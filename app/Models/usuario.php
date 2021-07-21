@@ -16,7 +16,6 @@ class usuario extends Model
 
 
     public static function getUsuariosSQL(){ //Obtener usuarios
-
         $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
                                             per.persona_id,
                                             per.persona_nombre1,

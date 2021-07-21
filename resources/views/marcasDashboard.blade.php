@@ -7,12 +7,6 @@
 @endsection
 @section('contenido')
 {{-- Tabla de Marcas --}}
-<<<<<<< HEAD
-=======
-@section('titulo')
-    MARCAS
-@endsection
->>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">
@@ -32,7 +26,7 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
-                    <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
+                    <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewMarca"><i class="far fa-eye"></i></a>
                     <a class="btn btn-outline-success" href="{{route('m.edit', $marca->marca_id)}}"><i class="far fa-edit"></i></a>
                     @if($marca->marca_estado == 1)
                         <a class="btn btn-outline-success" href="{{route('m.delete', $marca->marca_id)}}"><i class="fas fa-signal"></i></a>
@@ -58,19 +52,17 @@
             <table class="table">
                     <thead style= "background-color:slategray;color:white; font-weight :bold;" >
                         <tr class="success">
-                            <th>ID</th>
-                            <th>Estado</th>
+                            <th>Marca</th>
                             <th>Imagen</th>
-                            
+
 
                         </tr>
                     </thead>
                 <tbody>
                     <tr class="danger">
-                        <td>{{$marca->marca_id}}</td>
-                        <td>{{$marca->marca_estado}}</td>
+                        <td>{{$marca->marca_nombre}}</td>
                         <td>{{$marca->marca_imagen}}</td>
-                        
+
                     </tr>
                 </tbody>
             </table>
@@ -83,7 +75,7 @@
 
 
 <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMarca"><i class="fas fa-users"></i>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMarca">
         AGREGAR MARCA
     </button>
  <!-- Formulario Marca -->
