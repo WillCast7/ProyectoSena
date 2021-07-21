@@ -1,5 +1,10 @@
 @extends('dashboard.base')
-
+@section('titulo')
+    Edicion de categorias
+@endsection
+@section('direccion')
+    categorias  /  editar categoria
+@endsection
 @section('contenido')
 @foreach($categorias as $categoria)
 @endforeach

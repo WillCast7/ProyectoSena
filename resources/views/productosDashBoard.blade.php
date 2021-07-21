@@ -64,7 +64,7 @@
         </table>
     </div>
 
-{{-- <!-- vistas producto  -->
+ <!-- vistas producto  -->
     <div class="modal fade" id="viewProduct" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -75,27 +75,20 @@
               </button>
             </div>
             <div class="modal-body">
-
-                    <div class="form-group" >
-
-
-                        <td>{{$producto->producto_stock}}</td>
-                        <td>{{$producto->producto_descripcion}}</td>
-                        <td>{{$producto->marca_nombre}}</td>
-                        <td>{{$producto->marca_nombre}}</td>
-                    </div>
-
-
-
-                    <div class="modal-footer">
-
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <div class="form-group" >
+                    <td>{{$producto->producto_stock}}</td>
+                    <td>{{$producto->producto_descripcion}}</td>
+                    <td>{{$producto->marca_nombre}}</td>
+                    <td>{{$producto->marca_nombre}}</td>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
           </div>
+            <br>
         </div>
-      </div>
-        <br>
-    </div> --}}
+    </div>
     <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>
         AGREGAR PRODUCTO
@@ -161,6 +154,7 @@
                         <div class="modal-footer">
                             <input type="submit" value="Guardar" class="btn btn-primary">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </form>
                 </div>
             </div>

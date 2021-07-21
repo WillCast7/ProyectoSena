@@ -1,7 +1,12 @@
 @extends('dashboard.base')
+@section('titulo')
+    Gestion de Marcas
+@endsection
+@section('direccion')
+    marcas
+@endsection
 @section('contenido')
 {{-- Tabla de Marcas --}}
-<h5>MARCAS</h5>
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">

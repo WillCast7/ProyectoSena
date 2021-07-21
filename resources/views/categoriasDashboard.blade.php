@@ -1,7 +1,13 @@
 @extends('dashboard.base')
+@section('titulo')
+    Gestion de Categorias
+@endsection
+@section('direccion')
+    categorias
+@endsection
 @section('contenido')
 {{-- Tabla de Categorias --}}
-<h5>CATEGORIAS</h5>
+
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">
