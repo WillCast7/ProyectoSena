@@ -10,9 +10,13 @@ use Illuminate\Http\Request;
 
 class CategoriasController extends Controller{
     public function getCategorias(){//Trae las categorias
-        $categorias=categorias::getCategoriasSQL();
-        return view('categoriasDashboard', compact('categorias'));
+        if(session()->get('rol') == 1){
+            $categorias=categorias::getCategoriasSQL();
+            return view('categoriasDashboard', compact('categorias'));
+        }else{
+            return redirect()->route('ecommerce');
         }
+     }
     public function getFormCategorias(){//Trae las categorias Activas
         $categorias=categorias::getFormCategoriasSQL();
         return view('categoriasDashboard', compact('categorias'));

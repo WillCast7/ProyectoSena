@@ -9,11 +9,14 @@ use Illuminate\Http\Request;
 
 class ProductosController extends Controller{
     public function getProductos(){//obtiene los productos
-        $productos=productos::getProductosSQL();
-        $categorias=categorias::getFormCategoriasSQL();
-        $marcas=marcas::getFormMarcasSQL();
-        return view('productosDashboard', compact('productos', 'categorias', 'marcas'));
-
+        if(session()->get('rol') == 1){
+            $productos=productos::getProductosSQL();
+            $categorias=categorias::getFormCategoriasSQL();
+            $marcas=marcas::getFormMarcasSQL();
+            return view('productosDashboard', compact('productos', 'categorias', 'marcas'));
+        }else{
+            return redirect()->route('ecommerce');
+        }
      }
     public function getFormProductos(){//obtiene los productos activos
         $productos=productos::getFormProductosSQL();
@@ -64,6 +67,8 @@ class ProductosController extends Controller{
         return back();
         }
     public static function AdminImagenes(){
-    echo"hi";
-    }
+        echo"hi";
+        }
 }
+//local storage
+//JSON

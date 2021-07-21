@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 
 class MarcasController extends Controller{
     public function getMarcas(){
-        $marcas=marcas::getMarcasSQL();
-        return view('marcasDashboard', compact('marcas'));
+        if(session()->get('rol') == 1){
+            $marcas=marcas::getMarcasSQL();
+            return view('marcasDashboard', compact('marcas'));
+        }else{
+            return redirect()->route('ecommerce');
+        }
      }
     public function newMarca(Request $request){//Agregar Marca
         $marcas = new marcas();

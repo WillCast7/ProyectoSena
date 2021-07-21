@@ -6,8 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class productos extends Model
-{
+class productos extends Model{
     use HasFactory;
     protected $table="productos";
     protected $primaryKey="producto_id";
