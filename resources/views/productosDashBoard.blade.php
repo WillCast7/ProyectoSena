@@ -114,27 +114,32 @@ productos
                         @csrf
                         @method('put')
                         <div class="form-group"><!--nombre-->
+                            <label for="producto_nombre">Nombre del producto</label>
                             <input type="text" name="producto_nombre" class="form-control" placeholder="Nombre Producto">
                             @error('producto_nombre')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--referencia-->
+                            <label for="producto_referencia">Referencia del producto</label>
                             <input type="text" name="producto_referencia" class="form-control" placeholder="referencia">
                         </div>
                         <div class="form-group"><!--descripcion-->
+                            <label for="producto_descripcion">Descripcion</label>
                             <input type="text" name="producto_descripcion" class="form-control" placeholder="Descripcion">
                             @error('producto_descripcion')
                             <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--descripcion corta-->
+                            <label for="producto_descripcioncorta">Breve descripcion</label>
                             <input type="text" name="producto_descripcioncorta" class="form-control" placeholder="Descripcion corta">
                             @error('producto_descripcion')
                             <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--categoria-->
+                            <label for="categoria_id">Seleccione categoria</label>
                             <select name="categoria_id" id="Categoria" class="form-control">
                                 <option value=" ">Seleccione categoria</option>
                                 @foreach($categorias as $categoria)
@@ -143,6 +148,7 @@ productos
                             </select>
                         </div>
                         <div class="form-group"><!--Marca-->
+                            <label for="marca_id">Marca</label>
                             <select name="marca_id" id="Marca" class="form-control">
                                 <option value=" ">Seleccione Marca</option>
                                 @foreach($marcas as $marca)
@@ -151,9 +157,11 @@ productos
                             </select>
                         </div>
                         <div class="form-group"><!--cantidad-->
+                            <label for="producto_stock">Cantidad del producto</label>
                             <input type="text" name="producto_stock" class="form-control" placeholder="stock del producto">
                         </div>
                         <div class="form-group"><!--Precio-->
+                            <label for="producto_precio">Precio</label>
                             <input type="text" name="producto_precio" class="form-control" placeholder="precio">
                         </div>
                         <div class="modal-footer">

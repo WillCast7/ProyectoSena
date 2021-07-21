@@ -174,7 +174,7 @@
                             </select>
                         </div>
                         <div class="form-group"><!--Paises-->
-                            <label for="pais_codigo">Selecciones su pais</label>
+                            <label for="pais_codigo">Seleccione pais de residencia</label>
                             <select name="pais_codigo" id="input" class="form-control" placeholder="tipo de usuario">
                                 <option value=" ">Pais</option>
                                 @foreach($paises as $pais)
@@ -192,8 +192,8 @@
                             </select>
                         </div>
                         <div class="form-group"><!--Ciudades-->
-                             <label for="ciudad_codigo">Seleccione su ciudad</label>
-                            <select name="ciudad_codigo" id="ciudades" class="form-control" placeholder="tipo de usuario">
+                             <label for="ciudad_codigo">Seleccione ciudad de residencia</label>
+                            <select name="ciudad_codigo" id="ciudades" class="form-control" placeholder="Ciudad">
                                 <option value=" ">Ciudad</option>
                                 @foreach($city as $item)
                                 <option value="{{$item->ciudad_codigo}}">{{$item->ciudad_nombre}}</option>
@@ -202,7 +202,7 @@
                         </div>
                         <div class="form-group"><!--Direccion-->
                             <label for="persona_direccion">Direccion</label>
-                            <input type="text" name="persona_direccion" class="form-control" placeholder="sexo">
+                            <input type="text" name="persona_direccion" class="form-control" placeholder="Direccion">
                         </div>
                         <div class="form-group"><!--Correo-->
                             <label for="persona_email">Correo electronico</label>
@@ -219,7 +219,7 @@
                             @enderror
                         </div>
                         <div class="form-group"><!--Roles-->
-                            <label for="perfil_id">Seleccione role</label>
+                            <label for="perfil_id">Seleccione Perfil</label>
                             <select name="perfil_id" id="perfiles" class="form-control" placeholder="perfiles">
                                 <option value=" ">Perfil</option>
                                 @foreach($roles as $rol)
@@ -228,7 +228,7 @@
                             </select>
                         </div>
                         <div class="form-group" ><!--avatar-->
-                            <label for="persona_avatar">Subir imagen de su avater</label>
+                            <label for="persona_avatar">Subir imagen de su avatar</label>
                             <input type="file" class="form-control-file" name="persona_avatar" accept="image/*">
                             <br>
                             @error('persona_avatar')
@@ -236,10 +236,10 @@
                             @enderror
                         </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         <input type="submit" value="Guardar" class="btn btn-primary">
                     </div>
                 </form>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
     </div>

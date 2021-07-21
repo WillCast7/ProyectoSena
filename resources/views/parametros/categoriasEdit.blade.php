@@ -14,12 +14,15 @@
     @csrf
     @method('PUT')
         <div class="form-group"><!--nombre-->
+             <label for="categoria_nombre">Nombre del la categoria</label>
             <input type="text" name="categoria_nombre" class="form-control" value="{{$categoria->categoria_nombre}}">
         </div>
         <div class="form-group"><!--nombre-->
+            <label for="categoira_url">URL</label>
             <input type="text" name="categoria_url" class="form-control" value="{{$categoria->categoria_url}}">
         </div>
         <div class="form-group"><!--categoria padre-->
+            <label for="categoria_padre">Categoria padre</label>
             <select name="categoria_padre" id="Categoria" class="form-control">
                 <option value="{{$categoria->categoria_padre}}">{{$categoria->categoria_nombre}}</option>
                 @foreach($cate as $cat)
