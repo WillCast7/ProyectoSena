@@ -16,8 +16,8 @@ class productos extends Model
 
     public static function getProductosSQL(){ //Obtener productos
 
-        $productos=DB::select("SELECT pr.producto_nombre,
-                                    pr.producto_id,
+        $productos=DB::select("SELECT DISTINCT pr.producto_id,
+                                    pr.producto_nombre,
                                     pr.producto_stock,
                                     pr.producto_descripcion,
                                     pr.producto_estado,
@@ -37,8 +37,8 @@ class productos extends Model
      }
     public static function getFormProductosSQL(){ //Obtener productos activos
 
-        $productos=DB::select("SELECT pr.producto_nombre,
-                                    pr.producto_id,
+        $productos=DB::select("SELECT DISTINCT pr.producto_id,
+                                    pr.producto_nombre,
                                     pr.producto_stock,
                                     pr.producto_descripcion,
                                     cat.categoria_nombre,
@@ -116,4 +116,6 @@ class productos extends Model
                 WHERE producto_id=?";
         DB::select($sql,array($producto_id));
      }
+
+
 }

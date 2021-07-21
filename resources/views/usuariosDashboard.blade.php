@@ -16,7 +16,7 @@
                         ACCIONES
                     </th>
                     <th>
-                        DNI
+                        DOCUMENTO
                     </th>
                     <th>
                         NOMBRE COMPLETO
@@ -37,12 +37,12 @@
                     <tr>
                         <td>
                             <div class="incons">
-                                <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
-                                <a class="btn btn-outline-warning"  href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
+                                <a class="btn btn-secondary" data-toggle="modal" data-target="#viewUser" title="Ver"><i class="far fa-eye"></i></a>
+                                <a class="btn btn-secondary"  href="{{route('u.edit', $items->persona_id)}}" title="Editar"><i class="far fa-edit"></i></a>
                               @if($items->persona_estado == 1)
-                                    <a class="btn btn-outline-success" href="{{route('u.delete', $items->persona_id)}}"><i class="fas fa-check"></i></a>
+                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}" title="Activo"><i class="fas fa-check"></i></a>
                                 @else
-                                    <a class="btn btn-outline-danger" href="{{route('u.undelete', $items->persona_id)}}"><i class="fa fa-times-circle"></i></a>
+                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                               @endif
                             </div>
                         </td>

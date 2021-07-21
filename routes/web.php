@@ -49,9 +49,9 @@ Route::get('/ecommerce', function () {
 
 
 /* #################### Daniel Bolivar - routes  ################################## */
-/* 
-laravel 7.x 
-Route::get('productos','ProductosController@getProducts'); 
+/*
+laravel 7.x
+Route::get('productos','ProductosController@getProducts');
 laravel 8.x
 Route::get('productos', [ProductosController::class,'getProducts']);
 */
@@ -110,3 +110,5 @@ Route::put('/dashboard/usuarios/updateProducto/{producto_id}',  [ProductosContro
 Route::put('/dashboard/usuarios/updateMarca/{marca_id}',        [MarcasController::class,'updateMarca'        ])->name('m.update');
 Route::put('/dashboard/usuarios/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
 
+
+Route::get('/dashboard/productos/imagenes',   [ProductosController::class, 'AdminImagenes'])->name('i.admin');

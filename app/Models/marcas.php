@@ -15,7 +15,7 @@ class marcas extends Model
     public $timestamps=false;
 
     public static function getMarcasSQL(){//obtener marcas
-        $marca=DB::select("SELECT marca_id,
+        $marca=DB::select("SELECT DISTINCT marca_id,
                                 marca_nombre,
                                 marca_estado,
                                 marca_imagen
@@ -23,7 +23,7 @@ class marcas extends Model
         return $marca;
      }
     public static function getFormMarcasSQL(){//obtener marcas Activas
-        $marca=DB::select("SELECT marca_id,
+        $marca=DB::select("SELECT DISTINCT marca_id,
                                 marca_nombre,
                                 marca_estado,
                                 marca_imagen

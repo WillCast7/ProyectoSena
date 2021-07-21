@@ -63,4 +63,7 @@ class ProductosController extends Controller{
         productos::undeleteProductoSQL($producto_id);
         return back();
         }
+    public static function AdminImagenes(){
+    echo"hi";
+    }
 }
