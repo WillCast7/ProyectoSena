@@ -1,4 +1,4 @@
-@extends('dashboard.base')
+@extends('dashboard.base')      
 @section('contenido')
 <div>
     <ul>
@@ -6,7 +6,7 @@
             <a href="{{route('Usuarios')}}">
                 <div id="Listado">
                     <div id="imagen-listado"><i class="fas fa-clipboard-list"></i></div>
-                    <span id="texto-listado">Listado</span>
+                    <span id="texto-listado">Usuarios</span>
                 </div>
             </a>
             <a href="{{route('Marcas')}}">
@@ -15,8 +15,6 @@
                     <span id="texto-marcas">Marcas</span>
                 </div>
             </a>
-        </div>
-        <div id="Marco2">
             <a href="{{route('Categorias')}}">
                 <div id="Categorias">
                     <div id="imagen-categorias"><i class="fas fa-angle-double-down"></i></div>
@@ -26,10 +24,15 @@
             <a href="{{route('Productos')}}">
                 <div id="Eccomerce">
                     <div id="imagen-eccomerce"><i class="far fa-money-bill-alt"></i></div>
-                    <span id="texto-eccomerce">Eccomerce</span>
+                    <span id="texto-eccomerce">Productos</span>
                 </div>
             </a>
         </div>
     </ul>
 </div>
 @endsection
+@section('titulo')
+@section('titulo')
+    MODULOS
+@endsection
+@endsection            

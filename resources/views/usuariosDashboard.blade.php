@@ -1,6 +1,6 @@
 @extends('dashboard.base')
 @section('titulo')
-    Gestion de usuarios
+    GESTIÓN DE USUARIOS
 @endsection
 @section('direccion')
     usuarios
@@ -9,14 +9,14 @@
 
 <!-- Tabla de usuarios -->
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-        <table class="table table-bordered table-striped mb-0">
+        <table id="tablita" class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>
+                    <th style="width: 200px">
                         ACCIONES
                     </th>
                     <th>
-                        ESTADO
+                        DOCUMENTO
                     </th>
                     <th>
                         NOMBRE COMPLETO
@@ -27,6 +27,9 @@
                     <th>
                         CORREO ELECTRONICO
                     </th>
+                    <th>
+                        PERFIL
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -34,20 +37,22 @@
                     <tr>
                         <td>
                             <div class="incons">
-                                <a class="iconA" data-toggle="modal" data-target="#viewUser" onclick=""> <i class="far fa-eye"></i> </a>
-                                <a class="iconA" href="{{route('u.edit', $items->persona_id)}}"> <i class="far fa-edit"></i> </a>
+                                <a class="btn btn-secondary" data-toggle="modal" data-target="#viewUser" title="Ver"><i class="far fa-eye"></i></a>
+                                <a class="btn btn-secondary"  href="{{route('u.edit', $items->persona_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                              @if($items->persona_estado == 1)
+                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}" title="Activo"><i class="fas fa-check"></i></a>
+                                @else
+                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
+                              @endif
                             </div>
                         </td>
-                        <td>
-                              @if($items->persona_estado == 1)
-                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
-                                @else
-                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
-                              @endif
-                        </td>
+                        <td>{{$items->persona_dni}}</td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
+                        <td>
+
+                        </td>
 
 
                     </tr>
@@ -55,41 +60,6 @@
             </tbody>
         </table>
     </div>
-
-
-<!-- editar usuarios -->
-<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="title">EDITAR USUARIO</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-
-            <div class="form-group"><!--Primer nombre-->
-                            <input type="text" name="persona_nombre1" value="{{  $items->persona_nombre1 }}" class="form-control" placeholder="Primer nombre">
-                            @error('persona_nombre1')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
-                        </div>
-
-
-                    <div class="modal-footer">
-                    <input type="submit" value="Guardar Cambios " class="btn btn-primary">
-            </form>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-        </div>
-    </div>
-    <br>
-    <hr/>
-    <br>
-    <br>
-</div>
 <!-- vistas usuario  -->
 <div class="modal fade bd-example-modal-lg " id="viewUser" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
@@ -102,18 +72,23 @@
                     <thead style= "background-color:slategray;color:white; font-weight :bold;" >
                         <tr class="success">
                             <th>Telefono Usuario</th>
-                            <th>Correo Electronico</th>
-                            <th>Numero de Pase</th>
-                            <th>Perfil </th>
+                            <th>Tipo Documento</th>
+                            <th>DNI </th>
+                            <th>Direccion</th>
+                            <th>nacimiento</th>
+                            <th>Ciudad Nacimiento</th>
 
                         </tr>
                     </thead>
                 <tbody>
                     <tr class="danger">
                         <td>{{$items->persona_telefono}}</td>
-                        <td>{{$items->usuario_username}}</td>
-                        <td>{{$items->usuario_pass}}</td>
-                        <td>{{$items->perfil_nombre}}</td>
+                        <td>{{$items->nombre_largo_parametro}}</td>
+                        <td>{{$items->persona_dni}}</td>
+                        <td>{{$items->persona_direccion}}</td>
+                        <td>{{$items->persona_fnacimiento}}</td>
+                        <td>{{$items->persona_ciudadnacimiento}}</td>
+
                     </tr>
                 </tbody>
             </table>
@@ -124,7 +99,7 @@
 </div>
 <br>
 <div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser"><i class="fas fa-users"></i>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser">
             AGREGAR USUARIO
         </button>
 </div>

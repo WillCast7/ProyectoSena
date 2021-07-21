@@ -9,7 +9,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-        @include('dashboard.navbar')
+       @include('dashboard.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
@@ -20,7 +20,7 @@
   <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
-        @include('dashboard.header')
+       @include('dashboard.header')
     <!-- /.content-header -->
 
     <!-- Main content -->

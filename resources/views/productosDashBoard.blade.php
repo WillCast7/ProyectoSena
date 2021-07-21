@@ -1,21 +1,18 @@
 @extends('dashboard.base')
-@section('contenido')
 @section('titulo')
-    Gestion de Productos
+Gestion de Productos
 @endsection
 @section('direccion')
-    productos
+productos
 @endsection
+@section('contenido')
 {{-- Tabla de productos --}}
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
-        <table class="table table-bordered table-striped mb-0">
+        <table id="tablita" class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>
+                    <th style="width: 200px">
                         ACCIONES
-                    </th>
-                    <th>
-                        ESTADO
                     </th>
                     <th>
                         PRODUCTO
@@ -41,23 +38,23 @@
                 @foreach($productos as $producto)
                 <tr>
                     <td>
-                        <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                        <a href="{{route('p.edit', $producto->producto_id)}}" > <i class="far fa-edit"></i> </a>
-
-                    </td>
-                    <td>
+                        <a class="btn btn-secondary" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-secondary" href="{{route('p.edit', $producto->producto_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                        <a class="btn btn-secondary" data-toggle="modal" data-target="#images" title="Imagenes"><i class="fas fa-plus"></i></a>
                         @if($producto->producto_estado == 1)
-                                    <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}">Activo</i> </a>
-                            @else
-                                    <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}">Inactivo</i> </a>
+                        <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}" title="Activo"><i class="fas fa-check"></i></a>
+                        @else
+                        <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                         @endif
-
                     </td>
                     <td>{{$producto->producto_nombre}}</td>
                     <td>{{$producto->producto_stock}}</td>
                     <td>{{$producto->producto_descripcion}}</td>
                     <td>{{$producto->marca_nombre}}</td>
                     <td>{{$producto->categoria_nombre}}</td>
+                    <td>
+
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -65,56 +62,57 @@
     </div>
 
 <!-- vistas producto  -->
-    <div class="modal fade" id="viewProduct" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-               <h5 class="title">{{$producto->producto_nombre}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+<div class="modal fade bd-example-modal-lg " id="viewProduct" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+        <div class="container p-3 my-3 bg-dark text-white">
 
-                    <div class="form-group" >
-
-
-                        <td>{{$producto->producto_stock}}</td>
+            <h2>{{$producto->producto_nombre}}</h2>
+            <p>INFORMACION AVANZADA DE PRODUCTO</p>
+            <table class="table">
+                    <thead style= "background-color:slategray;color:white; font-weight :bold;" >
+                        <tr class="success">
+                            <th>Producto descripcion</th>
+                            <th>Productos en stock</th>
+                            <th>categoria</th>
+                            <th>marca</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr class="danger">
                         <td>{{$producto->producto_descripcion}}</td>
+                        <td>{{$producto->producto_stock}}</td>
+                        <td>{{$producto->categoria_nombre}}</td>
                         <td>{{$producto->marca_nombre}}</td>
-                        <td>{{$producto->marca_nombre}}</td>
-                    </div>
-
-
-
-                    <div class="modal-footer">
-
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-            </div>
-          </div>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
+    </div>
+</div>
         <br>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct">
         AGREGAR PRODUCTO
     </button>
 
  <!-- Formulario producto -->
     <div class="modal fade" id="newProduct" tabindex="-1" role="dialog" aria-labelledby="newProductTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="title">AGREGAR PRODUCTO</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('p.new')}}" method="put" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="title">AGREGAR PRODUCTO</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('p.new')}}" method="put" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
                         <div class="form-group"><!--nombre-->
                             <input type="text" name="producto_nombre" class="form-control" placeholder="Nombre Producto">
                             @error('producto_nombre')
@@ -160,10 +158,11 @@
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Guardar" class="btn btn-primary">
-                        </form>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    </div>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
     </div>
  @endsection

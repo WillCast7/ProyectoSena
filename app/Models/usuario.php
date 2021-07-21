@@ -16,9 +16,8 @@ class usuario extends Model
 
 
     public static function getUsuariosSQL(){ //Obtener usuarios
-
-        $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
-                                            per.persona_id,
+        $usuarios=DB::select("SELECT DISTINCT per.persona_id,
+                                            (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
                                             per.persona_nombre1,
                                             per.persona_nombre2,
                                             per.persona_apellido1,
@@ -58,8 +57,9 @@ class usuario extends Model
          }
     public static function getFormUsuariosSQL(){ //Obtener usuarios activos
 
-        $usuarios=DB::select("SELECT (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
-                                            per.persona_id,
+        $usuarios=DB::select("SELECT DISTINCT per.persona_id,
+                                            (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
+                                            per.persona_nombre1,
                                             per.persona_nombre1,
                                             per.persona_nombre2,
                                             per.persona_apellido1,
@@ -146,32 +146,34 @@ class usuario extends Model
 
 
     public static function getRolSQL(){ //Obtener roles
-        $roles=DB::select("SELECT perfil_id, perfil_nombre, perfil_descripcion
-                    FROM perfiles");
+        $roles=DB::select("SELECT DISTINCT perfil_id,
+                                perfil_nombre,
+                                perfil_descripcion
+                            FROM perfiles");
                     return $roles;
         }
     public static function getTipoDocSQL(){ //Obtener Tipo dee documento
-        $tipodoc=DB::select("SELECT id_parametro, nombre_parametro, nombre_largo_parametro
+        $tipodoc=DB::select("SELECT DISTINCT id_parametro, nombre_parametro, nombre_largo_parametro
                                 FROM parametros_configuracion
                                 WHERE estado=1
                                 AND clave_parametro='tipodocumento'");
                     return $tipodoc;
         }
     public static function getCountrySQL(){ //Obtener Paises
-        $paises=DB::select("SELECT pais_codigo, pais_nombre
+        $paises=DB::select("SELECT DISTINCT pais_codigo, pais_nombre
                                 FROM paises
                                 WHERE pais_estado=1");
                     return $paises;
      }
     public static function getDepartmentsSQL(){ //Obtener Municipios
-        $deptos=DB::select("SELECT departamento_codigo, departamento_nombre
+        $deptos=DB::select("SELECT DISTINCT departamento_codigo, departamento_nombre
                             FROM departamentos
                             WHERE departamento_estado=1
                             AND pais_codigo='CO'");
         return $deptos;
      }
     public static function getCitySQL(){ //Obtener ciudades
-        $city=DB::select("SELECT ciudad_codigo, ciudad_nombre
+        $city=DB::select("SELECT DISTINCT ciudad_codigo, ciudad_nombre
                         FROM ciudades
                         WHERE ciudad_estado=1
                         AND departamento_codigo=76");
