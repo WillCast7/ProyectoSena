@@ -1,11 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\Ecommerce\ShopController;
+use App\Http\Controllers\Ecommerce\ProductsController;
+use App\Http\Controllers\Ecommerce\CategoriesController;
+use App\Http\Controllers\Ecommerce\AuthenticationController;
+use App\Http\Controllers\Ecommerce\CartController;
+use App\Http\Controllers\Ecommerce\CheckoutController;
+use App\Http\Controllers\GeneralController;
+
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +26,52 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     // return view('welcome');
+//     return view('home-ecommerce');
+// });
+
+Route::get('/login', function () {
+    return view('ecommerce.login');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/dashboard/usuarios', function () {
+    return view('usuariosDashboard');
+});
+
+Route::get('/ecommerce', function () {
+    return view('ecommerce');
+});
+
+
+/* #################### Daniel Bolivar - routes  ################################## */
+/* 
+laravel 7.x 
+Route::get('productos','ProductosController@getProducts'); 
+laravel 8.x
+Route::get('productos', [ProductosController::class,'getProducts']);
+*/
+Route::get('productos', [ProductosController::class,'getProducts']);
+Route::get('shop', [ShopController::class,'getShop']);
+Route::get('products/{id}', [ProductsController::class,'show']);
+Route::get('categorias/{categoria}',[CategoriesController::class,'shopCategories']);
+Route::get('categorias/{categoria}/{subcategoria}',[CategoriesController::class,'shopCategories']);
+Route::get('cart',[CartController::class,'getCart']);
+Route::get('checkout',[CheckoutController::class,'oneStep']);
+
+
+Route::get('/',function(){ return view('home');})->name("ecommerce");
+Route::post('/auth',[AuthenticationController::class,'login'])->name("auth.login");
+Route::get('/auth',[AuthenticationController::class,'logout'])->name("auth.logout");
+
+Route::get('/general',[GeneralController::class,'getParams']);
+
+/* #################### /Daniel Bolivar - routes  ################################## */
+
 //Vistas principales
 Route::get('/dashboard/usuarios',   [UsuarioController::class, 'getUsuarios'     ])->name('Usuarios');
 Route::get('/dashboard/productos',  [ProductosController::class, 'getProductos'  ])->name('Productos');
@@ -43,8 +91,6 @@ Route::get('/dashboard/marcas/undelete/{marca_id}',         [MarcasController::c
 Route::get('/dashboard/categorias/delete/{categoria_id}',   [CategoriasController::class, 'deleteCategoria'  ])->name('c.delete');
 Route::get('/dashboard/categorias/undelete/{categoria_id}', [CategoriasController::class, 'undeleteCategoria'])->name('c.undelete');
 
-//login
-Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
 
 //Crear
 Route::get('/dashboard/usuarios/create/newUser',        [UsuarioController::class, 'newUser'        ])->name('a.new');
@@ -64,8 +110,3 @@ Route::put('/dashboard/usuarios/updateProducto/{producto_id}',  [ProductosContro
 Route::put('/dashboard/usuarios/updateMarca/{marca_id}',        [MarcasController::class,'updateMarca'        ])->name('m.update');
 Route::put('/dashboard/usuarios/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
 
-
-
-Route::get('/ecomerce', function () {
-    return view('ecomerce');
-});

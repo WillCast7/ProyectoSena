@@ -1,0 +1,42 @@
+/* generales */
+.no-view{
+    display: none !important;
+}
+
+.nick-name{
+    display: block;
+    color: white !important;
+    /* padding: 10px !important; */
+}
+
+.contact-list-footer li i {
+    padding-right: 15px;
+}
+
+/* top nav bar - seccion carrito */
+ul#cartShop{
+    min-width:235px;
+}
+#cartShop img.media-left.media-object {
+    width: 60px;
+    height: auto;
+    max-height: 60px;
+}
+.item-cart-bold{
+    position: relative;
+}
+span.remove-item {
+    color: #efefef !important;
+    font-size: 26px;
+    float: right;
+    position: absolute;
+    top: 15%;
+    z-index: 10;
+    right: 15px;
+}
+/* carrito de compra */
+span.cartImage img {
+    width: 100px;
+    height: auto;
+    max-height: 120px;
+}
