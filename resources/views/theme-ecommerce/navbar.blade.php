@@ -47,17 +47,19 @@
                     <li><a href="coming-soon.html">Coming Soon</a></li>
                     </ul>
                 </li> -->
+                @if( session()->get('auth') == true)
                 <li class="nav-item dropdown ">
                     <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta</a>
                     <ul class="dropdown-menu dropdown-menu-right">
                     <!-- <li class=""><a href="account-dashboard.html">Dashboard</a></li> -->
-                    <li class=""><a href="account-profile.html">Perfil</a></li>
+                    <li class=""><a href="/profile/{{session()->get('persona_id')}}">Perfil</a></li>
                     <!-- <li class=""><a href="account-all-orders.html">All Orders</a></li> -->
                     <!-- <li class=""><a href="account-single-order.html">Single Order</a></li> -->
                     <!-- <li class=""><a href="account-wishlist.html">Wishlist</a></li> -->
                     <!-- <li class=""><a href="account-address.html">Address</a></li> -->
                     </ul>
                 </li>
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
         <div class="version2">

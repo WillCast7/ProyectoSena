@@ -23,6 +23,7 @@ class AuthenticationController extends Controller{
             if(Crypt::decrypt($user[0]->usuario_pass) == $password){
                 $logged = true;
                 $dataUser = [
+                    'persona_id'=> $user[0]->persona_id,
                     'username'  => $user[0]->usuario_username,
                     'name'      => $user[0]->persona_nombre1." ".$user[0]->persona_apellido1,
                     'correo'    => $user[0]->persona_email,

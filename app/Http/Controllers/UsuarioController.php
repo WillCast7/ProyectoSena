@@ -13,15 +13,17 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller{
     public function getUsuarios(){//obtiene usuarios
-
-        $usuarios=usuario::getUsuariosSQL();
-        $roles=usuario::getRolSQL();
-        $tipoDoc=usuario::getTipoDocSQL();
-        $paises=usuario::getCountrySQL();
-        $deptos=usuario::getDepartmentsSQL();
-        $city=usuario::getCitySQL();
-        return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
-
+        if(session()->get('rol') == 1){
+            $usuarios=usuario::getUsuariosSQL();
+            $roles=usuario::getRolSQL();
+            $tipoDoc=usuario::getTipoDocSQL();
+            $paises=usuario::getCountrySQL();
+            $deptos=usuario::getDepartmentsSQL();
+            $city=usuario::getCitySQL();
+            return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
+        }else{
+            return redirect()->route('ecommerce');
+        }
      }
     public function getFormUsuarios(){//obtiene usuarios activos
 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Ecommerce\CategoriesController;
 use App\Http\Controllers\Ecommerce\AuthenticationController;
 use App\Http\Controllers\Ecommerce\CartController;
 use App\Http\Controllers\Ecommerce\CheckoutController;
+use App\Http\Controllers\Ecommerce\ProfileController;
 use App\Http\Controllers\GeneralController;
 
 use App\Http\Controllers\UsuarioController;
@@ -57,6 +58,7 @@ Route::get('productos', [ProductosController::class,'getProducts']);
 */
 Route::get('productos', [ProductosController::class,'getProducts']);
 Route::get('shop', [ShopController::class,'getShop']);
+Route::get('profile/{id}',[ProfileController::class,'getProfile']);
 Route::get('products/{id}', [ProductsController::class,'show']);
 Route::get('categorias/{categoria}',[CategoriesController::class,'shopCategories']);
 Route::get('categorias/{categoria}/{subcategoria}',[CategoriesController::class,'shopCategories']);
