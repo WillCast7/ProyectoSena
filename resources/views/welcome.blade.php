@@ -1,1 +1,1 @@
-@extends('ecomerce.baseindex')
+@extends('ecommerce.baseindex')
