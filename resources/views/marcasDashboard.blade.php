@@ -38,6 +38,41 @@
         </tbody>
     </table>
 </div>
+<!-- vista marca -->
+<div class="modal fade bd-example-modal-lg " id="viewMarca" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" >
+      <div class="modal-content">
+        <div class="container p-3 my-3 bg-dark text-white">
+
+            <h2>{{$marca->marca_nombre}}</h2>
+            <p>INFORMACION AVANZADA DE MARCA</p>
+            <table class="table">
+                    <thead style= "background-color:slategray;color:white; font-weight :bold;" >
+                        <tr class="success">
+                            <th>ID</th>
+                            <th>Estado</th>
+                            <th>Imagen</th>
+                            
+
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr class="danger">
+                        <td>{{$marca->marca_id}}</td>
+                        <td>{{$marca->marca_estado}}</td>
+                        <td>{{$marca->marca_imagen}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
 <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newMarca"><i class="fas fa-users"></i>
         AGREGAR MARCA
