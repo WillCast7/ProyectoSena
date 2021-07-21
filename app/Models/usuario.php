@@ -15,8 +15,8 @@ class usuario extends Model
     public $timestamps=false;
 
 
-    public static function getUsuariosSQL(){ //Obtener usuarios
-        $usuarios=DB::select("SELECT DISTINCT per.persona_id,
+    public static function getUsuariosSQL(){ //Obtener todos los usuarios
+        $sql="SELECT DISTINCT per.persona_id,
                                             (SELECT CONCAT (per.persona_nombre1,' ', per.persona_nombre2,' ', per.persona_apellido1,' ', per.persona_apellido2)) AS nombres,
                                             per.persona_nombre1,
                                             per.persona_nombre2,
@@ -51,10 +51,29 @@ class usuario extends Model
                                         INNER JOIN departamentos dep
                                             ON dep.departamento_codigo=per.departamento_codigo
                                         INNER JOIN ciudades ciu
-                                            ON ciu.ciudad_codigo=per.ciudad_codigo");
-         return $usuarios;
+                                            ON ciu.ciudad_codigo=per.ciudad_codigo";
 
-         }
+                                            $where          = false;
+                                            $whereString    = "";
+                                            if(session()->get('rol')==1){
+                                                $where = true;
+                                                $whereString .= "";
+                                            }
+                                            if(session()->get('rol')==2){
+                                                $where = true;
+                                                $whereString .= " and per.perfil_id >=2";
+                                            }
+                                            if(session()->get('rol')==3){
+                                                $where = true;
+                                                $whereString .= " and per.perfil_id =4";
+                                            }
+
+                                            if($where){
+                                                $sql .= " where 1 = 1 ".$whereString;
+                                            }
+                                            $usuarios = DB::select($sql);
+         return $usuarios;
+     }
     public static function getFormUsuariosSQL(){ //Obtener usuarios activos
 
         $usuarios=DB::select("SELECT DISTINCT per.persona_id,

@@ -50,11 +50,7 @@
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
-                        <td>
-
-                        </td>
-
-
+                        <td>{{$items->perfil_nombre}}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -63,45 +59,42 @@
 <!-- vistas usuario  -->
 <div class="modal fade bd-example-modal-lg " id="viewUser" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
-      <div class="modal-content">
-        <div class="container p-3 my-3 bg-dark text-white">
-        <div class="modal-body">
-                <form action="{{route('Usuarios')}}" method="get" enctype="multipart/form-data">
-                    @csrf
-                    @method('get')
-
-            <h2>{{$items->nombres}}</h2>
-            <p>INFORMACION AVANZADA DEL USUARIO</p>
-            <table class="table">
-                    <thead style= "background-color:slategray;color:white; font-weight :bold;" >
-                        <tr class="success">
-                            <th>Telefono Usuario</th>
-                            <th>Tipo Documento</th>
-                            <th>DNI </th>
-                            <th>Direccion</th>
-                            <th>nacimiento</th>
-                            <th>Ciudad Nacimiento</th>
-
-                        </tr>
-                    </thead>
-                <tbody>
-                    <tr class="danger">
-                        <td>{{$items->persona_telefono}}</td>
-                        <td>{{$items->nombre_largo_parametro}}</td>
-                        <td>{{$items->persona_dni}}</td>
-                        <td>{{$items->persona_direccion}}</td>
-                        <td>{{$items->persona_fnacimiento}}</td>
-                        <td>{{$items->persona_ciudadnacimiento}}</td>
-
-                    </tr>
-                </tbody>
-            </table>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+        <div class="modal-content">
+            <div class="container p-3 my-3 bg-dark text-white">
+                <div class="modal-body">
+                    <h2>{{$items->nombres}}</h2>
+                    <p>INFORMACION AVANZADA DEL USUARIO</p>
+                    <table class="table">
+                            <thead style= "background-color:slategray;color:white; font-weight :bold;" >
+                                <tr class="success">
+                                    <th>Telefono Usuario</th>
+                                    <th>Tipo Documento</th>
+                                    <th>DNI </th>
+                                    <th>Direccion</th>
+                                    <th>nacimiento</th>
+                                    <th>Ciudad Nacimiento</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr class="danger">
+                                <td>{{$items->persona_telefono}}</td>
+                                <td>{{$items->nombre_largo_parametro}}</td>
+                                <td>{{$items->persona_dni}}</td>
+                                <td>{{$items->persona_direccion}}</td>
+                                <td>{{$items->persona_fnacimiento}}</td>
+                                <td>{{$items->persona_ciudadnacimiento}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 </div>
-
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser">
+    AGREGAR PRODUCTO
+</button>
 
 
 
