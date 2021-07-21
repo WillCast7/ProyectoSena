@@ -29,9 +29,13 @@ class CategoriasController extends Controller{
         }
 
     public static function updateCategoria(Request $request,$categoria_id){
+        if(session()->get('rol') == 1){
             categorias::updateCategoriaSQL($request, $categoria_id);
-             return redirect('/dashboard/categorias');
-         }
+            return redirect('/dashboard/categorias');
+        }else{
+            return redirect()->route('ecommerce');
+        }
+     }
 
     public function newCategoria(Request $request){//Agregar categorias
         $categorias = new categorias();

@@ -26,11 +26,15 @@ class ProductosController extends Controller{
 
      }
     public function editProducto($producto_id){
-        $productos=productos::getProductoSQL($producto_id);
-        $categorias=categorias::getFormCategoriasSQL();
-        $marcas=marcas::getFormMarcasSQL();
-        return view('parametros.productosEdit', compact('productos', 'categorias', 'marcas'));
+        if(session()->get('rol') == 1){
+            $productos=productos::getProductoSQL($producto_id);
+            $categorias=categorias::getFormCategoriasSQL();
+            $marcas=marcas::getFormMarcasSQL();
+            return view('parametros.productosEdit', compact('productos', 'categorias', 'marcas'));
+        }else{
+            return redirect()->route('ecommerce');
         }
+     }
     public static function updateProducto(Request $request,$producto_id){
             productos::updateProductoSQL($request, $producto_id);
              return redirect('/dashboard/productos');

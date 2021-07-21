@@ -90,13 +90,16 @@ class UsuarioController extends Controller{
         return $objData;
      }
     public function editUser($persona_id){
-        $usuario=usuario::getUsuarioSQL($persona_id);
-        $roles=usuario::getRolSQL();
-        $tipoDoc=usuario::getTipoDocSQL();
-        $paises=usuario::getCountrySQL();
-        $deptos=usuario::getDepartmentsSQL();
-        $city=usuario::getCitySQL();
-        return view('parametros.usuarioEdit', compact('usuario', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
+        if(session()->get('rol') == 1){
+            $usuario=usuario::getUsuarioSQL($persona_id);
+            $roles=usuario::getRolSQL();
+            $tipoDoc=usuario::getTipoDocSQL();
+            $paises=usuario::getCountrySQL();
+            $deptos=usuario::getDepartmentsSQL();
+            $city=usuario::getCitySQL();
+            return view('parametros.usuarioEdit', compact('usuario', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
+        }else{return redirect()->route('ecommerce');
+        }
      }
     public static function updateUser(Request $request,$persona_id){
         usuario::updatePersonSQL($request, $persona_id);
