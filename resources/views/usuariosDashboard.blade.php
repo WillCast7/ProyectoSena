@@ -25,7 +25,7 @@
                         CORREO ELECTRONICO
                     </th>
                     <th>
-                        PERFIL  
+                        PERFIL
                     </th>
                 </tr>
             </thead>
@@ -34,36 +34,20 @@
                     <tr>
                         <td>
                             <div class="incons">
-<<<<<<< HEAD
-                                <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
-                                <a class="btn btn-outline-warning" href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
-=======
-<<<<<<< HEAD
-                                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""> Ver </a>
-                                <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}">Editar</a>
-
-                                @if($items->persona_estado == 1)
-                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
-                                @else
-                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
-                                @endif
-=======
                                 <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
                                 <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
->>>>>>> fd5a88c71943587b724f46e9e8c7a87d87e86750
                               @if($items->persona_estado == 1)
                                     <a class="btn btn-outline-success" href="{{route('u.delete', $items->persona_id)}}"><i class="fas fa-check"></i></a>
                                 @else
                                     <a class="btn btn-outline-danger" href="{{route('u.undelete', $items->persona_id)}}"><i class="fa fa-times-circle"></i></a>
                               @endif
->>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
                             </div>
                         </td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
                         <td>
-                            
+
                         </td>
 
 
@@ -130,7 +114,7 @@
                 <tbody>
                     <tr class="danger">
                         <td>{{$items->persona_telefono}}</td>
-                        <td>{{$items->persona_tipodocumento}}</td>
+                        <td>{{$items->nombre_largo_parametro}}</td>
                         <td>{{$items->persona_dni}}</td>
                         <td>{{$items->persona_direccion}}</td>
                         <td>{{$items->persona_fnacimiento}}</td>

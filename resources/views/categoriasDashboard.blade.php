@@ -7,13 +7,9 @@
 @endsection
 @section('contenido')
 {{-- Tabla de Categorias --}}
-<<<<<<< HEAD
-
-=======
 @section('titulo')
     CATEGORIAS
 @endsection
->>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">
@@ -64,23 +60,19 @@
             <table class="table">
                     <thead style= "background-color:slategray;color:white; font-weight :bold;" >
                         <tr class="success">
-                            <th>ID</th>
-                            <th>ESTADO</th>
-                            
+                            <th>NOMBRE</th>
+                            <th>CATEGORIA PADRE</th>
+                            <th>URL</th>
+
 
                         </tr>
                     </thead>
                 <tbody>
                     <tr class="danger">
-                        <td>{{$categoria->categoria_id}}</td>
-                        <td>
-                        @if($categoria->categoria_estado == 1)
-                        <a class="btn btn-success" href="{{route('c.delete', $categoria->categoria_id)}}">Activo</i> </a>
-                        @else
-                            <a class="btn btn-danger" href="{{route('c.undelete', $categoria->categoria_id)}}">Inactivo</i> </a>
-                        @endif
-                        </td>
-                       
+                        <td>{{$categoria->categoria_nombre}}</td>
+                        <td>{{$categoria->categoria_padre}}</td>
+                        <td>{{$categoria->categoria_url}}</td>
+
                     </tr>
                 </tbody>
             </table>

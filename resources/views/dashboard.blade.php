@@ -24,7 +24,7 @@
             <a href="{{route('Productos')}}">
                 <div id="Eccomerce">
                     <div id="imagen-eccomerce"><i class="far fa-money-bill-alt"></i></div>
-                    <span id="texto-eccomerce">Eccomerce</span>
+                    <span id="texto-eccomerce">Productos</span>
                 </div>
             </a>
         </div>
