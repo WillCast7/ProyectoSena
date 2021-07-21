@@ -36,13 +36,7 @@ Route::get('/login', function () {
     return view('ecommerce.login');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
-Route::get('/dashboard/usuarios', function () {
-    return view('usuariosDashboard');
-});
+Route::get('/dashboard', [GeneralController::class, 'dashboardIndex']);//indice dashboard
 
 Route::get('/ecommerce', function () {
     return view('ecommerce');
@@ -74,6 +68,7 @@ Route::get('/auth',[AuthenticationController::class,'logout'])->name("auth.logou
 Route::get('/general',[GeneralController::class,'getParams']);
 
 /* #################### /Daniel Bolivar - routes  ################################## */
+
 
 //Vistas principales
 Route::get('/dashboard/usuarios',   [UsuarioController::class, 'getUsuarios'     ])->name('Usuarios');

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>BIGBAG Store - Ecommerce Bootstrap Template</title>
+    <title>BIGBAG Store</title>
 
     <!-- PLUGINS CSS STYLE -->
     <link href="resourcesEcomerce/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">

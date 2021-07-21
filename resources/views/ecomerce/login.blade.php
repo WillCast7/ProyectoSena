@@ -9,11 +9,11 @@
                 <form action="{{route('auth')}}" method="post" role="form">
                     @csrf
                     <div class="form-group">
-                        <label for="">Enter Email</label>
+                        <label for="">Correo</label>
                         <input type="email" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Password</label>
+                        <label for="">Contraseña</label>
                         <input type="password" class="form-control">
                     </div>
                     <div class="checkbox">

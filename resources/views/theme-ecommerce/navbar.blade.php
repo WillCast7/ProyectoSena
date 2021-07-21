@@ -2,7 +2,7 @@
         <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
 
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/">
             <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -30,9 +30,11 @@
                 <li class="nav-item" >
                     <a href="/shop" class="nav-link">Tienda</a>
                 </li>
-                <!-- <li class="nav-item" >
-                    <a href="/blog" class="nav-link">Blog</a>
-                </li> -->
+                 <li class="nav-item" >
+                    @if(session()->get('rol') == 1)
+                        <a href="/dashboard" class="nav-link">DASHBOARD</a>
+                    @endif
+                </li>
                 <!-- <li class="nav-item dropdown ">
                     <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">pages</a>
                     <ul class="dropdown-menu dropdown-menu-left">

@@ -1,7 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2021 <a href="https://ecommercetps102.com">Ecommerce TPS 102</a>.</strong>
-    All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
+        Ecommerce TPS 102
     </div>
   </footer>

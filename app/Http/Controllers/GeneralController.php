@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\GeneralModel;
 
 class GeneralController extends Controller{
-    
+
 
     public function getParams(Request $request){
         switch($request->input('action')){
@@ -24,6 +24,13 @@ class GeneralController extends Controller{
         }
     }
 
+    public  function dashboardIndex(){//Index dashboard
+        if(session()->get('rol') == 1){
+            return view('dashboard');
+        }else{
+            return redirect()->route('ecommerce');
+        }
+    }
 
     public function returnData($data,$msg='Se produjo un error'){
         if(sizeof($data) > 0){

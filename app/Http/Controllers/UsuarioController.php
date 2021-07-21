@@ -98,7 +98,8 @@ class UsuarioController extends Controller{
             $deptos=usuario::getDepartmentsSQL();
             $city=usuario::getCitySQL();
             return view('parametros.usuarioEdit', compact('usuario', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
-        }else{return redirect()->route('ecommerce');
+        }else{
+            return redirect()->route('ecommerce');
         }
      }
     public static function updateUser(Request $request,$persona_id){
