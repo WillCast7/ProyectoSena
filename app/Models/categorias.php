@@ -6,8 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class categorias extends Model
-{
+class categorias extends Model{
     use HasFactory;
     protected $table="categorias";
     protected $primaryKey="categoria_id";

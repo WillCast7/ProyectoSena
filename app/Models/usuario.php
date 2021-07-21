@@ -44,7 +44,7 @@ class usuario extends Model
                                             p.perfil_id, p.perfil_nombre, per.persona_avatar
                                         FROM personas per
                                         INNER JOIN parametros_configuracion pc
-                                            ON per.persona_tipodocumento=pc.id_parametro
+                                            ON pc.id_parametro=per.persona_tipodocumento
                                         INNER JOIN perfiles p
                                             ON p.perfil_id=per.perfil_id
                                         INNER JOIN paises pai
@@ -147,8 +147,7 @@ class usuario extends Model
 
     public static function getRolSQL(){ //Obtener roles
         $roles=DB::select("SELECT perfil_id, perfil_nombre, perfil_descripcion
-                    FROM perfiles
-                    WHERE estado=1");
+                    FROM perfiles");
                     return $roles;
         }
     public static function getTipoDocSQL(){ //Obtener Tipo dee documento
@@ -198,7 +197,8 @@ class usuario extends Model
                         persona_email=?,
                         usuario_username=?,
                         usuario_pass=?,
-                        perfil_id=?
+                        perfil_id=?,
+                        persona_avatar=?
                 WHERE persona_id=?";
         DB::select($sql,array($usuario->persona_nombre1,
                                 $usuario->persona_nombre2,
@@ -206,7 +206,7 @@ class usuario extends Model
                                 $usuario->persona_apellido2,
                                 $usuario->persona_tipodocumento,
                                 $usuario->persona_dni,
-                                $usuario->persona_telfono,
+                                $usuario->persona_telefono,
                                 $usuario->persona_fnacimiento,
                                 $usuario->persona_ciudadnacimiento,
                                 $usuario->pais_codigo,
@@ -217,6 +217,7 @@ class usuario extends Model
                                 $usuario->usuario_username,
                                 $usuario->usuario_pass,
                                 $usuario->perfil_id,
+                                $usuario->persona_avatar,
                                 $persona_id));
 
      }
