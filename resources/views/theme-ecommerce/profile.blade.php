@@ -44,7 +44,11 @@
                 <div class="row">
                 <div class="col-md-4 col-lg-3 col-xl-2 col-12">
                     <div class="thumbnail">
-                    <img src="assets/img/products/profile/profile-image.jpg" alt="profile-image">
+                        @if($persona_avatar != '' && $persona_avatar != null)
+                        <img src="{{$persona_avatar}}" alt="profile-image">    
+                        @else
+                        <img src="/resourcesEcommerce/img/products/profile/profile-image.png" alt="profile-image">
+                        @endif
                     <div class="caption">
                         <a href="#" class="btn btn-primary btn-block" role="button">Cambiar Avatar</a>
                     </div>

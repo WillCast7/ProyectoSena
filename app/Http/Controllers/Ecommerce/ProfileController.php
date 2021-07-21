@@ -26,7 +26,6 @@ class ProfileController extends Controller{
         // $categories = new CategoriesController();
         // $categoriesArray = $categories->get();
         // // data - vista
-        $data = [];
 
         // $data['categories']     = $categoriesArray;
         // $data['products']       = $listProducts;
