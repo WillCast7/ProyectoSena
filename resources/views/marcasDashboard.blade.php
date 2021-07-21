@@ -21,12 +21,12 @@
             @foreach($marcas as $marca)
             <tr>
                 <td>
-                    <a data-toggle="modal" data-target="#viewProduct">VER</a>
-                    <a href="{{route('m.edit', $marca->marca_id)}}">EDITAR</a>
+                    <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewProduct">VER</a>
+                    <a class="btn btn-outline-success" href="{{route('m.edit', $marca->marca_id)}}" >EDITAR</a>
                     @if($marca->marca_estado == 1)
-                        <a class="btn btn-success" href="{{route('m.delete', $marca->marca_id)}}">Activo</i> </a>
+                        <a class="btn btn-outline-success" href="{{route('m.delete', $marca->marca_id)}}">Activo</i></a>
                     @else
-                        <a class="btn btn-danger" href="{{route('m.undelete', $marca->marca_id)}}">Inactivo</i> </a>
+                        <a class="btn btn-outline-danger" href="{{route('m.undelete', $marca->marca_id)}}">Inactivo</i></a>
                     @endif
                 </td>
                 <td>{{$marca->marca_nombre}}</td>
