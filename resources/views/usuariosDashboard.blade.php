@@ -27,6 +27,9 @@
                     <th>
                         CORREO ELECTRONICO
                     </th>
+                    <th>
+                        PERFIL  
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -48,6 +51,9 @@
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
                         <td>{{$items->persona_email}}</td>
+                        <td>
+                            
+                        </td>
 
 
                     </tr>
@@ -102,18 +108,23 @@
                     <thead style= "background-color:slategray;color:white; font-weight :bold;" >
                         <tr class="success">
                             <th>Telefono Usuario</th>
-                            <th>Correo Electronico</th>
-                            <th>Numero de Pase</th>
-                            <th>Perfil </th>
+                            <th>Tipo Documento</th>
+                            <th>DNI </th>
+                            <th>Direccion</th>
+                            <th>nacimiento</th>
+                            <th>Ciudad Nacimiento</th>
 
                         </tr>
                     </thead>
                 <tbody>
                     <tr class="danger">
                         <td>{{$items->persona_telefono}}</td>
-                        <td>{{$items->usuario_username}}</td>
-                        <td>{{$items->usuario_pass}}</td>
-                        <td>{{$items->perfil_nombre}}</td>
+                        <td>{{$items->persona_tipodocumento}}</td>
+                        <td>{{$items->persona_dni}}</td>
+                        <td>{{$items->persona_direccion}}</td>
+                        <td>{{$items->persona_fnacimiento}}</td>
+                        <td>{{$items->persona_ciudadnacimiento}}</td>
+
                     </tr>
                 </tbody>
             </table>
