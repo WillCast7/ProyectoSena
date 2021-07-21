@@ -120,25 +120,30 @@
                     @csrf
                     @method('put')
                         <div class="form-group"><!--Primer nombre-->
+                            <label for="persona_nombre1">Primer nombre</label>
                             <input type="text" name="persona_nombre1" class="form-control" placeholder="Primer nombre">
                             @error('persona_nombre1')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--Segundo nombre-->
+                            <label for="persona_nombre2">Segundo nombre</label>
                             <input type="text" name="persona_nombre2" class="form-control" placeholder="Segundo nombre">
                         </div>
                         <div class="form-group"><!--Primer apellido-->
+                            <label for="persona_apellido1">Primer apellido</label>
                             <input type="text" name="persona_apellido1" class="form-control" placeholder="Primer apellido">
                             @error('persona_apellido1')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--Segundo apellido-->
+                            <label for="persona_apellido2">Segundo apellido</label>
                             <input type="text" name="persona_apellido2" class="form-control" placeholder="Segundo apellido">
                         </div>
                         <div class="form-group"><!--Tipos de documentos-->
-                            <select name="persona_tipodocumento" id="input" class="form-control" placeholder="tipo de usuario">
+                            <label for="persona_tipodocumento">Tipo de documento</label>
+                            <select name="persona_tipodocumento" id="input" class="form-control" placeholder="C">
                                 <option value=" ">Tipo Documento</option>
                                 @foreach($tipoDoc as $td)
                                 <option value="{{$td->nombre_largo_parametro}}">{{$td->nombre_largo_parametro}}</option>
@@ -146,24 +151,28 @@
                             </select>
                         </div>
                         <div class="form-group"><!--DNI-->
+                            <label for="persona_dni">DNI</label>
                             <input type="text" name="persona_dni" class="form-control" placeholder="DNI">
                             @error('persona_dni')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--Telefono-->
+                            <label for="persona_telefono">Telefono</label>
                             <input type="text" name="persona_telefono" class="form-control" placeholder="Telefono">
                             @error('persona_telefono')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--Fecha nacimiento-->
+                              <label for="pesona_fnacimiento">Fecha de nacimiento</label>
                             <input type="date" name="persona_fnacimiento" class="form-control">
                             @error('persona_fnacimiento')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--Ciuda de nacimiento-->
+                            <label for="persona_ciudadnacimiento">Ciudad de nacimiento</label>
                             <select name="persona_ciudadnacimiento" id="ciudadNacimiento" class="form-control">
                                 <option value=" ">Ciudad</option>
                                 @foreach($city as $item)
@@ -172,6 +181,7 @@
                             </select>
                         </div>
                         <div class="form-group"><!--Paises-->
+                            <label for="pais_codigo">Selecciones su pais</label>
                             <select name="pais_codigo" id="input" class="form-control" placeholder="tipo de usuario">
                                 <option value=" ">Pais</option>
                                 @foreach($paises as $pais)
@@ -180,6 +190,7 @@
                             </select>
                         </div>
                         <div class="form-group"><!--Departamentos-->
+                            <label for="departamento_codigo">seleccione su departamento</label>
                             <select name="departamento_codigo" id="Departamentos" class="form-control" placeholder="tipo de usuario">
                                 <option value=" ">Departamento</option>
                                 @foreach($deptos as $depto)
@@ -188,6 +199,7 @@
                             </select>
                         </div>
                         <div class="form-group"><!--Ciudades-->
+                             <label for="ciudad_codigo">Seleccione su ciudad</label>
                             <select name="ciudad_codigo" id="ciudades" class="form-control" placeholder="tipo de usuario">
                                 <option value=" ">Ciudad</option>
                                 @foreach($city as $item)
@@ -196,27 +208,25 @@
                             </select>
                         </div>
                         <div class="form-group"><!--Direccion-->
+                            <label for="persona_direccion">Direccion</label>
                             <input type="text" name="persona_direccion" class="form-control" placeholder="sexo">
                         </div>
                         <div class="form-group"><!--Correo-->
+                            <label for="persona_email">Correo electronico</label>
                             <input type="text" name="persona_email" class="form-control" placeholder="Email">
                             @error('persona_email')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
-                        <div class="form-group"><!--Nombre de usuario-->
-                            <input type="text" name="usuario_username" class="form-control" placeholder="Usuario">
-                            @error('usuario_username')
-                                <small class="text-danger">{{$message}}</small>
-                            @enderror
-                        </div>
                         <div class="form-group"><!--Contraseña-->
+                            <label for="usuario_pass">Contraseña</label>
                             <input type="password" name="usuario_pass" class="form-control" placeholder="Contraseña">
                             @error('usuario_pass')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                         </div>
                         <div class="form-group"><!--Roles-->
+                            <label for="perfil_id">Seleccione role</label>
                             <select name="perfil_id" id="perfiles" class="form-control" placeholder="perfiles">
                                 <option value=" ">Perfil</option>
                                 @foreach($roles as $rol)
@@ -225,6 +235,7 @@
                             </select>
                         </div>
                         <div class="form-group" ><!--avatar-->
+                            <label for="persona_avatar">Subir imagen de su avater</label>
                             <input type="file" class="form-control-file" name="persona_avatar" accept="image/*">
                             <br>
                             @error('persona_avatar')
