@@ -12,11 +12,8 @@
         <table class="table table-bordered table-striped mb-0">
             <thead class="thead-dark">
                 <tr>
-                    <th>
+                    <th style="width: 200px">
                         ACCIONES
-                    </th>
-                    <th>
-                        ESTADO
                     </th>
                     <th>
                         NOMBRE COMPLETO
@@ -34,16 +31,14 @@
                     <tr>
                         <td>
                             <div class="incons">
-                                <a class="iconA" data-toggle="modal" data-target="#viewUser" onclick=""> <i class="far fa-eye"></i> </a>
-                                <a class="iconA" href="{{route('u.edit', $items->persona_id)}}"> <i class="far fa-edit"></i> </a>
-                            </div>
-                        </td>
-                        <td>
+                                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""><i class="far fa-eye"></i></a>
+                                <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}"><i class="far fa-edit"></i></a>
                               @if($items->persona_estado == 1)
-                                    <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
+                                    <a class="btn btn-outline-success" href="{{route('u.delete', $items->persona_id)}}"><i class="fas fa-signal"></i></a>
                                 @else
-                                    <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
+                                    <a class="btn btn-outline-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</a>
                               @endif
+                            </div>
                         </td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>

@@ -6,11 +6,8 @@
     <table class="table table-bordered table-striped mb-0">
         <thead class="thead-dark">
             <tr>
-                <th>
+                <th style="width: 200px">
                     ACCIONES
-                </th>
-                <th>
-                    ESTADO
                 </th>
                 <th>
                     NOMBRE
@@ -27,15 +24,12 @@
             @foreach($categorias as $categoria)
             <tr>
                 <td>
-                <a data-toggle="modal" data-target="#viewProduct"> <i class="far fa-eye"></i> </a>
-                    <a href="{{route('c.edit', $categoria->categoria_id)}}" > <i class="far fa-edit"></i> </a>
-
-                </td>
-                <td>
+                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
+                    <a class="btn btn-outline-success" href="{{route('c.edit', $categoria->categoria_id)}}"><i class="far fa-edit"></i></a>
                     @if($categoria->categoria_estado == 1)
-                        <a class="btn btn-success" href="{{route('c.delete', $categoria->categoria_id)}}">Activo</i> </a>
+                        <a class="btn btn-outline-success" href="{{route('c.delete', $categoria->categoria_id)}}"><i class="fas fa-signal"></i></a>
                     @else
-                        <a class="btn btn-danger" href="{{route('c.undelete', $categoria->categoria_id)}}">Inactivo</i> </a>
+                        <a class="btn btn-outline-danger" href="{{route('c.undelete', $categoria->categoria_id)}}">Inactivo</a>
                     @endif
                         </td>
                 <td>{{$categoria->categoria_nombre}}</td>
