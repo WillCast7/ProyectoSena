@@ -28,7 +28,7 @@ class productos extends Model
                                 FROM productos pr
                                 INNER JOIN categorias cat
                                     ON cat.categoria_id=pr.categoria_id
-                                INNER JOIN marcas mr
+                                LEFT JOIN marcas mr
                                     ON mr.marca_id=pr.marca_id
                                 LEFT JOIN productos_imagenes pri
                                     ON pri.producto_id=pr.producto_id");

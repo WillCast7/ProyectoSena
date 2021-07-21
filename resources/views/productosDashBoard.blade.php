@@ -67,6 +67,32 @@
         </table>
     </div>
 
+<<<<<<< HEAD
+ <!-- vistas producto  -->
+    <div class="modal fade" id="viewProduct" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="title">{{$producto->producto_nombre}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" >
+                    <td>{{$producto->producto_stock}}</td>
+                    <td>{{$producto->producto_descripcion}}</td>
+                    <td>{{$producto->marca_nombre}}</td>
+                    <td>{{$producto->marca_nombre}}</td>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+          </div>
+            <br>
+        </div>
+=======
 <!-- vistas producto  -->
 <div class="modal fade bd-example-modal-lg " id="viewProduct" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
@@ -115,6 +141,7 @@
 </div>
 
         <br>
+>>>>>>> f8f39d0437b6cfff9180e6d923db198451069b0e
     </div>
     <br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>
@@ -124,17 +151,17 @@
  <!-- Formulario producto -->
     <div class="modal fade" id="newProduct" tabindex="-1" role="dialog" aria-labelledby="newProductTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="title">AGREGAR PRODUCTO</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{route('p.new')}}" method="put" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="title">AGREGAR PRODUCTO</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('p.new')}}" method="put" enctype="multipart/form-data">
+                        @csrf
+                        @method('put')
                         <div class="form-group"><!--nombre-->
                             <input type="text" name="producto_nombre" class="form-control" placeholder="Nombre Producto">
                             @error('producto_nombre')
@@ -180,10 +207,11 @@
                         </div>
                         <div class="modal-footer">
                             <input type="submit" value="Guardar" class="btn btn-primary">
-                        </form>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    </div>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
     </div>
  @endsection
