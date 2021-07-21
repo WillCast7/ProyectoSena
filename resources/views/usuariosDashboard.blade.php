@@ -16,9 +16,6 @@
                         ACCIONES
                     </th>
                     <th>
-                        ESTADO
-                    </th>
-                    <th>
                         NOMBRE COMPLETO
                     </th>
                     <th>
@@ -34,16 +31,15 @@
                     <tr>
                         <td>
                             <div class="incons">
-                                <a class="iconA" data-toggle="modal" data-target="#viewUser" onclick=""> <i class="far fa-eye"></i> </a>
-                                <a class="iconA" href="{{route('u.edit', $items->persona_id)}}"> <i class="far fa-edit"></i> </a>
-                            </div>
-                        </td>
-                        <td>
-                              @if($items->persona_estado == 1)
+                                <a class="btn btn-outline-success" data-toggle="modal" data-target="#viewUser" onclick=""> Ver </a>
+                                <a class="btn btn-outline-success" href="{{route('u.edit', $items->persona_id)}}">Editar</a>
+
+                                @if($items->persona_estado == 1)
                                     <a class="btn btn-success" href="{{route('u.delete', $items->persona_id)}}">Activo</i> </a>
                                 @else
                                     <a class="btn btn-danger" href="{{route('u.undelete', $items->persona_id)}}">Inactivo</i> </a>
-                              @endif
+                                @endif
+                            </div>
                         </td>
                         <td>{{$items->nombres}}</td>
                         <td>{{$items->persona_telefono}}</td>
@@ -124,7 +120,7 @@
 </div>
 <br>
 <div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser"><i class="fas fa-users"></i>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser">
             AGREGAR USUARIO
         </button>
 </div>

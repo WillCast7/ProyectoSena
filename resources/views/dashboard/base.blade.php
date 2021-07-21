@@ -9,7 +9,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-        @include('dashboard.navbar')
+        {{-- @include('dashboard.navbar') --}}
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
