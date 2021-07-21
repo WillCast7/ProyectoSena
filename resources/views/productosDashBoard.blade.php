@@ -1,17 +1,17 @@
 @extends('dashboard.base')
-@section('contenido')
 @section('titulo')
-    Gestion de Productos
+Gestion de Productos
 @endsection
 @section('direccion')
-    productos
+productos
 @endsection
+@section('contenido')
 {{-- Tabla de productos --}}
     <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table id="tablita" class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>
+                    <th style="width: 200px">
                         ACCIONES
                     </th>
                     <th>
@@ -38,12 +38,13 @@
                 @foreach($productos as $producto)
                 <tr>
                     <td>
-                        <a class="btn btn-outline-primary" data-toggle="modal" data-target="#viewProduct"><i class="far fa-eye"></i></a>
-                        <a class="btn btn-outline-warning" href="{{route('p.edit', $producto->producto_id)}}"><i class="far fa-edit"></i></a>
+                        <a class="btn btn-info"data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-warning" href="{{route('p.edit', $producto->producto_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                        <a class="btn btn-secondary" data-toggle="modal" data-target="#images" title="Imagenes"><i class="fas fa-plus"></i></a>
                         @if($producto->producto_estado == 1)
-                                    <a class="btn btn-outline-success" href="{{route('p.delete', $producto->producto_id)}}"><i class="fas fa-check"></i></a>
-                            @else
-                                    <a class="btn btn-outline-danger" href="{{route('p.undelete', $producto->producto_id)}}"><i class="fa fa-times-circle"></i></a>
+                        <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}" title="Activo"><i class="fas fa-check"></i></a>
+                        @else
+                        <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                         @endif
                     </td>
                     <td>{{$producto->producto_nombre}}</td>
@@ -91,11 +92,10 @@
       </div>
     </div>
 </div>
-
         <br>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct"><i class="fas fa-users"></i>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct">
         AGREGAR PRODUCTO
     </button>
 

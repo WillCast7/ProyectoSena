@@ -29,7 +29,31 @@ class GeneralModel extends Model{
                 where 
                     pais_codigo = ? 
                     and departamento_codigo = ?";
-        $result = DB::select($sql,array($county,$department));
+        $result = DB::select($sql,array($country,$department));
+        return $result;
+    }
+
+    public static function getCityById($city){
+        $sql = "SELECT
+                    ciudad_codigo as codigo,
+                    ciudad_nombre as nombre
+                from
+                    ciudades
+                where
+                    ciudad_codigo = ?";
+        $result = DB::select($sql,array($city));
+        return $result;
+    }
+
+    public static function getDepartmentById($department){
+        $sql = "SELECT
+                departamento_codigo as codigo,
+                departamento_nombre as nombre
+            from
+                departamentos
+            where
+                departamento_codigo = ?";
+        $result = DB::select($sql,array($department));
         return $result;
     }
 

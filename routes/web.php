@@ -8,6 +8,7 @@ use App\Http\Controllers\Ecommerce\CategoriesController;
 use App\Http\Controllers\Ecommerce\AuthenticationController;
 use App\Http\Controllers\Ecommerce\CartController;
 use App\Http\Controllers\Ecommerce\CheckoutController;
+use App\Http\Controllers\Ecommerce\ProfileController;
 use App\Http\Controllers\GeneralController;
 
 use App\Http\Controllers\UsuarioController;
@@ -49,19 +50,21 @@ Route::get('/ecommerce', function () {
 
 
 /* #################### Daniel Bolivar - routes  ################################## */
-/* 
-laravel 7.x 
-Route::get('productos','ProductosController@getProducts'); 
+/*
+laravel 7.x
+Route::get('productos','ProductosController@getProducts');
 laravel 8.x
 Route::get('productos', [ProductosController::class,'getProducts']);
 */
 Route::get('productos', [ProductosController::class,'getProducts']);
 Route::get('shop', [ShopController::class,'getShop']);
+Route::get('profile/{id}',[ProfileController::class,'getProfile']);
 Route::get('products/{id}', [ProductsController::class,'show']);
 Route::get('categorias/{categoria}',[CategoriesController::class,'shopCategories']);
 Route::get('categorias/{categoria}/{subcategoria}',[CategoriesController::class,'shopCategories']);
 Route::get('cart',[CartController::class,'getCart']);
 Route::get('checkout',[CheckoutController::class,'oneStep']);
+Route::post('checkout',[CheckoutController::class,'twoStep']);
 
 
 Route::get('/',function(){ return view('home');})->name("ecommerce");
@@ -110,3 +113,5 @@ Route::put('/dashboard/usuarios/updateProducto/{producto_id}',  [ProductosContro
 Route::put('/dashboard/usuarios/updateMarca/{marca_id}',        [MarcasController::class,'updateMarca'        ])->name('m.update');
 Route::put('/dashboard/usuarios/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
 
+
+Route::get('/dashboard/productos/imagenes',   [ProductosController::class, 'AdminImagenes'])->name('i.admin');
