@@ -65,6 +65,10 @@
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="container p-3 my-3 bg-dark text-white">
+        <div class="modal-body">
+                <form action="{{route('Usuarios')}}" method="get" enctype="multipart/form-data">
+                    @csrf
+                    @method('get')
 
             <h2>{{$items->nombres}}</h2>
             <p>INFORMACION AVANZADA DEL USUARIO</p>
@@ -97,15 +101,8 @@
       </div>
     </div>
 </div>
-<br>
-<div>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newUser">
-            AGREGAR USUARIO
-        </button>
-</div>
-<br>
-<hr/>
-<br>
+
+
 
 
 <!-- Formulario usuario -->
