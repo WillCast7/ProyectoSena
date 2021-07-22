@@ -3,7 +3,7 @@
     <div>
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-        <img src="{{asset('resourcesDashboard/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="{{asset('resourcesDashboard/dist/img/sena.JPG')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">TPS-102</span>
         </a>
 
@@ -38,7 +38,7 @@
                     with font-awesome or any other icon font library -->
                     <li class="nav-item menu-open">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <i class="nav-icon fas fa-chess-knight"></i>
                                 <p>
                                 Modulos Dashboard
                                 <i class="right fas fa-angle-left"></i>
