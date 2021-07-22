@@ -75,6 +75,7 @@ Route::get('/dashboard/usuarios',   [UsuarioController::class, 'getUsuarios'    
 Route::get('/dashboard/productos',  [ProductosController::class, 'getProductos'  ])->name('Productos');
 Route::get('/dashboard/marcas',     [MarcasController::class, 'getMarcas'        ])->name('Marcas');
 Route::get('/dashboard/categorias', [CategoriasController::class, 'getCategorias'])->name('Categorias');
+Route::get('/dashboard/ordenes',    [OrderController::class, 'getOrder'          ])->name('Ordenes');
 
 //Borrar(activar/desactivar)
 Route::get('/dashboard/usuarios/delete/{persona_id}',       [UsuarioController::class, 'deleteUser'          ])->name('u.delete');

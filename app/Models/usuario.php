@@ -217,7 +217,6 @@ class usuario extends Model
                         persona_direccion=?,
                         persona_email=?,
                         usuario_username=?,
-                        usuario_pass=?,
                         perfil_id=?,
                         persona_avatar=?
                 WHERE persona_id=?";
@@ -236,7 +235,6 @@ class usuario extends Model
                                 $usuario->persona_direccion,
                                 $usuario->persona_email,
                                 $usuario->persona_email,
-                                $usuario->usuario_pass,
                                 $usuario->perfil_id,
                                 $usuario->persona_avatar,
                                 $persona_id));

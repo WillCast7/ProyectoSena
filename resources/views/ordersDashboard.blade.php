@@ -1,14 +1,14 @@
 @extends('dashboard.base')
 @section('titulo')
-    Gestion de Pedidos
+    Gestion de Ordenes
 @endsection
 @section('direccion')
-    pedidos
+    ordenes
 @endsection
 @section('contenido')
 {{-- Tabla de Pedidos --}}
 @section('titulo')
-    PEDIDOS
+    ORDENES
 @endsection
 <div class="table-wrapper-scroll-y my-custom-scrollbar">
     <table id="tablita" class="table table-striped table-bordered">
@@ -21,7 +21,7 @@
                     NOMBRE
                 </th>
                 <th>
-                    Categoria padre
+                    EMAIL
                 </th>
                 <th>
                     URL
@@ -29,7 +29,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($categorias as $categoria)
+            @foreach($orders as $order)
             <tr>
                 <td>
                 <a class="btn btn-info" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
@@ -40,9 +40,9 @@
                         <a class="btn btn-danger" href="{{route('c.undelete', $categoria->categoria_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                     @endif
                         </td>
-                <td>{{$categoria->categoria_nombre}}</td>
-                <td>{{$categoria->categoria_padre}}</td>
-                <td>{{$categoria->categoria_url}}</td>
+                <td>{{$order->pedido_nombre}} {{$order->pedido_apellidos}}</td>
+                <td>{{$order->pedido_email}}</td>
+                <td>{{$order->pedido_tota}}</td>
             </tr>
             @endforeach
         </tbody>

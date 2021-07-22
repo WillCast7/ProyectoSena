@@ -18,6 +18,12 @@ class categorias extends Model{
                                     FROM categorias");
         return $categoria;
      }
+    public static function getCategoriasPadresSQL(){ //Obtener Categorias
+        $categoria=DB::select("SELECT DISTINCT categoria_id, categoria_nombre, categoria_padre, categoria_url, categoria_estado
+                                    FROM categorias
+                                    WHERE categoria_padre is null");
+        return $categoria;
+     }
     public static function getFormCategoriasSQL(){ //Obtener Categorias
         $categoria=DB::select("SELECT DISTINCT categoria_id, categoria_nombre, categoria_padre, categoria_url, categoria_estado
                                     FROM categorias

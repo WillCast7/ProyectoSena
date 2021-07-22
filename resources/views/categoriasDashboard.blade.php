@@ -109,8 +109,8 @@
                             <div class="form-group"><!--categoria padre-->
                                 <select name="categoria_padre" id="Categoria" class="form-control">
                                     <option value=" ">Seleccione categoria padre</option>
-                                    @foreach($categorias as $categoria)
-                                    <option value="{{$categoria->categoria_id}}">{{$categoria->categoria_nombre}}</option>
+                                    @foreach($categoriasPadres as $categoriap)
+                                    <option value="{{$categoriap->categoria_id}}">{{$categoriap->categoria_nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>

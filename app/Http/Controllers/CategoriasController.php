@@ -12,7 +12,8 @@ class CategoriasController extends Controller{
     public function getCategorias(){//Trae las categorias
         if(session()->get('rol') == 1){
             $categorias=categorias::getCategoriasSQL();
-            return view('categoriasDashboard', compact('categorias'));
+            $categoriasPadres=categorias::getCategoriasPadresSQL();
+            return view('categoriasDashboard', compact('categorias', 'categoriasPadres'));
         }else{
             return redirect()->route('ecommerce');
         }
