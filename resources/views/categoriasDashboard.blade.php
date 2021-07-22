@@ -101,12 +101,15 @@
                         @csrf
                         @method('put')
                             <div class="form-group"><!--nombre-->
+                                 <label for="categoria_nombre">Nombre del la categoria</label>
                                 <input type="text" name="categoria_nombre" class="form-control" placeholder="Nombre Categoria">
                             </div>
                             <div class="form-group"><!--nombre-->
+                                 <label for="categoira_url">URL</label>
                                 <input type="text" name="categoria_url" class="form-control" placeholder="URL Categoria">
                             </div>
                             <div class="form-group"><!--categoria padre-->
+                                <label for="categoria_padre">Categoria padre</label>
                                 <select name="categoria_padre" id="Categoria" class="form-control">
                                     <option value=" ">Seleccione categoria padre</option>
                                     @foreach($categoriasPadres as $categoriap)

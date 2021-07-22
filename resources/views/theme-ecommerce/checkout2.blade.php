@@ -31,22 +31,15 @@
           <div class="col-md-8">
             <div class="innerWrapper clearfix stepsPage">
               <div class="row progress-wizard" style="border-bottom:0;">
-                <div class="col-4 progress-wizard-step complete fullBar">
+                <div class="col-6 progress-wizard-step complete fullBar">
                   <div class="text-center progress-wizard-stepnum">Método de envío</div>
                   <div class="progress"><div class="progress-bar"></div></div>
-                  <a href="checkout-step-1.html" class="progress-wizard-dot"></a>
+                  <a href="#" onclick="back()" class="progress-wizard-dot"></a>
                 </div>
-
-                <div class="col-4 progress-wizard-step active">
+                <div class="col-6 progress-wizard-step active">
                   <div class="text-center progress-wizard-stepnum">Método de pago</div>
                   <div class="progress"><div class="progress-bar"></div></div>
-                  <a href="checkout-step-2.html" class="progress-wizard-dot"></a>
-                </div>
-
-                <div class="col-4 progress-wizard-step disabled">
-                  <div class="text-center progress-wizard-stepnum">Revisión</div>
-                  <div class="progress"><div class="progress-bar"></div></div>
-                  <a href="checkout-step-3.html" class="progress-wizard-dot"></a>
+                  <a href="#" class="progress-wizard-dot"></a>
                 </div>
               </div>
 
@@ -75,7 +68,8 @@
               <div class="page-header">
                 <h4>Información de pago</h4>
               </div>
-              <form action="/checkout" class="row" method="POST" role="form">
+              <form action="/checkout/{{$pedido_id}}" class="row" method="POST" role="form">
+                @csrf
                 <div class=" checkboxArea card-check">
                   <!-- <div class="col-sm-12 mb-2">
                     <input id="checkbox1" type="radio" name="checkbox" value="1" >
@@ -122,15 +116,15 @@
                         <span class="step-drop"> -->
                           <select name="monthexpired"  required class="select-drop">
                             <option value="">Mes</option>
-                            <option value="1">Enero</option>
-                            <option value="2">Febrero</option>
-                            <option value="3">Marzo</option>
-                            <option value="4">Abril</option>
-                            <option value="5">Mayo</option>
-                            <option value="6">Junio</option>
-                            <option value="7">Julio</option>
-                            <option value="8">Agosto</option>
-                            <option value="9">Septiembre</option>
+                            <option value="01">Enero</option>
+                            <option value="02">Febrero</option>
+                            <option value="03">Marzo</option>
+                            <option value="04">Abril</option>
+                            <option value="05">Mayo</option>
+                            <option value="06">Junio</option>
+                            <option value="07">Julio</option>
+                            <option value="08">Agosto</option>
+                            <option value="09">Septiembre</option>
                             <option value="10">Octubre</option>
                             <option value="11">Noviembre</option>
                             <option value="12">Diciembre</option>
