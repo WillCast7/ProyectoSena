@@ -8,6 +8,8 @@ use App\Http\Controllers\GeneralController;
 use App\http\Controllers\Ecommerce\ProductsController;
 use App\Models\Ecommerce\OrderModel;
 use App\Models\Ecommerce\OrderDetailModel;
+use App\Models\Ecommerce\PagosModel;
+
 
 class CheckoutController extends Controller{
     
@@ -107,33 +109,73 @@ class CheckoutController extends Controller{
                     $detallepedido = OrderDetailModel::create($detallepedido);
                 }
 
-                // retorno vista de tarjeta
-                $data = [];
-                $data['address']        = $objData['address'];
-                $data['firstname']      = $objData['firstname'];
-                $data['lastname']       = $objData['lastname'];
-                $data['email']          = $objData['email'];
-                $data['phone']          = $objData['phone'];
-                $data['department']     = $objData['department'];
-
-                $department = GeneralController::getDepartmentById($objData['department']);
-                $data['department_name'] = $department[0]->nombre;
-
-                $data['city']           = $objData['city'];
-                $city = GeneralController::getCityById($objData['city']);
-                $data['city_name']      = $city[0]->nombre;
-
-                $data['zipcode']        = $objData['zipcode'];
-                $data['total']          = session('total');
-                $data['subtotal']       = session('subtotal');
-                return view('theme-ecommerce.checkout2',$data);
+                return redirect('checkout/'.$pedido->pedido_id);
+                // return view('theme-ecommerce.checkout2',$data);
             }else{ // no hay productos
                 return redirect()->route('ecommerce');
             }
-        }else{
-            // retorno confirmacion para pago
         }
-        // print_r($objData);
+    }
+
+    public function threeStep(Request $request,$pedido_id){
+
+        $objData = $request->all();
+        if(!isset($objData['cardnumber'])){
+            // obtengo pedido
+            $pedido = OrderModel::find($pedido_id);
+
+            // retorno vista de tarjeta
+            $data = [];
+            $data['pedido_id']      = $pedido['pedido_id'];
+            $data['address']        = $pedido['pedido_direccion'];
+            $data['firstname']      = $pedido['pedido_nombre'];
+            $data['lastname']       = $pedido['pedido_apellidos'];
+            $data['email']          = $pedido['pedido_email'];
+            $data['phone']          = $pedido['pedido_telefono'];
+            $data['department']     = $pedido['departamento_codigo'];
+
+            $department = GeneralController::getDepartmentById($pedido['departamento_codigo']);
+            $data['department_name'] = $department[0]->nombre;
+
+            $data['city']           = $pedido['ciudad_codigo'];
+            $city = GeneralController::getCityById($pedido['ciudad_codigo']);
+            $data['city_name']      = $city[0]->nombre;
+
+            $data['zipcode']        = $pedido['pedido_zipcode'];
+            $data['subtotal']       = $pedido['pedido_subtotal'];
+            $data['impuestos']      = $pedido['pedido_impuestos'];
+            $data['total']          = $pedido['pedido_total'];
+
+            return view('theme-ecommerce.checkout2',$data);
+        // }elseif(isset($objData['cardnumber'])){
+        }else{
+            // consultamos el pedido - para obtener el valor a facturar
+            $pedido = OrderModel::find($pedido_id);
+            // guardamos informacion de pago
+            $pago = [];
+            $pago['pedido_id']           = $pedido_id;
+            $pago['pago_titular']        = $objData['cardholdername'];
+            $pago['pago_cardnumber']     = $objData['cardnumber'];
+            $pago['pago_expirydate']     = $objData['yearexpired']."/".$objData['monthexpired'];
+            $pago['pago_valor']          = $pedido['pedido_total'];
+            $pago['pago_securitycode']   = $objData['securitycode'];
+            $pago['pago_estado']         = 'PAGO';
+            $pago['pago_fcreacion']      = date('Y-m-d h:i:s');
+
+            $pago = PagosModel::create($pago);
+
+            // actualizamos el estado del pedido
+            $order = OrderModel::find($pedido_id);
+            $order->pedido_estado = 'PAGADO';
+            $order->save();
+
+            $data = [];
+            $data['pedido_id'] = $pedido_id; 
+
+            return view('theme-ecommerce.thankyou',$data);
+            // echo "<pre>";
+            // print_r($objData);
+        }
     }
 
 }
