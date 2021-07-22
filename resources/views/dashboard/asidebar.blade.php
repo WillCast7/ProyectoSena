@@ -2,7 +2,7 @@
     <!--main-sidebar-->
     <div>
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="#" class="brand-link">
         <img src="{{asset('resourcesDashboard/dist/img/sena.JPG')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">TPS-102</span>
         </a>

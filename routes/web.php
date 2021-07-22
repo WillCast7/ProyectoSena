@@ -9,6 +9,7 @@ use App\Http\Controllers\Ecommerce\AuthenticationController;
 use App\Http\Controllers\Ecommerce\CartController;
 use App\Http\Controllers\Ecommerce\CheckoutController;
 use App\Http\Controllers\Ecommerce\ProfileController;
+use App\Http\Controllers\Ecommerce\OrderController;
 use App\Http\Controllers\GeneralController;
 
 use App\Http\Controllers\UsuarioController;

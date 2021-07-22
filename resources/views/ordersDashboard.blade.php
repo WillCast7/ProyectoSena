@@ -24,7 +24,7 @@
                     EMAIL
                 </th>
                 <th>
-                    URL
+                    TOTAL
                 </th>
             </tr>
         </thead>
@@ -33,16 +33,16 @@
             <tr>
                 <td>
                 <a class="btn btn-info" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
-                    <a class="btn btn-info" href="{{route('c.edit', $categoria->categoria_id)}}" title="Editar"><i class="far fa-edit"></i></a>
-                    @if($categoria->categoria_estado == 1)
-                        <a class="btn btn-success" href="{{route('c.delete', $categoria->categoria_id)}}" title="Activo"><i class="fa fa-check"></i></a>
+                    <a class="btn btn-info" href="#" title="Editar"><i class="far fa-edit"></i></a>
+                    @if($order->pedido_estado == 1)
+                        <a class="btn btn-success" href="{{route('c.delete', $order->pedido_id)}}" title="Activo"><i class="fa fa-check"></i></a>
                     @else
-                        <a class="btn btn-danger" href="{{route('c.undelete', $categoria->categoria_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
+                        <a class="btn btn-danger" href="{{route('c.undelete', $order->pedido_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                     @endif
                         </td>
                 <td>{{$order->pedido_nombre}} {{$order->pedido_apellidos}}</td>
                 <td>{{$order->pedido_email}}</td>
-                <td>{{$order->pedido_tota}}</td>
+                <td>{{$order->pedido_total}}</td>
             </tr>
             @endforeach
         </tbody>
@@ -50,7 +50,7 @@
 </div>
 
 <!-- vista categorias -->
-<div class="modal fade bd-example-modal-lg " id="viewCategoria" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+{{-- <div class="modal fade bd-example-modal-lg " id="viewCategoria" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
         <div class="container p-3 my-3 bg-dark text-white">
@@ -81,13 +81,13 @@
       </div>
     </div>
 </div>
-<br>
+<br> --}}
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCategoria"><i class="fas fa-users"></i>
         AGREGAR CATEGORIA
     </button>
 
  <!-- Formulario Categoria -->
-    <div class="modal fade" id="newCategoria" tabindex="-1" role="dialog" aria-labelledby="newCategoriaTitle" aria-hidden="true">
+    {{-- <div class="modal fade" id="newCategoria" tabindex="-1" role="dialog" aria-labelledby="newCategoriaTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -121,5 +121,5 @@
                     </div>
                 </div>
             </div>
-    </div>
+    </div> --}}
 @endsection
