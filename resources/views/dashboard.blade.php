@@ -27,6 +27,12 @@
                     <span id="texto-eccomerce">Productos</span>
                 </div>
             </a>
+            <a href="{{route('Productos')}}">
+                <div id="ordenes">
+                    <div id="imagen-ordenes"><i class="far fa-cart-plus"></i></div>
+                    <span id="texto-ordenes">Ordenes</span>
+                </div>
+            </a>
         </div>
     </ul>
 </div>
