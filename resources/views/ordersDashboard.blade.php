@@ -18,13 +18,13 @@
                     ACCIONES
                 </th>
                 <th>
+                    PEDIDO No.
+                </th>
+                <th>
                     NOMBRE
                 </th>
                 <th>
-                    EMAIL
-                </th>
-                <th>
-                    TOTAL
+                    CIUDAD
                 </th>
             </tr>
         </thead>
@@ -32,17 +32,23 @@
             @foreach($orders as $order)
             <tr>
                 <td>
-                <a class="btn btn-info" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
-                    <a class="btn btn-info" href="#" title="Editar"><i class="far fa-edit"></i></a>
-                    @if($order->pedido_estado == 1)
-                        <a class="btn btn-success" href="{{route('c.delete', $order->pedido_id)}}" title="Activo"><i class="fa fa-check"></i></a>
-                    @else
-                        <a class="btn btn-danger" href="{{route('c.undelete', $order->pedido_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
+                    <a class="btn btn-info elevation-1" data-toggle="modal" data-target="#viewOrder" title="Ver"><i class="far fa-eye"></i></a>
+{{--                     <a class="btn btn-info elevation-1" href="#" title="Pagado"><i class="far fa-edit"></i></a>
+ --}}                    @if($order->pedido_estado == "ENTREGADO")
+                        <a class="btn btn-success elevation-1" href="#" title="Entregado"><i class="fa fa-check-double"></i></a>
+                    @elseif($order->pedido_estado == "PAGADO")
+                        <a class="btn btn-primary elevation-1" href="#" title="pagado"><i class="fa fa-check"></i></a>
+                    @elseif($order->pedido_estado == "DESPACHADO")
+                        <a class="btn btn-primary elevation-1" href="#" title="despachado"><i class="fas fa-truck"></i></a>
+                    @elseif($order->pedido_estado == "PENDIENTE")
+                        <a class="btn btn-warning elevation-1" href="#" title="Pendiente"><i class="fa fa-clock"></i></a>
+                    @elseif($order->pedido_estado == "CANCELADO")
+                        <a class="btn btn-danger elevation-1" href="#" title="Cancelado"><i class="fa fa-times-circle"></i></a>
                     @endif
-                        </td>
+                </td>
+                <td>{{$order->pedido_id}}</td>
                 <td>{{$order->pedido_nombre}} {{$order->pedido_apellidos}}</td>
-                <td>{{$order->pedido_email}}</td>
-                <td>{{$order->pedido_total}}</td>
+                <td>{{$order->ciudad_nombre}}</td>
             </tr>
             @endforeach
         </tbody>
@@ -50,76 +56,116 @@
 </div>
 
 <!-- vista categorias -->
-{{-- <div class="modal fade bd-example-modal-lg " id="viewCategoria" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg " id="viewOrder" tabindex="1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" >
       <div class="modal-content">
-        <div class="container p-3 my-3 bg-dark text-white">
-
-            <h2>{{$categoria->categoria_nombre}}</h2>
-            <p>INFORMACION AVANZADA DEL LA CATEGORIA</p>
-            <table class="table">
-                    <thead style= "background-color:slategray;color:white; font-weight :bold;" >
-                        <tr class="success">
-                            <th>NOMBRE</th>
-                            <th>CATEGORIA PADRE</th>
-                            <th>URL</th>
-
-
-                        </tr>
-                    </thead>
-                <tbody>
-                    <tr class="danger">
-                        <td>{{$categoria->categoria_nombre}}</td>
-                        <td>{{$categoria->categoria_padre}}</td>
-                        <td>{{$categoria->categoria_url}}</td>
-
+        <div class="container p-3 my-3">
+            CLIENTE:
+            <h2>{{$order->pedido_nombre}} {{$order->pedido_apellidos}}</h2>
+            <p>DETALLES DE LA ORDEN</p>
+            <div class="tablaVista">
+                <TABLE class="table-bordered">
+                    <tr>
+                        <td class="item">
+                            ID DE ORDEN
+                        </td>
+                        <td>
+                            {{$order->pedido_id}}
+                        </td>
                     </tr>
-                </tbody>
-            </table>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    <tr>
+                        <td class="item">
+                            TELEFONO DEL CLIENTE
+                        </td>
+                        <td>
+                            {{$order->pedido_telefono}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            CORREO DEL CLIENTE
+                        </td>
+                        <td>
+                            {{$order->pedido_email}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            DEPARTAMENTO
+                        </td>
+                        <td>
+                            {{$order->departamento_nombre}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            CIUDAD
+                        </td>
+                        <td>
+                            {{$order->ciudad_nombre}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            DIRECCION DEL CLIENTE &nbsp; &nbsp; &nbsp;
+                        </td>
+                        <td>
+                            {{$order->pedido_direccion}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            ZIPCODE
+                        </td>
+                        <td>
+                            {{$order->pedido_zipcode}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            SUBTOTAL
+                        </td>
+                        <td>
+                            {{$order->pedido_subtotal}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            IMPUESTOS
+                        </td>
+                        <td>
+                            {{$order->pedido_impuestos}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            TOTAL
+                        </td>
+                        <td>
+                            {{$order->pedido_total}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="item">
+                            OBSERVACION
+                        </td>
+                        <td>
+                            {{$order->pedido_observacion}}
+                        </td>
+                    </tr>
+                </TABLE>
+            </div>
+            <button type="button" class="btn btn-danger buttonCloseSesion" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
 </div>
-<br> --}}
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCategoria"><i class="fas fa-users"></i>
-        AGREGAR CATEGORIA
-    </button>
+<br>
 
- <!-- Formulario Categoria -->
-    {{-- <div class="modal fade" id="newCategoria" tabindex="-1" role="dialog" aria-labelledby="newCategoriaTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="title">AGREGAR CATEGORIA</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                    <form action="{{route('c.new')}}" method="put" enctype="multipart/form-data">
-                        @csrf
-                        @method('put')
-                            <div class="form-group"><!--nombre-->
-                                <input type="text" name="categoria_nombre" class="form-control" placeholder="Nombre Categoria">
-                            </div>
-                            <div class="form-group"><!--nombre-->
-                                <input type="text" name="categoria_url" class="form-control" placeholder="URL Categoria">
-                            </div>
-                            <div class="form-group"><!--categoria padre-->
-                                <select name="categoria_padre" id="Categoria" class="form-control">
-                                    <option value=" ">Seleccione categoria padre</option>
-                                    @foreach($categorias as $categoria)
-                                    <option value="{{$categoria->categoria_id}}">{{$categoria->categoria_nombre}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <input type="submit" value="Guardar" class="btn btn-primary">
-                            </form>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-    </div> --}}
+@endsection
+@section('script')
+<!-- Datable-->
+<script src="{{asset('resourcesDashboard/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('resourcesDashboard/plugins/datatables/bootstrap5.min.js')}}"></script>
+<script>$(document).ready(function(){$('#tablita').DataTable();});</script>
 @endsection

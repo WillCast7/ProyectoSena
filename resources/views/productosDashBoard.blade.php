@@ -38,13 +38,13 @@ productos
                 @foreach($productos as $producto)
                 <tr>
                     <td>
-                        <a class="btn btn-info"data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
-                        <a class="btn btn-info" href="{{route('p.edit', $producto->producto_id)}}" title="Editar"><i class="far fa-edit"></i></a>
-                        <a class="btn btn-info" data-toggle="modal" data-target="#images" title="Imagenes"><i class="fas fa-plus"></i></a>
+                        <a class="btn btn-info elevation-1"data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
+                        <a class="btn btn-info elevation-1" href="{{route('p.edit', $producto->producto_id)}}" title="Editar"><i class="far fa-edit"></i></a>
+                        <a class="btn btn-info elevation-1" data-toggle="modal" data-target="#images" title="Imagenes"><i class="fas fa-plus"></i></a>
                         @if($producto->producto_estado == 1)
-                        <a class="btn btn-success" href="{{route('p.delete', $producto->producto_id)}}" title="Activo"><i class="fas fa-check"></i></a>
+                        <a class="btn btn-success elevation-1" href="{{route('p.delete', $producto->producto_id)}}" title="Activo"><i class="fas fa-check"></i></a>
                         @else
-                        <a class="btn btn-danger" href="{{route('p.undelete', $producto->producto_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
+                        <a class="btn btn-danger elevation-1" href="{{route('p.undelete', $producto->producto_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                         @endif
                     </td>
                     <td>{{$producto->producto_nombre}}</td>
@@ -87,7 +87,7 @@ productos
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger elevation-1" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@ productos
         <br>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newProduct">
+    <button type="button" class="btn btn-info elevation-1" data-toggle="modal" data-target="#newProduct">
         AGREGAR PRODUCTO
     </button>
 
@@ -165,12 +165,18 @@ productos
                             <input type="text" name="producto_precio" class="form-control" placeholder="precio">
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" value="Guardar" class="btn btn-primary">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                            <input type="submit" value="Guardar" class="btn btn-info elevation-1">
+                            <button type="button" class="btn btn-danger elevation-1" data-dismiss="modal">Cerrar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+ @endsection
+ @section('script')
+ <!-- Datable-->
+ <script src="{{asset('resourcesDashboard/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+ <script src="{{asset('resourcesDashboard/plugins/datatables/bootstrap5.min.js')}}"></script>
+ <script>$(document).ready(function(){$('#tablita').DataTable();});</script>
  @endsection

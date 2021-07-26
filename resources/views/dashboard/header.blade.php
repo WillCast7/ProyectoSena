@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-            <h1 class="title">@yield('titulo')</h1>
+           <div class="title"><h1 class="title">@yield('titulo')</h1></div>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">

@@ -35,9 +35,9 @@
                 <a class="btn btn-info" data-toggle="modal" data-target="#viewProduct" title="Ver"><i class="far fa-eye"></i></a>
                     <a class="btn btn-info" href="{{route('c.edit', $categoria->categoria_id)}}" title="Editar"><i class="far fa-edit"></i></a>
                     @if($categoria->categoria_estado == 1)
-                        <a class="btn btn-success" href="{{route('c.delete', $categoria->categoria_id)}}" title="Activo"><i class="fa fa-check"></i></a>
+                        <a class="btn btn-success elevation-1" href="{{route('c.delete', $categoria->categoria_id)}}" title="Activo"><i class="fa fa-check"></i></a>
                     @else
-                        <a class="btn btn-danger" href="{{route('c.undelete', $categoria->categoria_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
+                        <a class="btn btn-danger elevation-1" href="{{route('c.undelete', $categoria->categoria_id)}}" title="Inactivo"><i class="fa fa-times-circle"></i></a>
                     @endif
                         </td>
                 <td>{{$categoria->categoria_nombre}}</td>
@@ -76,13 +76,13 @@
                     </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-danger elevation-1" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>
 </div>
 <br>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCategoria"><i class="fas fa-users"></i>
+    <button type="button" class="btn btn-info elevation-1" data-toggle="modal" data-target="#newCategoria">
         AGREGAR CATEGORIA
     </button>
 
@@ -118,11 +118,17 @@
                                 </select>
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" value="Guardar" class="btn btn-primary">
+                                <input type="submit" value="Guardar" class="btn btn-info elevation-1">
                             </form>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger elevation-1" data-dismiss="modal">Cerrar</button>
                     </div>
                 </div>
             </div>
     </div>
+@endsection
+@section('script')
+<!-- Datable-->
+<script src="{{asset('resourcesDashboard/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('resourcesDashboard/plugins/datatables/bootstrap5.min.js')}}"></script>
+<script>$(document).ready(function(){$('#tablita').DataTable();});</script>
 @endsection

@@ -52,7 +52,8 @@ class OrderModel extends Model{
                 o.pedido_total,
                 o.pedido_observacion,
                 o.pedido_estado,
-                dep.departamento_nombre
+                dep.departamento_nombre,
+                ciu.ciudad_nombre
             FROM pedidos o
             INNER JOIN departamentos dep
             ON dep.departamento_codigo=o.departamento_codigo

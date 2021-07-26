@@ -10,8 +10,4 @@
 <script src="{{asset('resourcesDashboard/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('resourcesDashboard/dist/js/pages/dashboard3.js')}}"></script>
-<!-- Datable-->
-<script src="{{asset('https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js')}}"></script>
-<script>$(document).ready(function() {
-    $('#tablita').DataTable();
-} );</script>
+

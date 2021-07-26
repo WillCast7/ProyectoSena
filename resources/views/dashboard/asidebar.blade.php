@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-info elevation-4" style="position: fixed">
     <!--main-sidebar-->
     <div>
         <!-- Brand Logo -->
@@ -18,18 +18,6 @@
             <a href="#" class="d-block">{{session()->get('name')}}</a>
             </div>
         </div>
-
-        <!-- SidebarSearch Form -->
-        {{-- <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-            <div class="input-group-append">
-                <button class="btn btn-sidebar">
-                <i class="fas fa-search fa-fw"></i>
-                </button>
-            </div>
-            </div>
-        </div> --}}
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -69,10 +57,21 @@
                                         <p>Categorias</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{route('Ordenes')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Ordenes</p>
+                                    </a>
+                                </li>
                             </ul>
                     </li>
 
                 </ul>
+
+                    <div class="buttonCloseSesion">
+                        <a name="" id="" class="btn btn-info closeSesion" href="{{ route('auth.logout') }}" role="button">Cerrar sesión</a>
+                    </div>
+
             </nav>
         <!-- /.sidebar-menu -->
         </div>

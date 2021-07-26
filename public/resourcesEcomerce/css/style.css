@@ -5,13 +5,13 @@
 	2.1 HEADER V1
 	2.1 HEADER V2
 	2.1 HEADER V3
-MAIN SLIDER 
+MAIN SLIDER
 	BANNER
 	BANNER V1
 	BANNER V2
 	BANNER V3
 	BANNER V4
-3.HOME 
+3.HOME
 	3.1 HOME
 		3.1.1 WHITE SECTION
 		3.1.2 LIGHT SECTION
@@ -69,7 +69,7 @@ MAIN SLIDER
 /*=== VARIABLES ===*/
 /*============ FUNCTIONS =============*/
 /*=== MEDIA QUERY ===*/
-@import url("https://fonts.googleapis.com/css?family=Oxygen:400,300,700");
+
 * {
   outline: 0;
   margin: 0;
@@ -498,7 +498,7 @@ a:hover, a:focus {
 }
 
 /*==============================================
---> 5 PRELOADER 
+--> 5 PRELOADER
 ================================================*/
 body {
   overflow: hidden;

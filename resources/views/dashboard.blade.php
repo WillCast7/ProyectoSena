@@ -1,44 +1,46 @@
 @extends('dashboard.base')
+@section('titulo')
+    DASHBOARD
+@endsection
 @section('contenido')
 <div>
     <ul>
-        <div id="Marco1">
+        <div class="marco">
             <a href="{{route('Usuarios')}}">
-                <div id="Listado">
-                    <div id="imagen-listado"><i class="fas fa-clipboard-list"></i></div>
-                    <span id="texto-listado">Usuarios</span>
+                <div id="module" class=" elevation-3">
+                    <div id="lContainer">
+                        <div id="ico-module"><i class="fas fa-users" style="font-size: 56px"></i></div>
+                        <span id="txt-module">Usuarios</span>
+                    </div>
                 </div>
             </a>
             <a href="{{route('Marcas')}}">
-                <div id="Marcas">
-                    <div id="imagen-marcas"><i class="far fa-registered"></i></div>
-                    <span id="texto-marcas">Marcas</span>
+                <div id="module" class=" elevation-3">
+                    <div id="ico-module"><i class="fab fa-accusoft" style="font-size: 56px"></i></div>
+                    <span id="txt-module">Marcas</span>
                 </div>
             </a>
             <a href="{{route('Categorias')}}">
-                <div id="Categorias">
-                    <div id="imagen-categorias"><i class="fas fa-angle-double-down"></i></div>
-                    <span id="texto-categorias">Categorias</span>
+                <div id="module" class=" elevation-3">
+                    <div id="ico-module"><i class="fab fa-buffer" style="font-size: 56px"></i></div>
+                    <span id="txt-module">Categorias</span>
                 </div>
             </a>
             <a href="{{route('Productos')}}">
-                <div id="Eccomerce">
-                    <div id="imagen-eccomerce"><i class="far fa-money-bill-alt"></i></div>
-                    <span id="texto-eccomerce">Productos</span>
+                <div id="module" class=" elevation-3">
+                    <div id="ico-module"><i class="fas fa-dolly" style="font-size: 56px"></i></div>
+                    <span id="txt-module">Productos</span>
                 </div>
             </a>
             <a href="{{route('Ordenes')}}">
-                <div id="ordenes">
-                    <div id="imagen-ordenes"><i class="far fa-cart-plus"></i></div>
-                    <span id="texto-ordenes">Ordenes</span>
+                <div id="module" class=" elevation-3">
+                    <div id="ico-module"><i class="fas fa-th-list" style="font-size: 56px"></i></div>
+                    <span id="txt-module">Ordenes</span>
                 </div>
             </a>
         </div>
     </ul>
 </div>
 @endsection
-@section('titulo')
-@section('titulo')
-    MODULOS
-@endsection
-@endsection
+
+

@@ -1,183 +1,44 @@
-#Marco1{
-    margin-top: 1%;
-    margin-left: 5%;
+.marco{
+    display: contents;
+    align-content: center;
 }
-#Listado{/* Este es el marco del modulo listado */
+
+#module{/* Este es el marco de los modulos*/
     display: inline-block;
-    margin: 10px;
-    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
+    margin: 3px;
+    /* border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%; */
     overflow: visible;
-    border: 4px solid #51A9AF;
+    border: 4px solid rgb(219, 219, 219);
     text-align: center;
     padding-bottom: 50px;
 }
-#imagen-listado{/* Este es el div del icono listado */
+#ico-module{/* Este es el div de los iconos*/
     margin-top: 50px;
     color: black;
 }
-#imagen-listado{/* Esta es la primera parte del zoom del icono listado */
-    transition: 1s ease;
- 	-moz-transition: 1s ease; 
- 	-webkit-transition: 1s ease; 
- 	-o-transition: 1s ease; 
-}
-#imagen-listado:hover{/* Esta es la segunda parte del zoom del icono listado */
-    transform : scale(2);
-    -moz-transform : scale(2);
-    -webkit-transform : scale(2);
-    -o-transform : scale(2);
-    -ms-transform : scale(2);
-}
-#texto-listado{/* Esta es el texto del modulo listado */
+#txt-module{/* Esta es el texto de los modulos*/
     margin-left: 50px;
     margin-right: 50px;
     color: black;
 }
-#Listado:hover{/* Esta es el cambio de color del modulo listado */
-    background: #73D9E0;
-}
-#Marcas{/* Este es el marco del modulo marcas */
-    display: inline-block;
-    margin: 10px;
-    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
-    overflow: visible;
-    border: 4px solid #51A9AF;
-    text-align: center;
-    padding-bottom: 50px;
-}
-#imagen-marcas{/* Este es el div del icono marcas */
-    margin-top: 50px;
-    color: black;
-}
-#imagen-marcas{/* Esta es la primera parte del zoom del icono marcas */
-    transition: 1s ease;
- 	-moz-transition: 1s ease; 
- 	-webkit-transition: 1s ease; 
- 	-o-transition: 1s ease; 
-}
-#imagen-marcas:hover{/* Esta es la segunda parte del zoom del icono marcas */
-    transform : scale(2);
-    -moz-transform : scale(2);
-    -webkit-transform : scale(2);
-    -o-transform : scale(2);
-    -ms-transform : scale(2);
-}
-#texto-marcas{/* Esta es el texto del modulo marcas */
-    margin-left: 50px;
-    margin-right: 50px;
-    color: black;
-}
-#Marcas:hover{/* Esta es el cambio de color del modulo marcas */
-    background: #73D9E0;
-}
-#Categorias{/* Este es el marco del modulo Categorias */
-    display: inline-block;
-    margin: 10px;
-    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
-    overflow: visible;
-    border: 4px solid #51A9AF;
-    text-align: center;
-    padding-bottom: 50px;
-}
-#imagen-categorias{/* Este es el div del icono categorias */
-    margin-top: 50px;
-    color: black;
-}
-#imagen-categorias{/* Esta es la primera parte del zoom del icono categorias */
-    transition: 1s ease;
- 	-moz-transition: 1s ease; 
- 	-webkit-transition: 1s ease; 
- 	-o-transition: 1s ease; 
-}
-#imagen-categorias:hover{/* Esta es la segunda parte del zoom del icono categorias */
-    transform : scale(2);
-    -moz-transform : scale(2);
-    -webkit-transform : scale(2);
-    -o-transform : scale(2);
-    -ms-transform : scale(2);
-}
-#texto-categorias{/* Esta es el texto del modulo categorias */
-    margin-left: 40px;
-    margin-right: 40px;
-    color: black;
-}
-#Categorias:hover{/* Esta es el cambio de color del modulo categorias */
-    background: #73D9E0;
-}
-#Eccomerce{/* Este es el marco del modulo eccomerce */
-    display: inline-block;
-    margin: 10px;
-    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
-    overflow: visible;
-    border: 4px solid #51A9AF;
-    text-align: center;
-    padding-bottom: 50px;
-}
-#imagen-eccomerce{/* Este es el div del icono eccomerce */
-    margin-top: 50px;
-    color: black;
-}
-#imagen-eccomerce{/* Esta es la primera parte del zoom del icono eccomerce */
-    transition: 1s ease;
- 	-moz-transition: 1s ease; 
- 	-webkit-transition: 1s ease; 
- 	-o-transition: 1s ease; 
-}
-#imagen-eccomerce:hover{/* Esta es la segunda parte del zoom del icono eccomerce */
-    transform : scale(2);
-    -moz-transform : scale(2);
-    -webkit-transform : scale(2);
-    -o-transform : scale(2);
-    -ms-transform : scale(2);
-}
-#texto-eccomerce{/* Esta es el texto del modulo eccomerce */
-    margin-left: 40px;
-    margin-right: 40px;
-    color: black;
-}
-#Eccomerce:hover{/* Esta es el cambio de color del modulo eccomerce */
-    background: #73D9E0;
-}
-#ordenes{/* Este es el marco del modulo ordenes */
-    display: inline-block;
-    margin: 10px;
-    border-radius: 100% 0% 100% 0% / 33% 69% 31% 67%;
-    overflow: visible;
-    border: 4px solid #51A9AF;
-    text-align: center;
-    padding-bottom: 50px;
-}
-#imagen-ordenes{/* Este es el div del icono ordenes */
-    margin-top: 50px;
-    color: black;
-}
-#imagen-ordenes{/* Esta es la primera parte del zoom del icono ordenes */
-    transition: 1s ease;
- 	-moz-transition: 1s ease; 
- 	-webkit-transition: 1s ease; 
- 	-o-transition: 1s ease; 
-}
-#imagen-ordenes:hover{/* Esta es la segunda parte del zoom del icono ordenes */
-    transform : scale(2);
-    -moz-transform : scale(2);
-    -webkit-transform : scale(2);
-    -o-transform : scale(2);
-    -ms-transform : scale(2);
-}
-#texto-ordenes{/* Esta es el texto del modulo ordenes */
-    margin-left: 40px;
-    margin-right: 40px;
-    color: black;
-}
-#ordenes:hover{/* Esta es el cambio de color del modulo ordenes */
+ #module:hover{ /*Esta es el cambio de color de los modulos*/
     background: #73D9E0;
 }
 
+/*Boton cerrar sesion*/
+.closeSesion{
+    font-weight: bold;
+}
+.buttonCloseSesion{
+    float: right;
+}
 /*Pendiente para ajustar*/
-.titulo{
-    color: black;
+
+.title{
+
     font-family: sans-serif;
-    text-align: center;
+    text-align: left;
+    margin-top: 50px;
 }
 .HomeDireccion{
     font-style: none;
@@ -187,4 +48,12 @@
     font-family: sans-serif;
     text-align: center;
     padding: 3%;
-}    
+}
+
+.item{
+    text-align: left;
+    font-weight: bold;
+}
+.tablaVista{
+    align-self: center;
+}
