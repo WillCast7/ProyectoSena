@@ -93,7 +93,7 @@
     </div>
 </div>
 <a type="button" class="btn btn-info elevation-2" href="{{Route('formNewUser')}}">
-    AGREGAR PRODUCTO
+    AGREGAR USUARIO
 </a>
 @endsection
 @section('script')
