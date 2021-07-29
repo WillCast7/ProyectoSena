@@ -57,3 +57,7 @@
 .tablaVista{
     align-self: center;
 }
+
+.imagen{
+    width: 100px; height: 100px;
+}

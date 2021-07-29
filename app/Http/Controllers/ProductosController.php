@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\usuario;
+
 use App\Models\productos;
 use App\Models\marcas;
 use App\Models\categorias;
@@ -18,6 +18,7 @@ class ProductosController extends Controller{
             return redirect()->route('ecommerce');
         }
      }
+
     public function getFormProductos(){//obtiene los productos activos
         $productos=productos::getFormProductosSQL();
         $categorias=categorias::getFormCategoriasSQL();
@@ -61,6 +62,7 @@ class ProductosController extends Controller{
 
         return back();
      }
+
     public function deleteProducto($producto_id){
         productos::deleteProductoSQL($producto_id);
         return back();
@@ -69,9 +71,6 @@ class ProductosController extends Controller{
     public static function undeleteProducto($producto_id){
         productos::undeleteProductoSQL($producto_id);
         return back();
-        }
-    public static function AdminImagenes(){
-        echo"hi";
         }
 }
 //local storage

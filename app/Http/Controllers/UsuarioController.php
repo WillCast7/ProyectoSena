@@ -36,37 +36,68 @@ class UsuarioController extends Controller{
         return view('usuariosDashboard', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
 
      }
+    public function formNewUser(){//obtiene usuarios activos
 
-
-    public function newUser(Request $request){//Agregar Usuario-Persona
-        $persona = new persona();
-        $objData=$request->all();
-
-        $persona->persona_nombre1          =$objData["persona_nombre1"];
-        $persona->persona_nombre2          =$objData["persona_nombre2"];
-        $persona->persona_apellido1        =$objData["persona_apellido1"];
-        $persona->persona_apellido2        =$objData["persona_apellido2"];
-        $persona->persona_tipodocumento    =$objData["persona_tipodocumento"];
-        $persona->persona_dni              =$objData["persona_dni"];
-        $persona->persona_telefono         =$objData["persona_telefono"];
-        $persona->persona_email            =$objData["persona_email"];
-        $persona->pais_codigo              =$objData["pais_codigo"];
-        $persona->departamento_codigo      =$objData["departamento_codigo"];
-        $persona->ciudad_codigo            =$objData["ciudad_codigo"];
-        $persona->persona_direccion        =$objData["persona_direccion"];
-        $persona->persona_fnacimiento      =$objData["persona_fnacimiento"];
-        $persona->persona_ciudadnacimiento =$objData["persona_ciudadnacimiento"];
-        $persona->persona_avatar           =$objData["persona_avatar"];
-        $persona->persona_estado           =1;
-        $persona->persona_creadopor        =1;
-        $persona->usuario_username          =$objData["persona_email"];
-        $persona->usuario_pass              =Crypt::encryptString($objData["usuario_pass"]);//para desencriptar Crypt::decryptString()
-        $persona->perfil_id                 =$objData["perfil_id"];
-        $persona->save();
-        return back();
+        $usuarios=usuario::getFormUsuariosSQL();
+        $roles=usuario::getRolSQL();
+        $tipoDoc=usuario::getTipoDocSQL();
+        $paises=usuario::getCountrySQL();
+        $deptos=usuario::getDepartmentsSQL();
+        $city=usuario::getCitySQL();
+        return view('parametros.usuarioCreate', compact('usuarios', 'roles', 'tipoDoc', 'paises', 'deptos', 'city'));
 
      }
 
+
+    public function newUser(Request $request){//Agregar Usuario-Persona
+        $request->validate([
+            'persona_nombre1'=>'required',
+            'persona_apellido1'=>'required',
+            'persona_tipodocumento'=>'required',
+            'persona_dni'=>'required',
+            'persona_telefono'=>'required',
+            'persona_email'=>'required',
+            'pais_codigo'=>'required',
+            'departamento_codigo'=>'required',
+            'ciudad_codigo'=>'required',
+            'persona_fnacimiento'=>'required',
+            'persona_ciudadnacimiento'=>'required',
+            'persona_avatar'=>'required',
+            'usuario_pass'=>'required',
+            'perfil_id'=>'required'
+        ]);
+        $persona = new persona();
+        $objData=$request->all();
+
+        if($request->hasFile("persona_avatar")){
+            $file=$request->file("persona_avatar");
+            $nombreArchivo=$file->getClientOriginalName();
+            $file->move(public_path("resourcesEcommerce/avatars/"),$nombreArchivo);
+            $persona->persona_nombre1          =$objData["persona_nombre1"];
+            $persona->persona_nombre2          =$objData["persona_nombre2"];
+            $persona->persona_apellido1        =$objData["persona_apellido1"];
+            $persona->persona_apellido2        =$objData["persona_apellido2"];
+            $persona->persona_tipodocumento    =$objData["persona_tipodocumento"];
+            $persona->persona_dni              =$objData["persona_dni"];
+            $persona->persona_telefono         =$objData["persona_telefono"];
+            $persona->persona_email            =$objData["persona_email"];
+            $persona->pais_codigo              =$objData["pais_codigo"];
+            $persona->departamento_codigo      =$objData["departamento_codigo"];
+            $persona->ciudad_codigo            =$objData["ciudad_codigo"];
+            $persona->persona_direccion        =$objData["persona_direccion"];
+            $persona->persona_fnacimiento      =$objData["persona_fnacimiento"];
+            $persona->persona_ciudadnacimiento =$objData["persona_ciudadnacimiento"];
+            $persona->persona_avatar           ="resourcesEcommerce/avatars/".$nombreArchivo;
+            $persona->persona_estado           =1;
+            $persona->persona_creadopor        =1;
+            $persona->usuario_username          =$objData["persona_email"];
+            $persona->usuario_pass              =Crypt::encryptString($objData["usuario_pass"]);//para desencriptar Crypt::decryptString()
+            $persona->perfil_id                 =$objData["perfil_id"];
+            $persona->save();
+            return back();
+
+     }else{echo "Error no imagen insertada";}
+    }
 
 
 

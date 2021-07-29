@@ -34,6 +34,8 @@ class productos extends Model{
         return $productos;
 
      }
+
+
     public static function getFormProductosSQL(){ //Obtener productos activos
 
         $productos=DB::select("SELECT DISTINCT pr.producto_id,

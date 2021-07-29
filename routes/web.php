@@ -15,7 +15,7 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\MarcasController;
 use App\Http\Controllers\CategoriasController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductosImagenesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,7 +68,6 @@ Route::post('checkout/{id}',[CheckoutController::class,'threeStep']);
 Route::get('/',function(){ return view('home');})->name("ecommerce");
 Route::post('/auth',[AuthenticationController::class,'login'])->name("auth.login");
 Route::get('/auth',[AuthenticationController::class,'logout'])->name("auth.logout");
-
 Route::get('/general',[GeneralController::class,'getParams']);
 
 /* #################### /Daniel Bolivar - routes  ################################## */
@@ -82,30 +81,38 @@ Route::get('/dashboard/categorias', [CategoriasController::class, 'getCategorias
 Route::get('/dashboard/ordenes',    [OrderController::class, 'getOrder'          ])->name('Ordenes');
 
 //Borrar(activar/desactivar)
-Route::get('/dashboard/usuarios/delete/{persona_id}',       [UsuarioController::class, 'deleteUser'          ])->name('u.delete');
-Route::get('/dashboard/usuarios/undelete/{persona_id}',     [UsuarioController::class, 'undeleteUser'        ])->name('u.undelete');
+Route::get('/dashboard/usuarios/delete/{persona_id}',      [UsuarioController::class, 'deleteUser'              ])->name('u.delete');
+Route::get('/dashboard/usuarios/undelete/{persona_id}',    [UsuarioController::class, 'undeleteUser'            ])->name('u.undelete');
 
-Route::get('/dashboard/productos/delete/{producto_id}',     [ProductosController::class, 'deleteProducto'    ])->name('p.delete');
-Route::get('/dashboard/productos/undelete/{producto_id}',   [ProductosController::class, 'undeleteProducto'  ])->name('p.undelete');
+Route::get('/dashboard/productos/delete/{producto_id}',    [ProductosController::class, 'deleteProducto'        ])->name('p.delete');
+Route::get('/dashboard/productos/undelete/{producto_id}',  [ProductosController::class, 'undeleteProducto'      ])->name('p.undelete');
 
-Route::get('/dashboard/marcas/delete/{marca_id}',           [MarcasController::class, 'deleteMarca'          ])->name('m.delete');
-Route::get('/dashboard/marcas/undelete/{marca_id}',         [MarcasController::class, 'undeleteMarca'        ])->name('m.undelete');
+Route::get('/dashboard/marcas/delete/{marca_id}',          [MarcasController::class, 'deleteMarca'              ])->name('m.delete');
+Route::get('/dashboard/marcas/undelete/{marca_id}',        [MarcasController::class, 'undeleteMarca'            ])->name('m.undelete');
 
-Route::get('/dashboard/categorias/delete/{categoria_id}',   [CategoriasController::class, 'deleteCategoria'  ])->name('c.delete');
-Route::get('/dashboard/categorias/undelete/{categoria_id}', [CategoriasController::class, 'undeleteCategoria'])->name('c.undelete');
+Route::get('/dashboard/categorias/delete/{categoria_id}',  [CategoriasController::class, 'deleteCategoria'      ])->name('c.delete');
+Route::get('/dashboard/categorias/undelete/{categoria_id}',[CategoriasController::class, 'undeleteCategoria'    ])->name('c.undelete');
+
+Route::get('/dashboard/imagen/delete/{imagen_id}',         [ProductosImagenesController::class, 'deleteImagen'  ])->name('i.delete');
+Route::get('/dashboard/imagen/undelete/{imagen_id}',       [ProductosImagenesController::class, 'undeleteImagen'])->name('i.undelete');
 
 
 //Crear
-Route::get('/dashboard/usuarios/create/newUser',        [UsuarioController::class, 'newUser'        ])->name('a.new');
-Route::get('/dashboard/usuarios/create/newProducto',    [ProductosController::class, 'newProducto'  ])->name('p.new');
-Route::get('/dashboard/usuarios/create/newMarca',       [MarcasController::class, 'newMarca'        ])->name('m.new');
-Route::get('/dashboard/usuarios/create/newCategoria',   [CategoriasController::class, 'newCategoria'])->name('c.new');
+Route::post('/dashboard/usuarios/create/newUser',               [UsuarioController::class, 'newUser'           ])->name('a.new');
+Route::get('/dashboard/usuarios/create/newProducto',            [ProductosController::class, 'newProducto'     ])->name('p.new');
+Route::post('/dashboard/usuarios/create/newImage/{producto_id}',[ProductosImagenesController::class, 'newImage'])->name('i.new');
+Route::get('/dashboard/usuarios/create/newMarca',               [MarcasController::class, 'newMarca'           ])->name('m.new');
+Route::get('/dashboard/usuarios/create/newCategoria',           [CategoriasController::class, 'newCategoria'   ])->name('c.new');
 
-//Editar//
-Route::get('/dashboard/usuarios/edit/{persona_id}',     [UsuarioController::class, 'editUser'        ])->name('u.edit');
-Route::get('/dashboard/productos/edit/{producto_id}',   [ProductosController::class, 'editProducto'  ])->name('p.edit');
-Route::get('/dashboard/categorias/edit/{categoria_id}', [CategoriasController::class, 'editCategoria'])->name('c.edit');
-Route::get('/dashboard/marcas/edit/{marca_id}',         [MarcasController::class, 'editMarca'        ])->name('m.edit');
+//vista crear
+Route::get('/dashboard/usuarios/create/formUser', [UsuarioController::class, 'formNewUser'])->name('formNewUser');
+
+//Editar
+Route::get('/dashboard/usuarios/edit/{persona_id}',     [UsuarioController::class, 'editUser'               ])->name('u.edit');
+Route::get('/dashboard/productos/edit/{producto_id}',   [ProductosController::class, 'editProducto'         ])->name('p.edit');
+Route::get('/dashboard/productos/image/{producto_id}',  [ProductosImagenesController::class, 'imageProducto'])->name('p.image');
+Route::get('/dashboard/categorias/edit/{categoria_id}', [CategoriasController::class, 'editCategoria'       ])->name('c.edit');
+Route::get('/dashboard/marcas/edit/{marca_id}',         [MarcasController::class, 'editMarca'               ])->name('m.edit');
 
 //Update
 Route::put('/dashboard/usuarios/updateUser/{persona_id}',       [UsuarioController::class,'updateUser'        ])->name('u.update');
@@ -113,5 +120,5 @@ Route::put('/dashboard/usuarios/updateProducto/{producto_id}',  [ProductosContro
 Route::put('/dashboard/usuarios/updateMarca/{marca_id}',        [MarcasController::class,'updateMarca'        ])->name('m.update');
 Route::put('/dashboard/usuarios/updateCategoria/{categoria_id}',[CategoriasController::class,'updateCategoria'])->name('c.update');
 
-
+//Revisar... creo que solo es una prueba
 Route::get('/dashboard/productos/imagenes',   [ProductosController::class, 'AdminImagenes'])->name('i.admin');
